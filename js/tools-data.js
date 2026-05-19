@@ -197,6 +197,33 @@ const TOOLS_DATA = [
 // 博客文章数据
 const BLOG_POSTS = [
     {
+        id: "free-ai-tools-2026",
+        title: "2026年最值得使用的免费AI工具大全（实测推荐）",
+        date: "2026-05-20",
+        summary: "精选16款真正免费好用的AI工具，覆盖对话、绘画、编程、写作、视频、音频六大领域，零成本提升工作效率。",
+        category: "资源汇总",
+        tags: ["免费AI工具", "ChatGPT", "AI绘画", "AI编程"],
+        image: "💎"
+    },
+    {
+        id: "ai-video-tools-guide",
+        title: "2026年AI视频生成工具完全指南：Runway、Sora、Pika谁更强？",
+        date: "2026-05-20",
+        summary: "全面评测Runway Gen-3、Sora、可灵AI、Pika等主流AI视频工具，从画质、价格、中文支持多维度对比。",
+        category: "选购指南",
+        tags: ["AI视频", "Runway", "Sora", "可灵AI"],
+        image: "🎬"
+    },
+    {
+        id: "ai-beginners-guide",
+        title: "AI初学者完全入门指南：从零开始掌握AI工具",
+        date: "2026-05-20",
+        summary: "零基础AI入门教程，从注册到提示词技巧，手把手教你掌握ChatGPT、AI绘画等主流工具。",
+        category: "入门教程",
+        tags: ["AI入门", "ChatGPT教程", "新手指南"],
+        image: "🚀"
+    },
+    {
         id: "chatgpt-vs-claude-2026",
         title: "ChatGPT vs Claude 2026：哪个AI对话助手更适合你？",
         date: "2026-05-19",
