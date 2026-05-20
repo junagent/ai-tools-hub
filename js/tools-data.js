@@ -97,22 +97,6 @@ const TOOLS_DATA = [
         alternatives: ["pika", "gen-2", "sora"]
     },
     {
-        id: "notion-ai",
-        name: "Notion AI",
-        icon: "📝",
-        tag: "效率工具",
-        category: "productivity",
-        description: "Notion集成的AI助手，可在笔记、文档、知识库中直接调用AI进行写作、总结、翻译和问答，无缝融入工作流。",
-        price: "$10/月（加Notion订阅）",
-        rating: 4.3,
-        url: "https://notion.s.com",
-        featured: false,
-        pros: ["与Notion深度集成", "支持多种AI任务", "上下文理解强", "团队协作友好"],
-        cons: ["需要Notion付费版", "AI功能需额外付费", "大文档处理慢"],
-        bestFor: ["知识管理", "团队协作文档", "会议纪要", "内容规划"],
-        alternatives: ["mem", "reflect", "logseq"]
-    },
-    {
         id: "elevenlabs",
         name: "ElevenLabs",
         icon: "🎵",
@@ -547,14 +531,43 @@ const BLOG_POSTS = [
     }
 ];
 
-// 分类数据
-const CATEGORIES = {
-    writing: { name: "AI写作", icon: "✍️", count: 1 },
-    image: { name: "AI绘画", icon: "🎨", count: 5 },
-    video: { name: "AI视频", icon: "🎬", count: 4 },
-    code: { name: "AI编程", icon: "💻", count: 3 },
-    chat: { name: "AI对话", icon: "💬", count: 5 },
-    audio: { name: "AI音频", icon: "🎵", count: 3 },
-    productivity: { name: "效率工具", icon: "⚡", count: 3 },
-    marketing: { name: "营销工具", icon: "📈", count: 3 }
+// 分类数据（count 由 JS 动态计算）
+const CATEGORIES_BASE = {
+    writing: { name: "AI写作", icon: "✍️" },
+    image: { name: "AI绘画", icon: "🎨" },
+    video: { name: "AI视频", icon: "🎬" },
+    code: { name: "AI编程", icon: "💻" },
+    chat: { name: "AI对话", icon: "💬" },
+    audio: { name: "AI音频", icon: "🎵" },
+    productivity: { name: "效率工具", icon: "⚡" },
+    marketing: { name: "营销工具", icon: "📈" }
 };
+// 动态计算每个分类的工具数量
+const CATEGORIES = {};
+Object.entries(CATEGORIES_BASE).forEach(([key, val]) => {
+    CATEGORIES[key] = { ...val, count: TOOLS_DATA.filter(t => t.category === key).length };
+});
+
+// 公共 OG/Twitter meta 设置函数（工具详情页调用）
+function setToolOGMeta(tool) {
+    const url = 'https://junagent.github.io/ai-tools-hub/tools/' + tool.id + '.html';
+    const setMeta = (prop, content) => {
+        let el = document.querySelector('meta[property="' + prop + '"]');
+        if (!el) { el = document.createElement('meta'); el.setAttribute('property', prop); document.head.appendChild(el); }
+        el.setAttribute('content', content);
+    };
+    const setName = (name, content) => {
+        let el = document.querySelector('meta[name="' + name + '"]');
+        if (!el) { el = document.createElement('meta'); el.setAttribute('name', name); document.head.appendChild(el); }
+        el.setAttribute('content', content);
+    };
+    setMeta('og:type', 'article');
+    setMeta('og:title', tool.name + ' - AI工具评测 | AI工具导航');
+    setMeta('og:description', tool.description);
+    setMeta('og:url', url);
+    setMeta('og:site_name', 'AI工具导航');
+    setMeta('og:locale', 'zh_CN');
+    setName('twitter:card', 'summary');
+    setName('twitter:title', tool.name + ' - AI工具评测 | AI工具导航');
+    setName('twitter:description', tool.description);
+}

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGPT - AI工具评测 | AI工具导航</title>
-    <meta name="description" content="OpenAI开发的知名AI对话助手，支持文字、图片、语音多模态交互，可用于写作、编程、翻译、分析等各类任务。">
-    <link rel="canonical" href="https://junagent.github.io/ai-tools-hub/tools/chatgpt.html">
+    <title>OpenAI Sora - AI工具评测 | AI工具导航</title>
+    <meta name="description" content="OpenAI推出的文本生成视频模型，支持最长60秒高质量视频生成，物理模拟和世界模型能力强，画面连贯性和真实感处于行业顶尖水平。仅限ChatGPT Plus/Pro用户使用。">
+    <link rel="canonical" href="https://junagent.github.io/ai-tools-hub/tools/sora.html">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -45,17 +45,17 @@
 
 <section class="tool-detail container">
     <div class="tool-detail-header">
-        <div class="tool-detail-icon">💬</div>
+        <div class="tool-detail-icon">🎬</div>
         <div class="tool-detail-info">
-            <h1>ChatGPT</h1>
+            <h1>OpenAI Sora</h1>
             <div class="tags">
-                <span class="tag">AI对话</span>
-                <span class="tag">chat</span>
+                <span class="tag">AI视频</span>
+                <span class="tag">video</span>
             </div>
             <div class="tool-detail-meta">
-                <span>⭐ 4.8 / 5</span>
-                <span>💰 免费 + Plus $20/月</span>
-                <a href="https://chat.openai.com" target="_blank" class="btn" style="padding:6px 16px;font-size:0.9em;">访问官网 →</a>
+                <span>⭐ 4.7 / 5</span>
+                <span>💰 ChatGPT Plus $20/月含</span>
+                <a href="https://openai.com/sora" target="_blank" class="btn" style="padding:6px 16px;font-size:0.9em;">访问官网 →</a>
             </div>
         </div>
     </div>
@@ -64,7 +64,7 @@
         <div class="tool-main">
             <h2>📝 工具介绍</h2>
             <p style="color:var(--text-muted);line-height:1.8;margin-bottom:20px;">
-                OpenAI开发的知名AI对话助手，支持文字、图片、语音多模态交互，可用于写作、编程、翻译、分析等各类任务。
+                OpenAI推出的文本生成视频模型，支持最长60秒高质量视频生成，物理模拟和世界模型能力强，画面连贯性和真实感处于行业顶尖水平。仅限ChatGPT Plus/Pro用户使用。
             </p>
 
             <h2>✅ 优点</h2>
@@ -86,7 +86,7 @@
         <div class="tool-sidebar">
             <div class="sidebar-card price-card">
                 <h3>💰 价格</h3>
-                <div class="price-value" style="font-size:1.8em;font-weight:700;color:var(--accent);margin:8px 0;">免费 + Plus $20/月</div>
+                <div class="price-value" style="font-size:1.8em;font-weight:700;color:var(--accent);margin:8px 0;">ChatGPT Plus $20/月含</div>
                 <div class="price-note" style="color:var(--text-muted);font-size:0.85em;">具体价格以官网为准</div>
             </div>
 
@@ -98,7 +98,7 @@
 
             <div class="sidebar-card">
                 <h3>🔖 快速访问</h3>
-                <a href="https://chat.openai.com" target="_blank" class="btn" style="display:block;text-align:center;margin-top:12px;">访问官网</a>
+                <a href="https://openai.com/sora" target="_blank" class="btn" style="display:block;text-align:center;margin-top:12px;">访问官网</a>
             </div>
 
             <!-- 广告位 -->
@@ -123,6 +123,7 @@
     const toolId = location.pathname.split('/').pop().replace('.html', '');
     const tool = TOOLS_DATA.find(t => t.id === toolId);
     if (!tool) { document.body.innerHTML = '<p style="padding:40px;text-align:center;color:var(--text-muted);">工具未找到</p>'; return; }
+    setToolOGMeta(tool);
 
     // 更新页面标题和描述
     document.title = tool.name + ' - AI工具评测 | AI工具导航';
@@ -136,7 +137,7 @@
     document.querySelector('.tool-detail-meta span').textContent = '⭐ ' + tool.rating + ' / 5';
     document.querySelectorAll('.tool-detail-meta span')[1].textContent = '💰 ' + tool.price;
     document.querySelector('.btn').href = tool.url;
-    document.querySelectorAll('a[href^="https://chat.openai.com"]').forEach(a => a.href = tool.url);
+    document.querySelectorAll('a[href^="https://openai.com/sora"]').forEach(a => a.href = tool.url);
 
     // 描述
     document.querySelector('.tool-main p').textContent = tool.description;

@@ -1,12 +1,6 @@
 # https://www.robotstxt.org/robotstxt.html
-# 本文件位于：https://yourusername.github.io/ai-tools-hub/robots.txt
-
 User-agent: *
 Allow: /
 
-# 禁止抓取无关目录（本项目中无此目录，仅供参考）
-# Disallow: /drafts/
-# Disallow: /private/
-
 # 站点地图
-Sitemap: https://yourusername.github.io/ai-tools-hub/sitemap.xml
+Sitemap: https://junagent.github.io/ai-tools-hub/sitemap.xml

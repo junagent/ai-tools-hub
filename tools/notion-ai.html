@@ -123,6 +123,7 @@
     const toolId = location.pathname.split('/').pop().replace('.html', '');
     const tool = TOOLS_DATA.find(t => t.id === toolId);
     if (!tool) { document.body.innerHTML = '<p style="padding:40px;text-align:center;color:var(--text-muted);">工具未找到</p>'; return; }
+    setToolOGMeta(tool);
 
     // 更新页面标题和描述
     document.title = tool.name + ' - AI工具评测 | AI工具导航';
