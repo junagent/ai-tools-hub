@@ -78,8 +78,17 @@ function searchTools() {
 function subscribeNewsletter(e) {
     e.preventDefault();
     const email = e.target.querySelector("input[type=email]").value;
-    alert(`感谢订阅！我们已记录你的邮箱：${email}\n（实际部署时需接入邮件服务）`);
-    e.target.reset();
+    const btn = e.target.querySelector("button");
+    const originalText = btn.textContent;
+    btn.textContent = "已订阅 ✓";
+    btn.style.background = "#22c55e";
+    btn.disabled = true;
+    e.target.querySelector("input[type=email]").value = "";
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = "";
+        btn.disabled = false;
+    }, 3000);
 }
 
 // ============ 工具详情页渲染 ============
