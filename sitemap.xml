@@ -12,6 +12,26 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- 独立页面 -->
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/about.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/privacy.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/terms.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
   <!-- 博客主页 -->
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/</loc>
@@ -59,6 +79,36 @@
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/ai-tools-for-marketers.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-writing-tools-comparison-2026.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/make-money-with-ai-tools.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/midjourney-v7-complete-guide.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/top-10-ai-productivity-tools-2026.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/elevenlabs-vs-murf-ai-voice-comparison.html</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

@@ -499,6 +499,51 @@ const BLOG_POSTS = [
         category: "应用场景",
         tags: ["营销AI", "内容创作", "SEO"],
         image: "📈"
+    },
+    {
+        id: "ai-writing-tools-comparison-2026",
+        title: "2026年最佳AI写作工具对比：Jasper vs Copy.ai vs Notion AI",
+        date: "2026-05-20",
+        summary: "深度对比三款顶级AI写作工具，从功能、价格、适用场景全面评测，帮你选出最合适的AI写作助手。",
+        category: "评测对比",
+        tags: ["AI写作", "Jasper", "Copy.ai", "Notion AI"],
+        image: "✍️"
+    },
+    {
+        id: "make-money-with-ai-tools",
+        title: "如何用AI工具每月多挣5000元：10个实战变现方法",
+        date: "2026-05-20",
+        summary: "分享10个用AI工具赚钱的真实方法，包括AI写作接单、AI绘图变现、AI视频制作等，附详细操作步骤和收入预期。",
+        category: "实战指南",
+        tags: ["AI变现", "副业", "赚钱"],
+        image: "💰"
+    },
+    {
+        id: "midjourney-v7-complete-guide",
+        title: "Midjourney v7完全使用指南：从入门到精通",
+        date: "2026-05-20",
+        summary: "详细讲解Midjourney v7的使用方法，包括Prompt技巧、参数设置、风格控制和商业应用，配合大量实例帮你快速上手AI绘图。",
+        category: "使用教程",
+        tags: ["Midjourney", "AI绘画", "Prompt技巧"],
+        image: "🎨"
+    },
+    {
+        id: "top-10-ai-productivity-tools-2026",
+        title: "2026年AI效率工具Top 10：让你工作效率翻倍",
+        date: "2026-05-20",
+        summary: "精选2026年提升工作效率最显著的10款AI工具，涵盖会议记录、邮件管理、项目协作、文档处理等场景。",
+        category: "工具推荐",
+        tags: ["效率工具", "AI助手", "生产力"],
+        image: "⚡"
+    },
+    {
+        id: "elevenlabs-vs-murf-ai-voice-comparison",
+        title: "AI语音克隆技术2026：ElevenLabs vs Murf.ai全面对比",
+        date: "2026-05-20",
+        summary: "深度对比ElevenLabs和Murf.ai两款顶级AI语音工具，分析音质、语言支持、克隆效果、定价和使用场景。",
+        category: "评测对比",
+        tags: ["AI语音", "ElevenLabs", "Murf.ai", "语音克隆"],
+        image: "🎙️"
     }
 ];
 
