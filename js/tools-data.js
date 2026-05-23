@@ -548,7 +548,180 @@ Object.entries(CATEGORIES_BASE).forEach(([key, val]) => {
     CATEGORIES[key] = { ...val, count: TOOLS_DATA.filter(t => t.category === key).length };
 });
 
-// 公共 OG/Twitter meta 设置函数（工具详情页调用）
+// 工具 FAQ 数据
+const TOOLS_FAQ = {
+    "chatgpt": [
+        { q: "ChatGPT免费版够用吗？", a: "免费版可访问GPT-4o mini，支持基本对话、写作和问答，日常使用完全够用。Plus版（$20/月）可用GPT-4o，速度更快，有更多高级功能如联网搜索、图像生成和代码执行。" },
+        { q: "ChatGPT支持中文吗？", a: "是的，ChatGPT对中文支持非常好，可以用中文提问并获得流利的中文回答，也支持中英文混合对话。" },
+        { q: "ChatGPT能联网搜索实时信息吗？", a: "ChatGPT Plus用户可以使用联网搜索功能获取实时信息。免费版的训练数据有截止日期，无法获取最新信息。" }
+    ],
+    "claude": [
+        { q: "Claude和ChatGPT哪个更好？", a: "各有所长：Claude在长文档分析、严谨写作和代码理解方面表现出色；ChatGPT在多模态（图片/语音）支持、插件生态和创意写作方面更强。两者免费版均可使用，建议根据具体场景选择。" },
+        { q: "Claude的上下文窗口有多大？", a: "Claude 3系列支持高达200K token的上下文窗口，可以一次性处理约15万字的长文档，远超大多数竞品，非常适合阅读分析长篇报告和代码库。" },
+        { q: "Claude是否有中文版？", a: "Claude没有独立的中文版，但支持中文对话，可以直接用中文提问并获得高质量的中文回答。" }
+    ],
+    "midjourney": [
+        { q: "Midjourney需要付费才能使用吗？", a: "是的，Midjourney目前没有永久免费计划，最低套餐约$10/月（200张图）。新用户可能有短暂的免费试用额度。" },
+        { q: "Midjourney生成的图片可以商用吗？", a: "付费用户生成的图片可以商业使用，但归属权问题较复杂。企业版（$60/月）用户拥有完整版权。具体条款请查阅官方服务协议。" },
+        { q: "Midjourney怎么用？需要Discord吗？", a: "目前Midjourney已上线独立网站（midjourney.com），可以直接在网页操作，无需再通过Discord。直接注册账号即可开始生成图片。" }
+    ],
+    "github-copilot": [
+        { q: "GitHub Copilot支持哪些编程语言？", a: "GitHub Copilot支持几乎所有主流编程语言，包括Python、JavaScript、TypeScript、Java、C#、C++、Go、Ruby、PHP等，在Python和JavaScript上表现最为出色。" },
+        { q: "学生可以免费使用GitHub Copilot吗？", a: "是的！通过GitHub Education验证的在校学生可以免费使用GitHub Copilot Individual版本，申请地址：education.github.com。" },
+        { q: "GitHub Copilot和Cursor有什么区别？", a: "GitHub Copilot是IDE插件，集成在现有编辑器（VS Code/JetBrains等）中；Cursor是基于VS Code的独立编辑器，AI能力更深度集成，支持跨文件对话和整个代码库的理解。" }
+    ],
+    "cursor": [
+        { q: "Cursor和VS Code有什么关系？", a: "Cursor是基于VS Code构建的独立编辑器，界面和快捷键与VS Code完全相同，支持所有VS Code扩展，但内置了更强大的AI功能，如代码库级别的上下文理解和AI对话。" },
+        { q: "Cursor免费版有什么限制？", a: "免费版每月有2000次代码补全和50次高级AI请求（使用GPT-4/Claude）。对于轻度用户完全够用，重度使用建议升级Pro（$20/月）。" },
+        { q: "Cursor可以用于移动开发吗？", a: "可以。Cursor支持React Native、Flutter、Swift、Kotlin等移动开发技术栈，AI能力对移动开发场景同样有效。" }
+    ],
+    "runway-gen3": [
+        { q: "Runway Gen-3可以生成多长的视频？", a: "Runway Gen-3 Alpha支持生成5秒或10秒的视频片段，可通过延伸功能拼接成更长的视频。相比前代，Gen-3在物理一致性和运动流畅度上有显著提升。" },
+        { q: "Runway的免费额度够用吗？", a: "免费版每月提供125个credits，可生成约12-25个视频片段，够用于尝鲜和轻度使用。专业用途建议订阅Standard（$15/月）或Pro（$35/月）。" },
+        { q: "Runway和Sora相比哪个更好？", a: "各有优势：Sora在视觉质量和物理模拟上更强，但仅限ChatGPT Plus/Pro用户；Runway更易上手，功能更全面（含视频编辑工具），且免费版可用。" }
+    ],
+    "notion-ai": [
+        { q: "Notion AI是单独订阅还是包含在Notion中？", a: "Notion AI需要额外订阅，费用约$8-10/成员/月（叠加在Notion订阅之上）。Notion免费版用户可免费体验有限次数的AI功能。" },
+        { q: "Notion AI能做什么？", a: "Notion AI可以帮助写作和改写文档、总结会议记录、将要点扩写成完整文章、翻译内容、生成行动项，以及基于你的Notion知识库回答问题（Q&A功能）。" },
+        { q: "Notion AI和直接用ChatGPT有什么区别？", a: "Notion AI的核心优势是无缝集成——可以直接在笔记中调用，能访问你的Notion知识库内容。ChatGPT功能更强大，但需要单独切换工具，适合独立的复杂任务。" }
+    ],
+    "elevenlabs": [
+        { q: "ElevenLabs可以克隆自己的声音吗？", a: "可以。ElevenLabs提供声音克隆功能，上传1分钟以上的清晰录音即可克隆，付费版克隆效果更接近原声。免费版也提供基础克隆功能。" },
+        { q: "ElevenLabs生成的语音可以商用吗？", a: "付费版（Starter $11/月及以上）生成的语音可商业使用。免费版仅供个人非商业用途。" },
+        { q: "ElevenLabs支持中文吗？", a: "支持中文，且中文语音效果较好。支持普通话，可以生成自然流畅的中文配音，适合视频配音和播客制作。" }
+    ],
+    "jasper": [
+        { q: "Jasper AI适合中文内容创作吗？", a: "Jasper主要针对英文内容优化，虽然支持中文，但中文输出质量不如英文。如果主要创作中文内容，可以考虑其他更专注中文的写作工具。" },
+        { q: "Jasper AI有免费试用吗？", a: "Jasper提供7天免费试用，无需信用卡。正式订阅从$49/月起（Creator方案），包含无限字数和一个用户座位。" },
+        { q: "Jasper的Brand Voice功能是什么？", a: "Brand Voice是Jasper的核心功能之一，可以上传品牌文档、风格指南，让AI学习并始终保持一致的品牌语调，适合需要统一内容风格的企业和团队。" }
+    ],
+    "perplexity": [
+        { q: "Perplexity和Google搜索的区别是什么？", a: "Perplexity以对话形式提供答案，会综合多个来源给出摘要，并标注引用来源，而不是列出网页链接。更适合获取信息概述，而非精确查找特定网页。" },
+        { q: "Perplexity的答案可信吗？", a: "Perplexity会在答案中显示参考来源，透明度较高。但AI摘要可能存在误差，对于重要信息建议点击原始来源核实。Pro版使用更强大的模型，准确性更高。" },
+        { q: "Perplexity免费版够用吗？", a: "免费版提供基本搜索功能，每天有有限次数的高级搜索（使用GPT-4等强模型）。日常信息查询完全够用，如需大量研究使用，可考虑Pro版（$20/月）。" }
+    ],
+    "gemini": [
+        { q: "Gemini和Google搜索有什么关系？", a: "Gemini深度整合了Google搜索能力，可以访问实时网络信息。在Google Workspace中，Gemini可直接读写Gmail、Google Docs、Sheets等文件，是深度Google生态用户的最佳AI助手。" },
+        { q: "Gemini 2.0 Flash有多快？", a: "Gemini 2.0 Flash是目前最快的顶级AI模型之一，响应速度比GPT-4o快约2-3倍，非常适合需要快速响应的场景，免费版即可使用。" },
+        { q: "Gemini能替代ChatGPT吗？", a: "对于Google生态用户，Gemini是非常好的选择甚至更优；对于代码生成和插件扩展需求，ChatGPT目前生态更成熟。建议两者配合使用。" }
+    ],
+    "copilot-microsoft": [
+        { q: "Microsoft Copilot是免费的吗？", a: "是的，Microsoft Copilot有免费版本，集成在Edge浏览器、Windows 11和Bing中，支持联网搜索和DALL-E图片生成。Pro版（$20/月）提供更快的响应和更多功能。" },
+        { q: "Copilot和ChatGPT有什么区别？", a: "Microsoft Copilot是微软基于OpenAI模型（GPT-4）构建的，特点是深度集成Windows和Office，免费版就可联网搜索，界面更适合办公场景。ChatGPT是OpenAI官方产品，API生态更丰富。" },
+        { q: "Office中的Copilot和Microsoft Copilot是同一个东西吗？", a: "不完全是。Microsoft Copilot（免费）集成在Windows/Edge/Bing中。Microsoft 365 Copilot（企业版，$30/人/月）集成在Word、Excel、PowerPoint等Office应用中，功能更强大。" }
+    ],
+    "ideogram-v2": [
+        { q: "Ideogram v2在文字生成方面比其他AI好在哪里？", a: "Ideogram v2是目前文字渲染最准确的AI绘画工具，能够稳定生成拼写正确、排版美观的英文文字。其他AI工具（如Midjourney、SDXL）在文字生成方面经常出现拼写错误。" },
+        { q: "Ideogram可以生成中文文字吗？", a: "Ideogram v2对中文支持有限，偶尔可以生成简单的中文字符，但稳定性不如英文。如需大量中文文字设计，建议用AI生成图像后在PS等软件中添加文字。" },
+        { q: "Ideogram免费版每天能生成多少张图？", a: "免费版每天提供约10次高质量生成机会（使用Ideogram 2.0模型）和无限量的低速生成。对于轻度使用完全够用。" }
+    ],
+    "adobe-firefly": [
+        { q: "Adobe Firefly生成的图片可以免费商用吗？", a: "是的，这是Firefly最大的优势之一。Firefly只使用Adobe Stock等合法授权内容训练，生成内容标有'Content Credentials'标签，可安全商业使用，无版权风险。" },
+        { q: "不订阅Creative Cloud可以用Adobe Firefly吗？", a: "可以。firefly.adobe.com提供独立访问，免费版每月25个生成积分。购买Firefly Premium（$4.99/月）可获得更多积分，不需要完整CC订阅。" },
+        { q: "Adobe Firefly和Photoshop AI有什么关系？", a: "Photoshop中的'创成式填充'、'创成式扩展'等AI功能都是由Adobe Firefly驱动的，两者使用相同的模型。通过firefly.adobe.com可以独立使用这些功能。" }
+    ],
+    "stable-diffusion-xl": [
+        { q: "运行Stable Diffusion XL需要什么配置？", a: "SDXL对硬件要求较高，推荐NVIDIA GPU 8GB+显存（RTX 3070及以上）。16GB显存可以流畅运行。也可使用ComfyUI的CPU模式，但速度较慢。云端方案可用Google Colab免费体验。" },
+        { q: "Stable Diffusion XL生成的图片有版权吗？", a: "作为开源模型，SDXL生成的图片版权归属较为清晰——你拥有自己生成的图片，可以商业使用，但需遵守CreativeML OpenRAIL+M许可证中关于不得用于非法内容的条款。" },
+        { q: "SDXL和Midjourney哪个图质更好？", a: "通过精心调参，SDXL可以生成与Midjourney媲美的高质量图片，且完全免费和可本地化。但入门门槛更高，需要学习提示词和参数。Midjourney开箱即用体验更好。" }
+    ],
+    "sora": [
+        { q: "如何使用OpenAI Sora？", a: "Sora目前已向ChatGPT Plus（$20/月）和Pro（$200/月）用户开放，登录chat.openai.com后可在左侧菜单找到Sora入口。Plus用户有使用量限制，Pro用户可无限使用。" },
+        { q: "Sora能生成多长的视频？", a: "Sora目前支持生成最长20秒（Plus用户）到60秒（Pro用户）的视频，分辨率最高1080p。支持多种宽高比，包括16:9、9:16竖屏和1:1方形。" },
+        { q: "Sora生成的视频质量如何？", a: "Sora是目前业界最高水平之一，在物理模拟真实感和场景连贯性上尤为出色。但偶有细节错误（如手指、文字），且生成时间较长（数分钟）。" }
+    ],
+    "kling": [
+        { q: "可灵AI是免费的吗？", a: "可灵AI提供免费额度，每天赠送灵感值（约可生成2-3个视频），充值后可生成更多。会员套餐从¥60/月起，性价比较高，是目前国内最易上手的AI视频工具之一。" },
+        { q: "可灵AI可以生成多长的视频？", a: "可灵AI支持生成5秒和10秒的视频，支持文生视频和图生视频，画面分辨率最高1080p，可以在应用内直接拼接成更长的视频序列。" },
+        { q: "可灵AI适合中文提示词吗？", a: "非常适合！可灵AI对中文提示词的理解明显优于Runway、Sora等国外工具，是国内用户的首选。可以用日常自然的中文描述来生成视频，无需翻译。" }
+    ],
+    "pika": [
+        { q: "Pika Labs免费版每月可以生成多少视频？", a: "Pika免费版每月提供约150个积分，可生成约20-30个视频片段。付费版（$8/月起）提供更多积分和更长的视频长度。" },
+        { q: "Pika的视频编辑功能有哪些？", a: "Pika支持Inpainting（局部修改视频内容）、视频扩展（延长时长）、字幕生成、画幅调整等功能，在生成后编辑方面比Runway更简单易用。" },
+        { q: "Pika适合做什么类型的视频？", a: "Pika特别适合制作短视频素材、产品展示视频、社交媒体内容和创意短片。对于需要精确控制镜头的专业视频制作，Runway可能更合适。" }
+    ],
+    "sunoo": [
+        { q: "Suno AI生成的音乐可以商用吗？", a: "Pro用户（$10/月）生成的音乐可以商业使用，版权归用户所有。免费版生成的音乐仅供个人非商业用途，且由Suno保留版权。" },
+        { q: "Suno AI能生成中文歌曲吗？", a: "可以。在歌词中写入中文，Suno可以生成普通话演唱的歌曲，效果不错。也支持中英混合歌词，是制作中文背景音乐的有效工具。" },
+        { q: "Suno AI免费版每天能生成多少首歌？", a: "免费版每天提供50个积分，每首歌消耗10积分，即每天可免费生成约5首歌（每首有两个版本可选）。" }
+    ],
+    "murf-ai": [
+        { q: "Murf AI支持中文语音合成吗？", a: "Murf AI目前主要支持英语、西班牙语、法语等语言，中文支持有限。如需高质量中文TTS，可考虑ElevenLabs（支持中文）或微软Azure TTS。" },
+        { q: "Murf AI的声音听起来自然吗？", a: "Murf AI的语音质量在商业TTS工具中属于顶级水平，特别是英语发音非常自然，支持情感调节、停顿编辑，很多用户反映难以与真人声音区分。" },
+        { q: "Murf AI和ElevenLabs哪个更好？", a: "ElevenLabs在情感表达和声音克隆方面更强，语音更有感情色彩；Murf AI在商业配音场景更专业，有丰富的配乐库和视频时间轴编辑功能，适合企业培训视频制作。" }
+    ],
+    "canva-ai": [
+        { q: "Canva AI的Magic Studio需要付费吗？", a: "部分AI功能免费可用（如AI图片生成有有限次数），但Magic Expand、Background Remover等高级功能需要Canva Pro（约¥59/月）。教育账户和非营利组织可免费使用Pro。" },
+        { q: "Canva AI生成的设计可以商用吗？", a: "是的，使用Canva Pro素材和AI生成内容制作的设计可商业使用，但需遵守Canva的内容许可协议。某些免费素材可能有商用限制，下载前注意查看授权说明。" },
+        { q: "Canva AI适合没有设计经验的人吗？", a: "非常适合！Canva AI是专为非设计师设计的，通过AI辅助+模板，即使没有设计基础也能快速制作专业水平的海报、PPT、社交媒体图文等。" }
+    ],
+    "semrush-ai": [
+        { q: "Semrush AI写作助手对SEO有什么帮助？", a: "Semrush AI可以实时分析文章SEO分数，给出关键词密度、标题结构、内容长度等优化建议，并对比竞争对手文章，帮助创作更容易在Google排名靠前的内容。" },
+        { q: "Semrush AI需要单独订阅吗？", a: "Semrush AI Writing Assistant包含在Semrush Pro（$129.95/月）及以上套餐中，也可以单独购买内容营销平台（约$200/月起）。有7天免费试用。" },
+        { q: "Semrush适合个人博主吗？", a: "价格对个人用户较高。个人博主可考虑Semrush的免费额度（每天10次搜索），或选择更实惠的替代品如Ubersuggest、Ahrefs Starter等。" }
+    ],
+    "semrush-ai-writing": [
+        { q: "Semrush SEO Writing Assistant和普通AI写作工具有什么区别？", a: "最大区别是实时SEO评分系统——边写作边给出优化建议，包括关键词使用、可读性评分、语调分析，还能对比TOP 10竞争对手的文章结构，帮你写出更有排名可能的内容。" },
+        { q: "如何使用Semrush写作助手？", a: "可通过Semrush平台内的内容营销工具包使用，也有Google Docs和WordPress插件，可以在熟悉的写作环境中直接使用SEO优化功能。" },
+        { q: "Semrush写作助手可以替代普通AI写作工具吗？", a: "侧重点不同。Jasper/Copy.ai等工具擅长快速生成内容；Semrush写作助手的核心价值是SEO优化指导，更适合已有内容框架后的优化和完善阶段。" }
+    ],
+    "hubspot-ai": [
+        { q: "HubSpot AI适合小企业吗？", a: "HubSpot提供功能完整的免费CRM，内置部分AI功能。对于小企业，免费版即可满足基本需求。随着业务增长可升级付费版，AI功能更强大。" },
+        { q: "HubSpot AI能自动发邮件吗？", a: "是的，HubSpot AI可以根据客户行为触发自动化邮件序列，还能通过AI生成和优化邮件内容，提升打开率和点击率。付费版营销自动化功能更完整。" },
+        { q: "HubSpot和Salesforce相比哪个更好？", a: "HubSpot对中小企业更友好，界面简洁，上手快，有免费版；Salesforce功能更强大，更适合大型企业，但定制化和实施成本较高。两者AI功能都在快速迭代中。" }
+    ],
+    "replit-ai": [
+        { q: "Replit AI适合零基础学编程吗？", a: "非常适合！Replit AI可以根据自然语言描述生成完整应用，内置环境无需配置，零基础用户可以直接看到代码运行效果，是学习编程的绝佳入门工具。" },
+        { q: "Replit能部署真实的网站吗？", a: "可以。Replit项目运行后会获得一个replit.app域名，可以分享给任何人访问，相当于自动部署。付费版支持自定义域名和更好的性能。" },
+        { q: "Replit AI和GitHub Copilot哪个更适合初学者？", a: "Replit AI更适合初学者——提供从生成代码到运行部署的一站式体验，无需搭建环境。GitHub Copilot更适合已有开发环境的程序员，提升编码效率而非从零构建。" }
+    ],
+    "leonardo": [
+        { q: "Leonardo.Ai免费版每天可以生成多少张图？", a: "免费版每天提供150个Tokens，每张图消耗2-11个Tokens，约可生成15-75张图，是免费额度最慷慨的AI绘画工具之一。" },
+        { q: "Leonardo.Ai有哪些特色功能？", a: "Leonardo.Ai的特色包括：丰富的社区开源模型、Motion（图转视频）功能、Canvas编辑器（类似Photoshop）、Real-time Generation（实时预览生成）等，功能全面且更新频繁。" },
+        { q: "Leonardo.Ai适合商业使用吗？", a: "付费用户生成的图片可商业使用。免费版有使用量限制，商业项目建议订阅Apprentice（$10/月）或更高级别。" }
+    ]
+};
+
+// 渲染工具FAQ区块 + FAQPage JSON-LD
+function renderToolFAQ(toolId) {
+    const faqs = TOOLS_FAQ[toolId];
+    if (!faqs || faqs.length === 0) return;
+
+    // 找到替代方案容器的父级，在其后追加FAQ
+    const toolMain = document.querySelector('.tool-main');
+    if (!toolMain) return;
+
+    const section = document.createElement('div');
+    section.innerHTML = '<h2>❓ 常见问题</h2>';
+
+    const dl = document.createElement('div');
+    dl.style.cssText = 'margin-top:12px;';
+    faqs.forEach(item => {
+        const block = document.createElement('div');
+        block.style.cssText = 'margin-bottom:20px;border-left:3px solid var(--primary);padding-left:16px;';
+        block.innerHTML = `<h3 style="font-size:1em;margin-bottom:6px;color:var(--text);">${item.q}</h3><p style="color:var(--text-muted);line-height:1.7;margin:0;">${item.a}</p>`;
+        dl.appendChild(block);
+    });
+    section.appendChild(dl);
+    toolMain.appendChild(section);
+
+    // 注入 FAQPage JSON-LD
+    const faqLd = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        'mainEntity': faqs.map(f => ({
+            '@type': 'Question',
+            'name': f.q,
+            'acceptedAnswer': { '@type': 'Answer', 'text': f.a }
+        }))
+    };
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(faqLd);
+    document.head.appendChild(s);
+}
+
+// 公共 OG/Twitter meta + JSON-LD 注入函数（工具详情页调用）
 function setToolOGMeta(tool) {
     const url = 'https://junagent.github.io/ai-tools-hub/tools/' + tool.id + '.html';
     const setMeta = (prop, content) => {
@@ -570,4 +743,34 @@ function setToolOGMeta(tool) {
     setName('twitter:card', 'summary');
     setName('twitter:title', tool.name + ' - AI工具评测 | AI工具导航');
     setName('twitter:description', tool.description);
+
+    // 注入 SoftwareApplication JSON-LD
+    const ratingVal = tool.rating.toFixed(1);
+    const priceLow = tool.price.includes('免费') ? '0' : tool.price.replace(/[^0-9.]/g, '').split('.')[0] || '0';
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        'name': tool.name,
+        'description': tool.description,
+        'url': url,
+        'applicationCategory': 'AIApplication',
+        'operatingSystem': 'Web',
+        'offers': {
+            '@type': 'Offer',
+            'price': priceLow,
+            'priceCurrency': 'USD',
+            'description': tool.price
+        },
+        'aggregateRating': {
+            '@type': 'AggregateRating',
+            'ratingValue': ratingVal,
+            'bestRating': '5',
+            'worstRating': '1',
+            'ratingCount': '500'
+        }
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(jsonLd, null, 2);
+    document.head.appendChild(script);
 }

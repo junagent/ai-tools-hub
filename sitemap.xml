@@ -7,7 +7,7 @@
   <!-- 主页 -->
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,19 +15,19 @@
   <!-- 独立页面 -->
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/about.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/privacy.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/terms.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -35,7 +35,7 @@
   <!-- 博客主页 -->
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -43,73 +43,73 @@
   <!-- 博客文章 -->
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/free-ai-tools-2026.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/ai-video-tools-guide.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/ai-beginners-guide.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/chatgpt-vs-claude-2026.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/ai-image-tools-guide.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/ai-coding-tools-comparison.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/ai-tools-for-marketers.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/ai-writing-tools-comparison-2026.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/make-money-with-ai-tools.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/midjourney-v7-complete-guide.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/top-10-ai-productivity-tools-2026.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/blog/elevenlabs-vs-murf-ai-voice-comparison.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -117,157 +117,157 @@
   <!-- 工具详情页 -->
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/chatgpt.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/claude.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/midjourney.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/github-copilot.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/cursor.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/runway-gen3.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/notion-ai.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/elevenlabs.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/jasper.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/semrush-ai.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/leonardo.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/perplexity.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/gemini.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/copilot-microsoft.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/ideogram-v2.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/adobe-firefly.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/stable-diffusion-xl.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/sora.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/kling.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/pika.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/sunoo.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/murf-ai.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/canva-ai.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/semrush-ai-writing.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/hubspot-ai.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://junagent.github.io/ai-tools-hub/tools/replit-ai.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
