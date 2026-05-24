@@ -528,6 +528,33 @@ const BLOG_POSTS = [
         category: "评测对比",
         tags: ["AI语音", "ElevenLabs", "Murf.ai", "语音克隆"],
         image: "🎙️"
+    },
+    {
+        id: "best-ai-tools-2026",
+        title: "2026年最值得使用的AI工具Top 30完整榜单",
+        date: "2026-05-24",
+        summary: "2026年最全面的AI工具排行榜，涵盖对话、写作、绘画、编程、视频、效率30个顶级AI工具，附详细评分和使用场景推荐。",
+        category: "年度榜单",
+        tags: ["AI工具榜单", "最佳AI工具", "2026推荐"],
+        image: "🏆"
+    },
+    {
+        id: "ai-tools-for-students",
+        title: "学生必备AI工具大全：提升学习效率的10款神器",
+        date: "2026-05-24",
+        summary: "精选10款学生必备AI工具，覆盖论文写作、数学解题、语言学习、阅读理解全场景，免费工具为主，附详细使用技巧。",
+        category: "学习指南",
+        tags: ["学生AI工具", "学习效率", "ChatGPT学习"],
+        image: "🎓"
+    },
+    {
+        id: "chatgpt-prompts-guide",
+        title: "ChatGPT提示词完全指南：100个高效Prompt模板",
+        date: "2026-05-24",
+        summary: "收录100个经过验证的ChatGPT提示词模板，覆盖写作、编程、分析、创意等场景，从入门到高级技巧全面讲解。",
+        category: "使用技巧",
+        tags: ["ChatGPT提示词", "Prompt技巧", "AI使用技巧"],
+        image: "💡"
     }
 ];
 
