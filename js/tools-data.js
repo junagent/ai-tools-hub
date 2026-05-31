@@ -555,6 +555,33 @@ const BLOG_POSTS = [
         category: "使用技巧",
         tags: ["ChatGPT提示词", "Prompt技巧", "AI使用技巧"],
         image: "💡"
+    },
+    {
+        id: "ai-seo-tools-2026",
+        title: "2026年最佳AI SEO工具：Semrush AI vs SurferSEO vs Frase 深度对比",
+        date: "2026-05-31",
+        summary: "深度测试7款主流AI SEO工具，从关键词研究、内容优化、技术SEO到价格全面解析，附预算推荐方案。",
+        category: "评测对比",
+        tags: ["AI SEO", "Semrush", "SurferSEO", "Frase", "内容优化"],
+        image: "🔍"
+    },
+    {
+        id: "ai-automation-tools-comparison",
+        title: "2026年AI自动化工具对比：n8n vs Make vs Zapier 哪个更适合你？",
+        date: "2026-05-31",
+        summary: "深度对比n8n、Make和Zapier三款AI自动化工具，从功能、价格、隐私到5个真实场景，帮小企业选对自动化方案。",
+        category: "评测对比",
+        tags: ["AI自动化", "n8n", "Make", "Zapier", "工作流"],
+        image: "⚙️"
+    },
+    {
+        id: "ai-for-small-business",
+        title: "2026年小企业AI工具完全指南：用最少预算撬动最大效率",
+        date: "2026-05-31",
+        summary: "精选12款小企业必用AI工具，覆盖营销、客服、财务、项目管理，含5个真实案例和三档预算方案。",
+        category: "实战指南",
+        tags: ["小企业", "AI工具", "营销", "自动化", "降本增效"],
+        image: "🏢"
     }
 ];
 
