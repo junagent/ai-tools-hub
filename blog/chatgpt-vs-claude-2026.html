@@ -172,13 +172,96 @@
             </ul>
         </div>
 
+        <h2 style="font-size:1.5em;margin:40px 0 16px;">🔬 真实场景测试</h2>
+
+        <h3 style="font-size:1.2em;margin:24px 0 12px;">场景一：写一篇1500字的科技博客</h3>
+        <p style="color:var(--text-muted);margin-bottom:16px;">
+            给两款AI同样的提示词："写一篇关于量子计算对密码学影响的深度文章，面向非专业读者"。ChatGPT结构清晰，善用比喻，偶有套话；Claude语言更自然，逻辑层次更佳，适合高质量写作。
+        </p>
+
+        <h3 style="font-size:1.2em;margin:24px 0 12px;">场景二：调试复杂Python代码</h3>
+        <p style="color:var(--text-muted);margin-bottom:16px;">
+            给出一段包含3个bug的Python异步代码。ChatGPT找到了全部3个bug并给出详细修复方案；Claude找到了2个，第3个（asyncio竞态条件）未能识别。编程能力这一项ChatGPT更强。
+        </p>
+
+        <h3 style="font-size:1.2em;margin:24px 0 12px;">场景三：分析200页PDF报告</h3>
+        <p style="color:var(--text-muted);margin-bottom:16px;">
+            Claude的200K上下文可以完整读入整份文档，且引用页码功能让验证来源非常方便。ChatGPT处理超长文档时可能需要分段，影响分析整体性。长文档处理Claude胜出。
+        </p>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;">💰 API价格对比</h2>
+        <div style="overflow-x:auto;margin-bottom:24px;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.9em;">
+                <tr style="background:var(--bg-card);">
+                    <th style="padding:12px;text-align:left;border:1px solid var(--border);">套餐</th>
+                    <th style="padding:12px;text-align:left;border:1px solid var(--border);">ChatGPT</th>
+                    <th style="padding:12px;text-align:left;border:1px solid var(--border);">Claude</th>
+                </tr>
+                <tr>
+                    <td style="padding:10px;border:1px solid var(--border);">免费版</td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">GPT-4o mini（有限次数）</td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">Claude 3.5 Haiku（有限次数）</td>
+                </tr>
+                <tr style="background:rgba(30,41,59,0.3);">
+                    <td style="padding:10px;border:1px solid var(--border);">Plus/Pro</td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">$20/月，GPT-4o优先</td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">$20/月，Sonnet优先</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;border:1px solid var(--border);">API（1M输入tokens）</td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">GPT-4o: $5</td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">Claude 3.5 Sonnet: $3 ✅更便宜</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;">📱 应用生态</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;">
+                <p style="font-weight:600;margin-bottom:8px;">🤖 ChatGPT 独有</p>
+                <ul style="color:var(--text-muted);padding-left:20px;line-height:1.9;font-size:0.9em;">
+                    <li>GPT商店（数万个定制GPT）</li>
+                    <li>DALL-E图片生成</li>
+                    <li>Sora视频生成集成</li>
+                    <li>Voice Mode实时语音</li>
+                </ul>
+            </div>
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;">
+                <p style="font-weight:600;margin-bottom:8px;">🌟 Claude 独有</p>
+                <ul style="color:var(--text-muted);padding-left:20px;line-height:1.9;font-size:0.9em;">
+                    <li>Projects长期记忆管理</li>
+                    <li>Artifacts代码实时预览</li>
+                    <li>MCP协议工具集成</li>
+                    <li>API定价更具竞争力</li>
+                </ul>
+            </div>
+        </div>
+
         <h2 style="font-size:1.5em;margin:40px 0 16px;">📌 总结</h2>
         <p style="color:var(--text-muted);margin-bottom:16px;">
             2026年的ChatGPT和Claude都是顶级AI助手，差距正在缩小。选择哪个更多取决于你的具体需求场景。最理想的情况是<strong>两个都订阅</strong>，根据不同任务切换使用。
         </p>
-        <p style="color:var(--text-muted);margin-bottom:30px;">
+        <p style="color:var(--text-muted);margin-bottom:16px;">
             如果你只能选一个，我们的建议是：<strong>编程选ChatGPT，写作和长文档选Claude</strong>。
         </p>
+
+        <div style="background:rgba(30,41,59,0.5);border-radius:12px;padding:20px;margin-bottom:30px;">
+            <p style="font-weight:600;margin-bottom:12px;">⭐ 最终评分</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                <div>
+                    <p style="color:var(--text-muted);font-size:0.9em;margin-bottom:6px;">ChatGPT 综合评分</p>
+                    <div style="background:rgba(129,140,248,0.2);border-radius:8px;padding:12px;text-align:center;">
+                        <span style="font-size:1.8em;font-weight:700;color:var(--accent);">4.6</span><span style="color:var(--text-muted);"> / 5</span>
+                    </div>
+                </div>
+                <div>
+                    <p style="color:var(--text-muted);font-size:0.9em;margin-bottom:6px;">Claude 综合评分</p>
+                    <div style="background:rgba(192,132,252,0.2);border-radius:8px;padding:12px;text-align:center;">
+                        <span style="font-size:1.8em;font-weight:700;color:var(--secondary);">4.5</span><span style="color:var(--text-muted);"> / 5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- 相关工具推荐 -->
         <div style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.3);border-radius:12px;padding:24px;margin:30px 0;">
