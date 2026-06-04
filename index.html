@@ -1,7 +1,74 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI工具导航 - 最全AI工具评测与教程</title>
+    <meta name="description" content="最全面的AI工具导航站，提供ChatGPT、Claude、Midjourney等AI工具详细评测、使用教程、替代方案对比。每日更新最新AI工具。">
+    <meta name="keywords" content="AI工具,AI导航,AI评测,ChatGPT教程,AI写作,AI绘画,人工智能工具">
+    <link rel="canonical" href="https://junagent.github.io/ai-tools-hub/">
+    <link rel="alternate" hreflang="zh-CN" href="https://junagent.github.io/ai-tools-hub/">
+    <link rel="alternate" hreflang="x-default" href="https://junagent.github.io/ai-tools-hub/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    <meta name="theme-color" content="#0071e3">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI工具导航 - 最全AI工具评测与教程">
+    <meta property="og:description" content="最全面的AI工具导航站，提供ChatGPT、Claude、Midjourney等AI工具详细评测、使用教程、替代方案对比。">
+    <meta property="og:url" content="https://junagent.github.io/ai-tools-hub/">
+    <meta property="og:site_name" content="AI工具导航">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:image" content="https://junagent.github.io/ai-tools-hub/images/icons/icon-512.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI工具导航 - 最全AI工具评测与教程">
+    <meta name="twitter:description" content="最全面的AI工具导航站，提供ChatGPT、Claude、Midjourney等AI工具详细评测、使用教程、替代方案对比。">
+    <meta name="twitter:image" content="https://junagent.github.io/ai-tools-hub/images/icons/icon-512.png">
+    <!-- JSON-LD 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "AI工具导航",
+        "url": "https://junagent.github.io/ai-tools-hub/",
+        "description": "最全面的AI工具导航站，提供ChatGPT、Claude、Midjourney等AI工具详细评测、使用教程、替代方案对比。",
+        "inLanguage": "zh-CN",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://junagent.github.io/ai-tools-hub/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "AI工具导航",
+        "url": "https://junagent.github.io/ai-tools-hub/",
+        "logo": "https://junagent.github.io/ai-tools-hub/images/icons/icon-512.png",
+        "description": "帮助用户发现和选择最适合的AI工具，提供专业评测和对比指南。"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "热门AI工具列表",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "url": "https://junagent.github.io/ai-tools-hub/tools/chatgpt.html", "name": "ChatGPT"},
+            {"@type": "ListItem", "position": 2, "url": "https://junagent.github.io/ai-tools-hub/tools/claude.html", "name": "Claude"},
+            {"@type": "ListItem", "position": 3, "url": "https://junagent.github.io/ai-tools-hub/tools/midjourney.html", "name": "Midjourney"},
+            {"@type": "ListItem", "position": 4, "url": "https://junagent.github.io/ai-tools-hub/tools/github-copilot.html", "name": "GitHub Copilot"},
+            {"@type": "ListItem", "position": 5, "url": "https://junagent.github.io/ai-tools-hub/tools/cursor.html", "name": "Cursor"},
+            {"@type": "ListItem", "position": 6, "url": "https://junagent.github.io/ai-tools-hub/tools/runway-gen3.html", "name": "Runway Gen-3"}
+        ]
+    }
+    </script>
+    <!-- 内联关键 CSS -->
+    <style>
+
 :root{--primary:#0071e3;--primary-hover:#0077ed;--primary-light:#e8f2ff;--secondary:#1d1d1f;--accent-warm:#ff9500;--bg:#fbfbfd;--bg-elevated:#f5f5f7;--bg-hero:#f5f5f7;--text:#1d1d1f;--text-secondary:#6e6e73;--text-tertiary:#86868b;--border-light:rgba(0, 0, 0, 0.04);--shadow-sm:0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);--shadow-md:0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);--shadow-lg:0 12px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);--shadow-hover:0 20px 60px rgba(0,0,0,0.10), 0 8px 20px rgba(0,0,0,0.06);--radius-sm:12px;--radius:18px;--radius-lg:24px;--radius-pill:980px;--ease:cubic-bezier(0.25, 0.1, 0.25, 1);--duration:0.35s;--section-pad:100px;--container-max:1120px;--text-muted:#6e6e73;--accent:#ff6b2c;--bg-light:#f5f5f7;--bg-card:#ffffff;--border:rgba(0, 0, 0, 0.06)}
 
     *,::after,::before{margin:0;padding:0;box-sizing:border-box}
@@ -25,11 +92,13 @@ a:hover{color:var(--primary-hover)}
 .center{text-align:center;margin-top:24px}
     
     html[data-theme=dark]{--primary:#2997ff;--primary-hover:#40a0ff;--primary-light:rgba(41, 151, 255, 0.12);--bg:#000000;--bg-card:#1c1c1e;--bg-elevated:#1c1c1e;--bg-hero:#0a0a0a;--text:#f5f5f7;--text-secondary:#a1a1a6;--text-tertiary:#6e6e73;--border:rgba(255, 255, 255, 0.08);--border-light:rgba(255, 255, 255, 0.06);--shadow-sm:0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.4);--shadow-md:0 4px 16px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2);--shadow-lg:0 12px 40px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.2);--shadow-hover:0 20px 60px rgba(0,0,0,0.5), 0 8px 20px rgba(0,0,0,0.3);--accent:#ff9f0a;--accent-warm:#ff9f0a;--text-muted:#a1a1a6;--bg-light:#1c1c1e}
+    
     </style>
+    <!-- 异步加载完整 CSS -->
     <link rel="preload" href="css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
+    <!-- 延迟加载 AdSense -->
     <script>
-    // 延迟加载 AdSense - 在页面完全加载后空闲时加载，避免影响核心指标
     function loadAdSense() {
         var s = document.createElement("script");
         s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2161272221768501";
@@ -45,9 +114,10 @@ a:hover{color:var(--primary-hover)}
     </script>
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://junagent.github.io">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0071e3">
     <link rel="preload" href="images/logos/chatgpt.webp" as="image" type="image/webp">
+    <link rel="preload" href="images/logos/claude-logo.svg" as="image" type="image/svg+xml">
 </head>
 <body>
     <!-- 顶部导航 -->
