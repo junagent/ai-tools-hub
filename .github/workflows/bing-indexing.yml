@@ -1,0 +1,74 @@
+name: SEO - 通知 Bing 索引新内容
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/**/*.html'
+      - 'blog/**/*.html'
+      - 'index.html'
+  workflow_dispatch:
+    inputs:
+      submit_all:
+        description: '提交 sitemap 中所有 URL'
+        required: false
+        default: 'false'
+
+jobs:
+  submit-to-bing:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 检出代码
+        uses: actions/checkout@v4
+      
+      - name: 🐍 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: 🔍 检测变更的 URL
+        id: detect
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            if [ "${{ inputs.submit_all }}" == "true" ]; then
+              echo "mode=all" >> $GITHUB_OUTPUT
+            else
+              echo "mode=default" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "mode=changed" >> $GITHUB_OUTPUT
+            # 获取本次 commit 变更的 HTML 文件
+            echo "changed_files=$(git diff --name-only HEAD~1 HEAD | grep -E '\.(html)$' | head -20)" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: 📤 提交 URL 到 Bing
+        if: steps.detect.outputs.mode != 'all'
+        env:
+          BING_API_KEY: ${{ secrets.BING_API_KEY }}
+        run: |
+          if [ "${{ steps.detect.outputs.mode }}" == "changed" ]; then
+            # 提交变更的文件
+            URLS=""
+            for file in ${{ steps.detect.outputs.changed_files }}; do
+              if [ -n "$file" ]; then
+                url="https://junagent.github.io/ai-tools-hub/$file"
+                URLS="$URLS $url"
+                echo "  📍 $url"
+              fi
+            done
+            if [ -n "$URLS" ]; then
+              python3 scripts/bing_submit.py $URLS
+            else
+              echo "⚠️ 没有变更的 HTML 文件"
+            fi
+          else
+            python3 scripts/bing_submit.py
+          fi
+      
+      - name: 📤 提交 sitemap 所有 URL
+        if: steps.detect.outputs.mode == 'all'
+        env:
+          BING_API_KEY: ${{ secrets.BING_API_KEY }}
+        run: |
+          python3 scripts/bing_submit.py --sitemap
