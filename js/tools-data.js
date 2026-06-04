@@ -70,7 +70,7 @@ const TOOLS_DATA = [
         icon: "⚡",
         tag: "AI编程",
         category: "code",
-        description: "基于VS Code的AI增强代码编辑器，集成了强大的AI对话、代码生成和智能重构功能，被誉为"最懂程序员的AI工具"。",
+        description: "基于VS Code的AI增强代码编辑器，集成了强大的AI对话、代码生成和智能重构功能，被誉为「最懂程序员的AI工具」。",
         price: "免费 + Pro $20/月",
         rating: 4.7,
         url: "https://cursor.sh",

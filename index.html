@@ -105,9 +105,9 @@
     <!-- Hero区域 -->
     <section class="hero">
         <div class="container">
-            <h1>发现最好的AI工具</h1>
-            <p>精选 AI 工具深度评测与对比，帮你找到最适合的 AI 助手</p>
-            <div class="hero-stats">
+            <h1 data-animate>发现最好的AI工具</h1>
+            <p data-animate data-animate-delay="1">精选 AI 工具深度评测与对比，帮你找到最适合的 AI 助手</p>
+            <div class="hero-stats" data-animate data-animate-delay="2">
                 <div class="stat">
                     <span class="num">26+</span>
                     <span class="label">工具评测</span>
@@ -131,11 +131,11 @@
     <!-- 热门工具 -->
     <section id="tools" class="section">
         <div class="container">
-            <h2 class="section-title">🔥 热门AI工具</h2>
+            <h2 class="section-title" data-animate>🔥 热门AI工具</h2>
             <div class="tools-grid" id="toolsGrid">
-                <!-- 工具卡片由JS动态生成 -->
+                <!-- 工具卡片由JS动态生成，动画由JS自动添加 -->
             </div>
-            <div class="center">
+            <div class="center" data-animate>
                 <a href="#all-tools" class="btn">查看全部工具 →</a>
             </div>
         </div>
@@ -144,44 +144,44 @@
     <!-- 分类导航 -->
     <section id="categories" class="section section-alt">
         <div class="container">
-            <h2 class="section-title">📂 工具分类</h2>
+            <h2 class="section-title" data-animate>📂 工具分类</h2>
             <div class="categories-grid">
-                <a href="#cat-writing" class="cat-card">
+                <a href="#cat-writing" class="cat-card" data-animate="scale" data-animate-delay="1">
                     <span class="cat-icon">✍️</span>
                     <h3>AI写作</h3>
                     <p>ChatGPT、Claude、Jasper 等</p>
                 </a>
-                <a href="#cat-image" class="cat-card">
+                <a href="#cat-image" class="cat-card" data-animate="scale" data-animate-delay="2">
                     <span class="cat-icon">🎨</span>
                     <h3>AI绘画</h3>
                     <p>Midjourney、DALL-E、Leonardo 等</p>
                 </a>
-                <a href="#cat-video" class="cat-card">
+                <a href="#cat-video" class="cat-card" data-animate="scale" data-animate-delay="3">
                     <span class="cat-icon">🎬</span>
                     <h3>AI视频</h3>
                     <p>Runway、Sora、Kling、Pika 等</p>
                 </a>
-                <a href="#cat-code" class="cat-card">
+                <a href="#cat-code" class="cat-card" data-animate="scale" data-animate-delay="4">
                     <span class="cat-icon">💻</span>
                     <h3>AI编程</h3>
                     <p>Copilot、Cursor、Replit 等</p>
                 </a>
-                <a href="#cat-chat" class="cat-card">
+                <a href="#cat-chat" class="cat-card" data-animate="scale" data-animate-delay="5">
                     <span class="cat-icon">💬</span>
                     <h3>AI对话</h3>
                     <p>ChatGPT、Gemini、Perplexity 等</p>
                 </a>
-                <a href="#cat-audio" class="cat-card">
+                <a href="#cat-audio" class="cat-card" data-animate="scale" data-animate-delay="6">
                     <span class="cat-icon">🎵</span>
                     <h3>AI音频</h3>
                     <p>ElevenLabs、Murf、Suno 等</p>
                 </a>
-                <a href="#cat-productivity" class="cat-card">
+                <a href="#cat-productivity" class="cat-card" data-animate="scale" data-animate-delay="7">
                     <span class="cat-icon">⚡</span>
                     <h3>效率工具</h3>
                     <p>Notion AI、Canva AI 等</p>
                 </a>
-                <a href="#cat-marketing" class="cat-card">
+                <a href="#cat-marketing" class="cat-card" data-animate="scale" data-animate-delay="8">
                     <span class="cat-icon">📈</span>
                     <h3>营销工具</h3>
                     <p>Semrush、HubSpot AI 等</p>
@@ -193,11 +193,11 @@
     <!-- 最新评测文章 -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">📝 最新评测</h2>
+            <h2 class="section-title" data-animate>📝 最新评测</h2>
             <div class="blog-grid" id="blogGrid">
-                <!-- 博客卡片由JS生成 -->
+                <!-- 博客卡片由JS生成，动画由JS自动添加 -->
             </div>
-            <div class="center">
+            <div class="center" data-animate>
                 <a href="blog/" class="btn">查看全部文章 →</a>
             </div>
         </div>
@@ -206,7 +206,7 @@
     <!-- 订阅Newsletter -->
     <section class="section section-alt">
         <div class="container">
-            <div class="newsletter">
+            <div class="newsletter" data-animate="scale">
                 <h2>📬 订阅AI周报</h2>
                 <p>每周精选AI工具推荐和行业动态，免费订阅</p>
                 <form onsubmit="subscribeNewsletter(event)">
@@ -220,7 +220,7 @@
     <!-- Footer -->
     <footer id="about" class="footer">
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-grid" data-animate>
                 <div>
                     <h3>🤖 AI工具导航</h3>
                     <p>最全面的AI工具评测与导航站，帮助你发现最适合的AI助手，提升工作效率。</p>

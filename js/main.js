@@ -72,6 +72,12 @@ function searchTools() {
     );
 
     renderToolCards(results, "toolsGrid");
+    applyStaggerAnimations(document.getElementById("toolsGrid"));
+    if (scrollObserver) {
+        document.querySelectorAll("#toolsGrid [data-animate]").forEach(el => {
+            scrollObserver.observe(el);
+        });
+    }
 }
 
 // ============ 订阅Newsletter ============
@@ -118,17 +124,77 @@ function renderScoreBars(scores, containerId) {
     });
 }
 
+// ============ 滚动动画 — Intersection Observer ============
+function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px"
+    });
+
+    document.querySelectorAll("[data-animate]").forEach(el => {
+        observer.observe(el);
+    });
+
+    return observer;
+}
+
+// 立即揭示已在视口中的元素（不依赖 Observer 回调）
+function revealVisibleElements() {
+    document.querySelectorAll("[data-animate]").forEach(el => {
+        if (el.classList.contains("is-visible")) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add("is-visible");
+        }
+    });
+}
+
+// 为网格子元素自动添加交错动画属性
+function applyStaggerAnimations(container) {
+    if (!container) return;
+    const children = container.children;
+    for (let i = 0; i < children.length; i++) {
+        const child = children[i];
+        if (!child.hasAttribute("data-animate")) {
+            child.setAttribute("data-animate", "");
+            child.setAttribute("data-animate-delay", String((i % 10) + 1));
+        }
+    }
+}
+
 // ============ 初始化 ============
+let scrollObserver;
+let animationsReady = false;
+
+function startAnimations() {
+    if (animationsReady) return;
+    animationsReady = true;
+    scrollObserver = initScrollAnimations();
+    // 立即揭示已在视口内的元素
+    revealVisibleElements();
+    // 500ms 后再检查一次，兜底处理渲染延迟
+    setTimeout(revealVisibleElements, 500);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     // 渲染首页工具卡片（只显示featured）
     if (document.getElementById("toolsGrid")) {
         const featured = TOOLS_DATA.filter(t => t.featured);
         renderToolCards(featured, "toolsGrid");
+        applyStaggerAnimations(document.getElementById("toolsGrid"));
     }
 
     // 渲染首页博客卡片
     if (document.getElementById("blogGrid")) {
         renderBlogCards(BLOG_POSTS, "blogGrid");
+        applyStaggerAnimations(document.getElementById("blogGrid"));
     }
 
     // 绑定搜索
@@ -142,6 +208,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (newsletterForm) {
         newsletterForm.addEventListener("submit", subscribeNewsletter);
     }
+
+    // 延迟启动滚动动画，确保浏览器完成布局和绘制
+    setTimeout(startAnimations, 200);
+});
+
+// 兜底：页面完全加载后再次触发
+window.addEventListener("load", () => {
+    if (!animationsReady) startAnimations();
+    else revealVisibleElements();
 });
 
 // 导出供其他页面使用
