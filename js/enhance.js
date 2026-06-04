@@ -146,7 +146,7 @@
             if (tool.rating % 1 >= 0.5) stars += "☆";
 
             var iconHTML = tool.logo
-                ? '<img class="tool-icon-img" src="images/logos/' + tool.logo + '" alt="' + tool.name + '" loading="lazy">'
+                ? '<img class="tool-icon-img" src="images/logos/' + tool.logo + '" alt="' + tool.name + '" loading="lazy" decoding="async" width="48" height="48">'
                 : '<div class="tool-icon">' + (tool.icon || "") + '</div>';
 
             card.innerHTML =
@@ -388,4 +388,11 @@
         revealVisibleElements: revealVisibleElements,
         initScrollAnimations: initScrollAnimations
     };
+
+    // 注册 Service Worker（生产环境缓存静态资源）
+    if ("serviceWorker" in navigator && window.location.hostname !== "localhost") {
+        window.addEventListener("load", function () {
+            navigator.serviceWorker.register("/ai-tools-hub/sw.js", { scope: "/ai-tools-hub/" }).catch(function () {});
+        });
+    }
 })();

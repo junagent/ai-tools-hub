@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <!-- AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2161272221768501"
-         crossorigin="anonymous"></script>
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2161272221768501" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatGPT - AI工具评测 | AI工具导航</title>
     <meta name="description" content="OpenAI开发的知名AI对话助手，支持文字、图片、语音多模态交互，可用于写作、编程、翻译、分析等各类任务。">
-    <link rel="canonical" href="https://junagent.github.io/ai-tools-hub/tools/chatgpt.html">
-    <link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://junagent.github.io/ai-tools-hub/tools/chatgpt.html">
+<link rel="stylesheet" href="../css/style.min.css">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://junagent.github.io">
 </head>
 <body>
 
@@ -46,6 +48,7 @@
     </div>
 </nav>
 
+<main>
 <section class="tool-detail container">
     <div class="tool-detail-header">
         <div class="tool-detail-icon">💬</div>
@@ -100,7 +103,7 @@
             </div>
         </div>
     </div>
-</section>
+</section></main>
 
 <footer class="footer">
     <div class="container">
@@ -110,7 +113,7 @@
     </div>
 </footer>
 
-<script src="../js/tools-data.js"></script>
+<script src="../js/tools-data.min.js"></script>
 <script>
 (function() {
     const toolId = location.pathname.split('/').pop().replace('.html', '');
@@ -123,7 +126,7 @@
     document.querySelector('meta[name="description"]').content = tool.description;
 
     // 填充数据
-    document.querySelector('.tool-detail-icon').innerHTML = tool.logo ? '<img class="tool-detail-icon-img" src="../images/logos/' + tool.logo + '" alt="' + tool.name + '">' : tool.icon;
+    document.querySelector('.tool-detail-icon').innerHTML = tool.logo ? '<img class="tool-detail-icon-img" loading="lazy" decoding="async" width="64" height="64" src="../images/logos/' + tool.logo + '" alt="' + tool.name + '">' : tool.icon;
     document.querySelector('.tool-detail-info h1').textContent = tool.name;
     document.querySelectorAll('.tag')[0].textContent = tool.tag;
     document.querySelectorAll('.tag')[1].textContent = Object.values(CATEGORIES).find(c => Object.keys(CATEGORIES).find(k => CATEGORIES[k] === c))?.name || tool.category;
@@ -211,6 +214,6 @@
     renderToolFAQ(toolId);
 })();
 </script>
-<script src="../js/enhance.js"></script>
+<script src="../js/enhance.min.js"></script>
 </body>
 </html>
