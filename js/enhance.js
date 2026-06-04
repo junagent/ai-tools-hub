@@ -194,11 +194,121 @@
         revealVisibleElements();
     }
 
-    // ── 7. 初始化 ────────────────────────────────────────────────
+    // ── 7. JSON-LD 结构化数据 ─────────────────────────────────────
+    var BASE_URL = "https://junagent.github.io/ai-tools-hub";
+
+    function injectJSONLD(data) {
+        var s = document.createElement("script");
+        s.type = "application/ld+json";
+        s.textContent = JSON.stringify(data, null, 2);
+        document.head.appendChild(s);
+    }
+
+    // 自动检测页面类型并生成 BreadcrumbList
+    function generateBreadcrumbList() {
+        var path = window.location.pathname;
+        var items = [{ name: "首页", url: BASE_URL + "/" }];
+
+        if (path.indexOf("/tools/") !== -1) {
+            // 工具详情页：首页 > 工具库 > 工具名
+            items.push({ name: "工具库", url: BASE_URL + "/#tools" });
+            var h1 = document.querySelector("h1");
+            var toolName = h1 ? h1.textContent.trim() : document.title.split(" - ")[0];
+            items.push({ name: toolName, url: BASE_URL + path });
+        } else if (path.indexOf("/blog/") !== -1) {
+            var blogIndexPath = path.replace(/\/$/, "").replace(/index\.html$/, "");
+            if (blogIndexPath.endsWith("/blog")) {
+                // 博客列表页：首页 > 博客
+                items.push({ name: "博客", url: BASE_URL + "/blog/" });
+            } else {
+                // 博客文章页：首页 > 博客 > 文章标题
+                items.push({ name: "博客", url: BASE_URL + "/blog/" });
+                var h1 = document.querySelector("h1");
+                var title = h1 ? h1.textContent.trim() : document.title.split(" | ")[0];
+                items.push({ name: title, url: BASE_URL + path });
+            }
+        } else {
+            // 根目录静态页面
+            var pageMap = {
+                "about.html": "关于我们",
+                "privacy.html": "隐私政策",
+                "terms.html": "使用条款"
+            };
+            var filename = path.split("/").pop();
+            if (pageMap[filename]) {
+                items.push({ name: pageMap[filename], url: BASE_URL + "/" + filename });
+            } else {
+                return; // 首页不需要面包屑
+            }
+        }
+
+        var breadcrumb = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": items.map(function (item, idx) {
+                return {
+                    "@type": "ListItem",
+                    "position": idx + 1,
+                    "name": item.name,
+                    "item": item.url
+                };
+            })
+        };
+        injectJSONLD(breadcrumb);
+    }
+
+    // 首页 ItemList JSON-LD（展示工具列表）
+    function generateHomepageItemList(featuredTools) {
+        var itemList = {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "热门AI工具推荐",
+            "description": "精选AI工具评测，覆盖对话、绘画、编程、视频等类别",
+            "url": BASE_URL + "/",
+            "itemListOrder": "https://schema.org/ItemListOrderDescending",
+            "itemListElement": featuredTools.map(function (tool, idx) {
+                return {
+                    "@type": "ListItem",
+                    "position": idx + 1,
+                    "name": tool.name,
+                    "url": BASE_URL + "/tools/" + tool.id + ".html",
+                    "description": tool.description
+                };
+            })
+        };
+        injectJSONLD(itemList);
+    }
+
+    // 博客列表页 ItemList JSON-LD
+    function generateBlogItemList(posts) {
+        var itemList = {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "AI工具博客文章",
+            "description": "AI工具深度评测、使用教程、行业动态和选购指南",
+            "url": BASE_URL + "/blog/",
+            "itemListOrder": "https://schema.org/ItemListOrderDescending",
+            "itemListElement": posts.map(function (post, idx) {
+                return {
+                    "@type": "ListItem",
+                    "position": idx + 1,
+                    "name": post.title,
+                    "url": BASE_URL + "/blog/" + post.id + ".html",
+                    "description": post.summary
+                };
+            })
+        };
+        injectJSONLD(itemList);
+    }
+
+    // ── 8. 初始化 ────────────────────────────────────────────────
     document.addEventListener("DOMContentLoaded", function () {
         // 注入导航栏按钮和回到顶部
         injectNavExtras();
         injectBackToTop();
+
+        // 生成 BreadcrumbList（所有子页面）
+        generateBreadcrumbList();
 
         // 首页专用：渲染卡片
         var isHomepage = !!document.getElementById("toolsGrid");
@@ -209,6 +319,9 @@
                 var featured = TOOLS_DATA.filter(function (t) { return t.featured; });
                 renderToolCards(featured, "toolsGrid");
                 applyStaggerAnimations(document.getElementById("toolsGrid"));
+
+                // 首页 ItemList JSON-LD
+                generateHomepageItemList(featured);
 
                 if (document.getElementById("blogGrid") && typeof BLOG_POSTS !== "undefined") {
                     renderBlogCards(BLOG_POSTS, "blogGrid");
@@ -253,6 +366,13 @@
             initScrollAnimations();
             revealVisibleElements();
             setTimeout(revealVisibleElements, 500);
+
+            // 博客列表页 ItemList
+            var isBlogIndex = window.location.pathname.replace(/\/$/, "").endsWith("/blog") ||
+                              window.location.pathname.endsWith("/blog/index.html");
+            if (isBlogIndex && typeof BLOG_POSTS !== "undefined") {
+                generateBlogItemList(BLOG_POSTS);
+            }
         }
     });
 
