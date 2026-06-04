@@ -1,4 +1,12 @@
+# AI Tools Hub - Robots.txt
+# https://junagent.github.io/ai-tools-hub/
+
 User-agent: *
 Allow: /
+Disallow: /googlec*.html
 
+# 搜索引擎爬虫延迟（防止服务器过载）
+Crawl-delay: 1
+
+# Sitemap 位置
 Sitemap: https://junagent.github.io/ai-tools-hub/sitemap.xml
