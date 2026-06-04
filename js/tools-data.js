@@ -21,7 +21,7 @@ const TOOLS_DATA = [
         id: "claude",
         name: "Claude",
         icon: "🤖",
-        logo: "claude.webp",
+        logo: "claude-logo.svg",
         tag: "AI对话",
         category: "chat",
         description: "Anthropic公司开发的AI助手，以安全性、可控性和长上下文窗口著称，擅长长文档分析和精确写作。",
