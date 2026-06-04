@@ -25,14 +25,19 @@ a:hover{color:var(--primary-hover)}
     <link rel="preload" href="css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
     <script>
-    // 延迟加载 AdSense
-    document.addEventListener("DOMContentLoaded", function() {
+    // 延迟加载 AdSense - 在页面完全加载后空闲时加载，避免影响核心指标
+    function loadAdSense() {
         var s = document.createElement("script");
         s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2161272221768501";
         s.async = true;
         s.crossOrigin = "anonymous";
         document.head.appendChild(s);
-    });
+    }
+    if ("requestIdleCallback" in window) {
+        window.addEventListener("load", function() { requestIdleCallback(loadAdSense, {timeout: 2000}); });
+    } else {
+        window.addEventListener("load", function() { setTimeout(loadAdSense, 2000); });
+    }
     </script>
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
@@ -298,7 +303,7 @@ a:hover{color:var(--primary-hover)}
         </div>
     </footer>
 
-    <script src="js/tools-data.min.js"></script>
-    <script src="js/enhance.min.js"></script>
+    <script defer src="js/tools-data.min.js"></script>
+    <script defer src="js/enhance.min.js"></script>
 </body>
 </html>
