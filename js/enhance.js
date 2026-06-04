@@ -135,7 +135,13 @@
     function renderToolCards(tools, containerId) {
         var container = document.getElementById(containerId);
         if (!container) return;
-        container.innerHTML = "";
+        // If SSR pre-rendered cards exist (data-ssr), append remaining only
+        var ssrCount = parseInt(container.getAttribute("data-ssr"), 10) || 0;
+        if (ssrCount > 0) {
+            // Don't clear; just append remaining cards
+        } else {
+            container.innerHTML = "";
+        }
         tools.forEach(function (tool) {
             var card = document.createElement("div");
             card.className = "tool-card";
@@ -189,12 +195,76 @@
                     tool.bestFor.some(function (f) { return f.toLowerCase().includes(q); });
             });
         }
+        // Remove SSR attribute so renderToolCards does a full re-render
+        container.removeAttribute("data-ssr");
         renderToolCards(results, "toolsGrid");
         applyStaggerAnimations(container);
         revealVisibleElements();
     }
 
-    // ── 7. JSON-LD 结构化数据 ─────────────────────────────────────
+    // ── 7. 博客阅读时间 + 目录导航 ──────────────────────────────────
+    function initBlogEnhancements() {
+        var article = document.querySelector("article");
+        if (!article) return;
+
+        // 阅读时间估算（中文约 300 字/分钟）
+        var text = article.textContent || "";
+        var charCount = text.replace(/\s+/g, "").length;
+        var readMinutes = Math.max(1, Math.ceil(charCount / 300));
+
+        // 查找已有的日期行并追加阅读时间
+        var dateRow = article.querySelector("div[style*='color:var(--text-muted)']");
+        if (dateRow && dateRow.textContent.indexOf("阅读") === -1) {
+            dateRow.innerHTML = dateRow.innerHTML.replace(/(\s*)$/, "") + " · 预计阅读 " + readMinutes + " 分钟";
+        }
+
+        // 生成目录导航 (TOC)
+        var headings = article.querySelectorAll("h2");
+        if (headings.length < 3) return; // 太少标题不需要目录
+
+        var toc = document.createElement("nav");
+        toc.className = "blog-toc";
+        toc.innerHTML = '<div class="blog-toc-title">📑 目录</div>';
+
+        var list = document.createElement("ul");
+        headings.forEach(function (h, idx) {
+            var id = "section-" + idx;
+            h.id = id;
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.href = "#" + id;
+            a.textContent = h.textContent.replace(/^[^\u4e00-\u9fa5a-zA-Z]*/, "").trim();
+            a.addEventListener("click", function (e) {
+                e.preventDefault();
+                h.scrollIntoView({ behavior: "smooth", block: "start" });
+                // 更新激活状态
+                list.querySelectorAll("a").forEach(function (link) { link.classList.remove("active"); });
+                a.classList.add("active");
+            });
+            li.appendChild(a);
+            list.appendChild(li);
+        });
+        toc.appendChild(list);
+
+        // 插入到文章开头
+        article.insertBefore(toc, article.children[1] || null);
+
+        // 滚动时高亮当前章节
+        var tocLinks = toc.querySelectorAll("a");
+        var headingPositions = Array.from(headings).map(function (h) { return h; });
+        window.addEventListener("scroll", function () {
+            var scrollY = window.scrollY + 100;
+            var currentIdx = 0;
+            headingPositions.forEach(function (h, idx) {
+                if (h.offsetTop <= scrollY) currentIdx = idx;
+            });
+            tocLinks.forEach(function (link, idx) {
+                link.classList.toggle("active", idx === currentIdx);
+            });
+        }, { passive: true });
+    }
+
+    // ── 8. JSON-LD 结构化数据 ─────────────────────────────────────
     var BASE_URL = "https://junagent.github.io/ai-tools-hub";
 
     function injectJSONLD(data) {
@@ -313,11 +383,21 @@
         // 首页专用：渲染卡片
         var isHomepage = !!document.getElementById("toolsGrid");
         if (isHomepage && typeof TOOLS_DATA !== "undefined") {
-            showSkeleton("toolsGrid", 6);
+            var toolsGrid = document.getElementById("toolsGrid");
+            var ssrCount = parseInt(toolsGrid.getAttribute("data-ssr"), 10) || 0;
+            // Only show skeleton if no SSR cards present
+            if (ssrCount === 0) {
+                showSkeleton("toolsGrid", 6);
+            }
 
             setTimeout(function () {
                 var featured = TOOLS_DATA.filter(function (t) { return t.featured; });
-                renderToolCards(featured, "toolsGrid");
+                // If SSR pre-rendered first N cards, only render the rest
+                if (ssrCount > 0 && ssrCount < featured.length) {
+                    renderToolCards(featured.slice(ssrCount), "toolsGrid");
+                } else if (ssrCount === 0) {
+                    renderToolCards(featured, "toolsGrid");
+                }
                 applyStaggerAnimations(document.getElementById("toolsGrid"));
 
                 // 首页 ItemList JSON-LD
@@ -372,6 +452,12 @@
                               window.location.pathname.endsWith("/blog/index.html");
             if (isBlogIndex && typeof BLOG_POSTS !== "undefined") {
                 generateBlogItemList(BLOG_POSTS);
+            }
+
+            // 博客文章页：阅读时间 + 目录导航
+            var isBlogPost = window.location.pathname.indexOf("/blog/") !== -1 && !isBlogIndex;
+            if (isBlogPost) {
+                initBlogEnhancements();
             }
         }
     });

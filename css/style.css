@@ -1261,3 +1261,55 @@ html[data-theme="dark"] .skeleton::after {
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.25);
 }
+
+/* ================================================================
+   Blog Table of Contents (TOC)
+   ================================================================ */
+.blog-toc {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius, 12px);
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    position: relative;
+}
+.blog-toc-title {
+    font-weight: 600;
+    font-size: 0.95em;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+.blog-toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.blog-toc li {
+    margin: 0;
+}
+.blog-toc a {
+    display: block;
+    padding: 6px 12px;
+    font-size: 0.88em;
+    color: var(--text-secondary, #6e6e73);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+    border-radius: 0 4px 4px 0;
+}
+.blog-toc a:hover {
+    color: var(--primary, #0071e3);
+    background: var(--primary-light, rgba(0, 113, 227, 0.06));
+}
+.blog-toc a.active {
+    color: var(--primary, #0071e3);
+    border-left-color: var(--primary, #0071e3);
+    background: var(--primary-light, rgba(0, 113, 227, 0.06));
+    font-weight: 500;
+}
+@media (min-width: 1200px) {
+    .blog-toc {
+        position: sticky;
+        top: 80px;
+    }
+}

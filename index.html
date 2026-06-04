@@ -50,6 +50,8 @@
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
     <link rel="preconnect" href="https://junagent.github.io">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0071e3">
 </head>
 <body>
     <!-- 顶部导航 -->
@@ -135,8 +137,56 @@
     <section id="tools" class="section">
         <div class="container">
             <h2 class="section-title" data-animate>🔥 热门AI工具</h2>
-            <div class="tools-grid" id="toolsGrid">
-                <!-- 工具卡片由JS动态生成，动画由JS自动添加 -->
+            <div class="tools-grid" id="toolsGrid" data-ssr="6">
+                <div class="tool-card" onclick="window.location.href='tools/chatgpt.html'">
+                    <div class="tool-header">
+                        <img class="tool-icon-img" src="images/logos/chatgpt.webp" alt="ChatGPT" loading="lazy" decoding="async" width="48" height="48">
+                        <div><h3>ChatGPT</h3><span class="tool-tag">AI对话</span></div>
+                    </div>
+                    <p>OpenAI开发的知名AI对话助手，支持文字、图片、语音多模态交互，可用于写作、编程、翻译、分析等各类任务。...</p>
+                    <div class="tool-meta"><span class="price">免费 + Plus $20/月</span><span class="rating">★★★★☆ 4.8</span></div>
+                </div>
+                <div class="tool-card" onclick="window.location.href='tools/claude.html'">
+                    <div class="tool-header">
+                        <img class="tool-icon-img" src="images/logos/claude.webp" alt="Claude" loading="lazy" decoding="async" width="48" height="48">
+                        <div><h3>Claude</h3><span class="tool-tag">AI对话</span></div>
+                    </div>
+                    <p>Anthropic公司开发的AI助手，以安全性、可控性和长上下文窗口著称，擅长长文档分析和精确写作。...</p>
+                    <div class="tool-meta"><span class="price">免费 + Pro $20/月</span><span class="rating">★★★★☆ 4.7</span></div>
+                </div>
+                <div class="tool-card" onclick="window.location.href='tools/midjourney.html'">
+                    <div class="tool-header">
+                        <img class="tool-icon-img" src="images/logos/midjourney.webp" alt="Midjourney" loading="lazy" decoding="async" width="48" height="48">
+                        <div><h3>Midjourney</h3><span class="tool-tag">AI绘画</span></div>
+                    </div>
+                    <p>知名的AI图像生成工具，以高质量、艺术感强的输出著称，广泛应用于创意设计、概念艺术和营销素材制作。...</p>
+                    <div class="tool-meta"><span class="price">$10/月起</span><span class="rating">★★★★☆ 4.6</span></div>
+                </div>
+                <div class="tool-card" onclick="window.location.href='tools/github-copilot.html'">
+                    <div class="tool-header">
+                        <img class="tool-icon-img" src="images/logos/github-copilot.webp" alt="GitHub Copilot" loading="lazy" decoding="async" width="48" height="48">
+                        <div><h3>GitHub Copilot</h3><span class="tool-tag">AI编程</span></div>
+                    </div>
+                    <p>GitHub推出的AI编程助手，深度集成VS Code等主流 IDE，提供智能代码补全、生成和重构建议。...</p>
+                    <div class="tool-meta"><span class="price">$10/月（学生免费）</span><span class="rating">★★★★☆ 4.5</span></div>
+                </div>
+                <div class="tool-card" onclick="window.location.href='tools/cursor.html'">
+                    <div class="tool-header">
+                        <img class="tool-icon-img" src="images/logos/cursor.webp" alt="Cursor" loading="lazy" decoding="async" width="48" height="48">
+                        <div><h3>Cursor</h3><span class="tool-tag">AI编程</span></div>
+                    </div>
+                    <p>基于VS Code的AI增强代码编辑器，集成了强大的AI对话、代码生成和智能重构功能，被誉为「最懂程序员的AI工具」。...</p>
+                    <div class="tool-meta"><span class="price">免费 + Pro $20/月</span><span class="rating">★★★★☆ 4.7</span></div>
+                </div>
+                <div class="tool-card" onclick="window.location.href='tools/runway-gen3.html'">
+                    <div class="tool-header">
+                        <img class="tool-icon-img" src="images/logos/runway-gen3.webp" alt="Runway Gen-3" loading="lazy" decoding="async" width="48" height="48">
+                        <div><h3>Runway Gen-3</h3><span class="tool-tag">AI视频</span></div>
+                    </div>
+                    <p>Runway推出的新一代AI视频生成模型，支持文本生成视频、图片转视频、视频风格迁移等功能，画质和连贯性大幅提升。...</p>
+                    <div class="tool-meta"><span class="price">$35/月起</span><span class="rating">★★★★☆ 4.4</span></div>
+                </div>
+                <!-- 剩余工具卡片由JS动态生成 -->
             </div>
             <div class="center" data-animate>
                 <a href="#all-tools" class="btn">查看全部工具 →</a>

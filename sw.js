@@ -1,6 +1,9 @@
 // Service Worker - AI工具导航缓存策略
 const CACHE_NAME = 'ai-tools-v1';
 const STATIC_ASSETS = [
+    '/ai-tools-hub/manifest.json',
+    '/ai-tools-hub/images/icons/icon-192.png',
+    '/ai-tools-hub/images/icons/icon-512.png',
     '/ai-tools-hub/',
     '/ai-tools-hub/css/style.min.css',
     '/ai-tools-hub/js/tools-data.min.js',
