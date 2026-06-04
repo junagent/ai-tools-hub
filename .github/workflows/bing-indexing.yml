@@ -1,5 +1,6 @@
-name: SEO - 通知 Bing 索引新内容
+name: SEO - IndexNow 自动化索引
 
+# 当 tools/、blog/、index.html 等内容变更时，自动通知 Bing + Yandex + Naver
 on:
   push:
     branches: [main]
@@ -10,65 +11,127 @@ on:
   workflow_dispatch:
     inputs:
       submit_all:
-        description: '提交 sitemap 中所有 URL'
+        description: '提交所有 URL（默认只提交变更）'
         required: false
         default: 'false'
 
 jobs:
-  submit-to-bing:
+  submit-indexnow:
+    name: 📤 提交 URL 到 IndexNow (Bing/Yandex/Naver)
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 📥 检出代码
         uses: actions/checkout@v4
-      
-      - name: 🐍 设置 Python
-        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-      
+          fetch-depth: 2
+
       - name: 🔍 检测变更的 URL
         id: detect
         run: |
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            if [ "${{ inputs.submit_all }}" == "true" ]; then
-              echo "mode=all" >> $GITHUB_OUTPUT
-            else
-              echo "mode=default" >> $GITHUB_OUTPUT
-            fi
+          # 如果是手动触发且选了"提交全部"
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ] && [ "${{ inputs.submit_all }}" == "true" ]; then
+            echo "mode=all" >> $GITHUB_OUTPUT
+            echo "📋 模式: 提交所有 URL（来自 sitemap.xml）"
           else
             echo "mode=changed" >> $GITHUB_OUTPUT
             # 获取本次 commit 变更的 HTML 文件
-            echo "changed_files=$(git diff --name-only HEAD~1 HEAD | grep -E '\.(html)$' | head -20)" >> $GITHUB_OUTPUT
-          fi
-      
-      - name: 📤 提交 URL 到 Bing
-        if: steps.detect.outputs.mode != 'all'
-        env:
-          BING_API_KEY: ${{ secrets.BING_API_KEY }}
-        run: |
-          if [ "${{ steps.detect.outputs.mode }}" == "changed" ]; then
-            # 提交变更的文件
-            URLS=""
-            for file in ${{ steps.detect.outputs.changed_files }}; do
-              if [ -n "$file" ]; then
-                url="https://junagent.github.io/ai-tools-hub/$file"
-                URLS="$URLS $url"
-                echo "  📍 $url"
-              fi
-            done
-            if [ -n "$URLS" ]; then
-              python3 scripts/bing_submit.py $URLS
-            else
-              echo "⚠️ 没有变更的 HTML 文件"
+            CHANGED=$(git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -E '\.(html)$' | head -50)
+            if [ -z "$CHANGED" ]; then
+              # 第一次 commit 或 squash merge
+              CHANGED=$(git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -E '\.(html)$' | head -50)
             fi
-          else
-            python3 scripts/bing_submit.py
+            echo "changed_files<<EOF" >> $GITHUB_OUTPUT
+            echo "$CHANGED" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+            echo "📍 模式: 提交变更的文件"
+            echo "   变更文件数: $(echo "$CHANGED" | grep -c '.')"
           fi
-      
-      - name: 📤 提交 sitemap 所有 URL
-        if: steps.detect.outputs.mode == 'all'
-        env:
-          BING_API_KEY: ${{ secrets.BING_API_KEY }}
+
+      - name: 📤 提交变更的 URL 到 IndexNow
+        if: steps.detect.outputs.mode == 'changed'
         run: |
-          python3 scripts/bing_submit.py --sitemap
+          CHANGED="${{ steps.detect.outputs.changed_files }}"
+          URLS="["
+
+          FIRST=true
+          for file in $CHANGED; do
+            if [ -n "$file" ] && [ -f "$file" ]; then
+              url="https://junagent.github.io/ai-tools-hub/$file"
+              if [ "$FIRST" = "true" ]; then
+                URLS="$URLS"$url""
+                FIRST=false
+              else
+                URLS="$URLS,"$url""
+              fi
+              echo "  📍 $url"
+            fi
+          done
+          URLS="$URLS]"
+
+          if [ "$URLS" = "[]" ]; then
+            echo "⚠️ 没有变更的 HTML 文件"
+            exit 0
+          fi
+
+          # 调用 IndexNow API
+          KEY="e87155a2cad84d7a0f7edc608a9bde6c"
+          HOST="junagent.github.io"
+          KEY_LOCATION="https://${HOST}/ai-tools-hub/${KEY}.txt"
+
+          PAYLOAD=$(cat <<JSON
+          {
+            "host": "${HOST}",
+            "key": "${KEY}",
+            "keyLocation": "${KEY_LOCATION}",
+            "urlList": ${URLS}
+          }
+          JSON
+          )
+
+          echo "📤 提交到 IndexNow..."
+          echo "$PAYLOAD" | curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d @- \
+            -w "\nHTTP Status: %{http_code}\n"
+
+      - name: 📤 提交 sitemap 全部 URL 到 IndexNow
+        if: steps.detect.outputs.mode == 'all'
+        run: |
+          KEY="e87155a2cad84d7a0f7edc608a9bde6c"
+          HOST="junagent.github.io"
+          KEY_LOCATION="https://${HOST}/ai-tools-hub/${KEY}.txt"
+
+          # 从 sitemap.xml 提取所有 URL
+          URLS=$(grep -oE 'https://junagent\.github\.io[^<]+' sitemap.xml | sed 's/^/"/;s/$/"/' | paste -sd, -)
+
+          if [ -z "$URLS" ]; then
+            echo "⚠️ sitemap.xml 中没有找到 URL"
+            exit 0
+          fi
+
+          echo "📋 找到 $(echo $URLS | tr ',' '\n' | wc -l) 个 URL"
+
+          PAYLOAD=$(cat <<JSON
+          {
+            "host": "${HOST}",
+            "key": "${KEY}",
+            "keyLocation": "${KEY_LOCATION}",
+            "urlList": [${URLS}]
+          }
+          JSON
+          )
+
+          echo "📤 提交到 IndexNow..."
+          echo "$PAYLOAD" | curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d @- \
+            -w "\nHTTP Status: %{http_code}\n"
+
+      - name: ✅ 完成
+        if: always()
+        run: |
+          echo ""
+          echo "🎉 IndexNow 提交完成!"
+          echo "📊 Bing 状态: https://www.bing.com/webmasters"
+          echo "⏱️  预计几小时内 Bing 就会开始抓取新内容"
