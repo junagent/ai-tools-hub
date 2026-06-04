@@ -1,6 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
-# 站点地图
 Sitemap: https://junagent.github.io/ai-tools-hub/sitemap.xml

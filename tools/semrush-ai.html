@@ -50,7 +50,7 @@
     <div class="tool-detail-header">
         <div class="tool-detail-icon">📈</div>
         <div class="tool-detail-info">
-            <h1>Semrush AI</h1>
+            <h1 data-animate>Semrush AI</h1>
             <div class="tags">
                 <span class="tag">营销工具</span>
                 <span class="tag">marketing</span>
@@ -65,24 +65,19 @@
 
     <div class="tool-detail-body">
         <div class="tool-main">
-            <h2>📝 工具介绍</h2>
+            <h2 data-animate>📝 工具介绍</h2>
             <p style="color:var(--text-muted);line-height:1.8;margin-bottom:20px;">
                 Semrush推出的AI写作助手，集成SEO优化建议，帮助创作符合搜索引擎排名要求的高质量内容。
             </p>
-
-            <h2>✅ 优点</h2>
+            <h2 data-animate>✅ 优点</h2>
             <ul id="prosList" style="margin-bottom:20px;"></ul>
-
-            <h2>⚠️ 缺点</h2>
+            <h2 data-animate>⚠️ 缺点</h2>
             <ul id="consList" style="margin-bottom:20px;"></ul>
-
-            <h2>🎯 适合场景</h2>
+            <h2 data-animate>🎯 适合场景</h2>
             <div id="bestForTags" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px;"></div>
-
-            <h2>📊 详细评分</h2>
+            <h2 data-animate>📊 详细评分</h2>
             <div id="scoreBars" style="margin-bottom:30px;"></div>
-
-            <h2>🔗 替代方案</h2>
+            <h2 data-animate>🔗 替代方案</h2>
             <div id="alternatives" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;"></div>
         </div>
 
@@ -128,7 +123,7 @@
     document.querySelector('meta[name="description"]').content = tool.description;
 
     // 填充数据
-    document.querySelector('.tool-detail-icon').textContent = tool.icon;
+    document.querySelector('.tool-detail-icon').innerHTML = tool.logo ? '<img class="tool-detail-icon-img" src="../images/logos/' + tool.logo + '" alt="' + tool.name + '">' : tool.icon;
     document.querySelector('.tool-detail-info h1').textContent = tool.name;
     document.querySelectorAll('.tag')[0].textContent = tool.tag;
     document.querySelectorAll('.tag')[1].textContent = Object.values(CATEGORIES).find(c => Object.keys(CATEGORIES).find(k => CATEGORIES[k] === c))?.name || tool.category;
@@ -216,5 +211,6 @@
     renderToolFAQ(toolId);
 })();
 </script>
+<script src="../js/enhance.js"></script>
 </body>
 </html>
