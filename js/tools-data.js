@@ -608,6 +608,24 @@ const BLOG_POSTS = [
         category: "实战指南",
         tags: ["小企业", "AI工具", "营销", "自动化", "降本增效"],
         image: "🏢"
+    },
+    {
+        id: "chatgpt-alternatives-free",
+        title: "2026年ChatGPT免费替代方案推荐（10款实测对比）",
+        date: "2026-06-07",
+        summary: "ChatGPT收费太贵？实测10款免费AI对话工具，包括Claude、Gemini、Perplexity等，详细对比功能和免费额度。",
+        category: "评测对比",
+        tags: ["ChatGPT替代", "免费AI", "Claude", "Gemini"],
+        image: "💬"
+    },
+    {
+        id: "ai-art-tools-comparison-ultimate",
+        title: "2026年AI绘画工具终极对比：Midjourney vs Stable Diffusion vs DALL-E",
+        date: "2026-06-07",
+        summary: "从画质、价格、中文支持、学习成本4个维度，深度对比6款主流AI绘画工具，帮你找到最适合的。",
+        category: "评测对比",
+        tags: ["AI绘画", "Midjourney", "Stable Diffusion", "DALL-E"],
+        image: "🎨"
     }
 ];
 
