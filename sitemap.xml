@@ -458,4 +458,35 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- 2026年6月11日新增 -->
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-ppt-tools-comparison-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-meeting-tools-comparison-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/domestic-ai-tools-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-translation-tools-comparison-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-code-review-tools-comparison-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

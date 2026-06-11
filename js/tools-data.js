@@ -626,6 +626,51 @@ const BLOG_POSTS = [
         category: "评测对比",
         tags: ["AI绘画", "Midjourney", "Stable Diffusion", "DALL-E"],
         image: "🎨"
+    },
+    {
+        id: "ai-ppt-tools-comparison-2026",
+        title: "2026年AI PPT制作工具对比：Gamma vs Tome vs Beautiful.ai 谁更强",
+        date: "2026-06-11",
+        summary: "Gamma、Tome、Beautiful.ai、Canva AI...2026年AI做PPT工具怎么选？从生成速度、模板质量、中文支持、导出格式、价格5维深度对比，附3个实测案例。",
+        category: "评测对比",
+        tags: ["AIPPT", "Gamma", "Tome", "Beautiful.ai", "Canva"],
+        image: "📊"
+    },
+    {
+        id: "ai-meeting-tools-comparison-2026",
+        title: "2026年AI会议记录工具对比：Fireflies vs Otter vs tl;dv",
+        date: "2026-06-11",
+        summary: "Fireflies.ai、Otter.ai、tl;dv、Fathom、Notta...2026年AI会议记录工具怎么选？从转录准确率、中文支持、集成能力、价格5维深度对比，附3大场景实测。",
+        category: "评测对比",
+        tags: ["AI会议记录", "Fireflies", "Otter", "tl;dv", "Fathom"],
+        image: "🎙️"
+    },
+    {
+        id: "domestic-ai-tools-2026",
+        title: "2026年国内可用AI工具大全：无需翻墙、无需外币、中文原生支持",
+        date: "2026-06-11",
+        summary: "还在找梯子用ChatGPT？2026年国内已有30+款原生中文AI工具，无需翻墙、支持微信/支付宝付费、中文理解更准。覆盖对话、绘画、编程、视频、办公全场景，附避坑指南。",
+        category: "资源汇总",
+        tags: ["国产AI", "国内AI工具", "无需翻墙", "中文原生"],
+        image: "🇨🇳"
+    },
+    {
+        id: "ai-translation-tools-comparison-2026",
+        title: "2026年AI翻译工具对比：DeepL vs 彩云小译 vs 腾讯交互翻译 谁更准",
+        date: "2026-06-11",
+        summary: "DeepL、彩云小译、腾讯交互翻译、有道、百度、谷歌翻译...2026年AI翻译工具怎么选？从专业领域准确率、中英互译、文档翻译、API价格5维深度对比，附6大场景实测。",
+        category: "评测对比",
+        tags: ["AI翻译", "DeepL", "彩云小译", "腾讯翻译", "文档翻译"],
+        image: "🌐"
+    },
+    {
+        id: "ai-code-review-tools-comparison-2026",
+        title: "2026年AI代码审查工具对比：CodeRabbit vs Graphite vs GitHub Copilot Review",
+        date: "2026-06-11",
+        summary: "CodeRabbit、Graphite Reviewer、GitHub Copilot Code Review、DeepSource、SonarQube AI...2026年AI代码审查工具怎么选？从查出率、误报率、集成度、价格、支持语言5维深度对比，附5语言实测。",
+        category: "评测对比",
+        tags: ["AI代码审查", "CodeRabbit", "Graphite", "Copilot Review", "DeepSource"],
+        image: "💻"
     }
 ];
 
