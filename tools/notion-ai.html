@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://junagent.github.io">
     <link rel="manifest" href="../manifest.json">
     <meta name="theme-color" content="#0071e3">
+    <script src="../js/i18n.js"></script>
 </head>
 <body>
 
@@ -42,10 +43,10 @@
     <span><span class="logo-text-accent">AI</span>工具导航</span>
 </a>
         <div class="nav-links">
-            <a href="../index.html">首页</a>
-            <a href="../index.html#tools">工具库</a>
-            <a href="../index.html#categories">分类</a>
-            <a href="../blog/">博客</a>
+            <a href="../index.html" data-i18n="nav.home">首页</a>
+            <a href="../index.html#tools" data-i18n="nav.tools">工具库</a>
+            <a href="../index.html#categories" data-i18n="nav.categories">分类</a>
+            <a href="../blog/" data-i18n="nav.blog">博客</a>
         </div>
     </div>
 </nav>
@@ -58,29 +59,29 @@
             <h1 data-animate>Notion AI</h1>
             <div class="tags">
                 <span class="tag">效率工具</span>
-                <span class="tag">productivity</span>
+                <span class="tag" data-i18n="tag.productivity">productivity</span>
             </div>
             <div class="tool-detail-meta">
                 <span>⭐ 4.3 / 5</span>
                 <span>💰 $10/月（加Notion订阅）</span>
-                <a href="https://notion.so" target="_blank" class="btn" style="padding:6px 16px;font-size:0.9em;">访问官网 →</a>
+                <a href="https://notion.so" target="_blank" class="btn" style="padding:6px 16px;font-size:0.9em;" data-i18n="tool.visit">访问官网 →</a>
             </div>
         </div>
     </div>
 
     <div class="tool-detail-body">
         <div class="tool-main">
-            <h2 data-animate>📝 工具介绍</h2>
+            <h2 data-animate data-i18n="tool.intro">📝 工具介绍</h2>
             <p style="color:var(--text-muted);line-height:1.8;margin-bottom:20px;">
                 Notion集成的AI助手，可在笔记、文档、知识库中直接调用AI进行写作、总结、翻译和问答。
             </p>
-            <h2 data-animate>✅ 优点</h2>
+            <h2 data-animate data-i18n="tool.pros">✅ 优点</h2>
             <ul id="prosList" style="margin-bottom:20px;"></ul>
-            <h2 data-animate>⚠️ 缺点</h2>
+            <h2 data-animate data-i18n="tool.cons">⚠️ 缺点</h2>
             <ul id="consList" style="margin-bottom:20px;"></ul>
-            <h2 data-animate>🎯 适合场景</h2>
+            <h2 data-animate data-i18n="tool.scenarios">🎯 适合场景</h2>
             <div id="bestForTags" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px;"></div>
-            <h2 data-animate>📊 详细评分</h2>
+            <h2 data-animate data-i18n="tool.scores">📊 详细评分</h2>
             <div id="scoreBars" style="margin-bottom:30px;"></div>
             <h2 data-animate>🔗 替代方案</h2>
             <div id="alternatives" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;"></div>
@@ -101,7 +102,7 @@
 
             <div class="sidebar-card">
                 <h3>🔖 快速访问</h3>
-                <a href="https://notion.so" target="_blank" class="btn" style="display:block;text-align:center;margin-top:12px;">访问官网</a>
+                <a href="https://notion.so" target="_blank" class="btn" style="display:block;text-align:center;margin-top:12px;" data-i18n="tool.visit_short">访问官网</a>
             </div>
         </div>
     </div>
