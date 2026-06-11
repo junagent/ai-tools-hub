@@ -216,7 +216,7 @@ a:hover{color:var(--primary)}
     <!-- Hero区域 -->
     <section class="hero">
         <div class="container">
-            <h1 data-animate>发现最好的AI工具</h1>
+            <h1 data-animate data-i18n="hero.title">发现最好的AI工具</h1>
             <p data-animate data-animate-delay="1">精选 AI 工具深度评测与对比，帮你找到最适合的 AI 助手</p>
             <div class="hero-stats" data-animate data-animate-delay="2">
                 <div class="stat"><span class="num">26+</span><span class="label">工具评测</span></div>
@@ -283,7 +283,7 @@ a:hover{color:var(--primary)}
                 <!-- 剩余工具卡片由JS动态生成 -->
             </div>
             <div class="center" data-animate>
-                <a href="#all-tools" class="btn">查看全部工具 →</a>
+                <a href="#all-tools" class="btn" data-i18n="btn.all">查看全部工具 →</a>
             </div>
         </div>
     </section>
@@ -295,43 +295,43 @@ a:hover{color:var(--primary)}
             <div class="categories-grid">
                 <a href="#cat-writing" class="cat-card" data-animate="scale" data-animate-delay="1">
                     <span class="cat-icon">✍️</span>
-                    <h3>AI写作</h3>
-                    <p>ChatGPT、Claude、Jasper 等</p>
+                    <h3 data-i18n="cat.writing">AI写作</h3>
+                    <p data-i18n="cat.writing.desc">ChatGPT、Claude、Jasper 等</p>
                 </a>
                 <a href="#cat-image" class="cat-card" data-animate="scale" data-animate-delay="2">
                     <span class="cat-icon">🎨</span>
-                    <h3>AI绘画</h3>
-                    <p>Midjourney、DALL-E、Leonardo 等</p>
+                    <h3 data-i18n="cat.image">AI绘画</h3>
+                    <p data-i18n="cat.image.desc">Midjourney、DALL-E、Leonardo 等</p>
                 </a>
                 <a href="#cat-video" class="cat-card" data-animate="scale" data-animate-delay="3">
                     <span class="cat-icon">🎬</span>
-                    <h3>AI视频</h3>
-                    <p>Runway、Sora、Kling、Pika 等</p>
+                    <h3 data-i18n="cat.video">AI视频</h3>
+                    <p data-i18n="cat.video.desc">Runway、Sora、Kling、Pika 等</p>
                 </a>
                 <a href="#cat-code" class="cat-card" data-animate="scale" data-animate-delay="4">
                     <span class="cat-icon">💻</span>
-                    <h3>AI编程</h3>
-                    <p>Copilot、Cursor、Replit 等</p>
+                    <h3 data-i18n="cat.code">AI编程</h3>
+                    <p data-i18n="cat.code.desc">Copilot、Cursor、Replit 等</p>
                 </a>
                 <a href="#cat-chat" class="cat-card" data-animate="scale" data-animate-delay="5">
                     <span class="cat-icon">💬</span>
-                    <h3>AI对话</h3>
-                    <p>ChatGPT、Gemini、Perplexity 等</p>
+                    <h3 data-i18n="cat.chat">AI对话</h3>
+                    <p data-i18n="cat.chat.desc">ChatGPT、Gemini、Perplexity 等</p>
                 </a>
                 <a href="#cat-audio" class="cat-card" data-animate="scale" data-animate-delay="6">
                     <span class="cat-icon">🎵</span>
-                    <h3>AI音频</h3>
-                    <p>ElevenLabs、Murf、Suno 等</p>
+                    <h3 data-i18n="cat.audio">AI音频</h3>
+                    <p data-i18n="cat.audio.desc">ElevenLabs、Murf、Suno 等</p>
                 </a>
                 <a href="#cat-productivity" class="cat-card" data-animate="scale" data-animate-delay="7">
                     <span class="cat-icon">⚡</span>
-                    <h3>效率工具</h3>
-                    <p>Notion AI、Canva AI 等</p>
+                    <h3 data-i18n="cat.productivity">效率工具</h3>
+                    <p data-i18n="cat.productivity.desc">Notion AI、Canva AI 等</p>
                 </a>
                 <a href="#cat-marketing" class="cat-card" data-animate="scale" data-animate-delay="8">
                     <span class="cat-icon">📈</span>
-                    <h3>营销工具</h3>
-                    <p>Semrush、HubSpot AI 等</p>
+                    <h3 data-i18n="cat.marketing">营销工具</h3>
+                    <p data-i18n="cat.marketing.desc">Semrush、HubSpot AI 等</p>
                 </a>
             </div>
         </div>
@@ -345,7 +345,7 @@ a:hover{color:var(--primary)}
                 <!-- 博客卡片由JS生成 -->
             </div>
             <div class="center" data-animate>
-                <a href="blog/" class="btn">查看全部文章 →</a>
+                <a href="blog/" class="btn" data-i18n="btn.blog">查看全部文章 →</a>
             </div>
         </div>
     </section>
@@ -355,10 +355,10 @@ a:hover{color:var(--primary)}
         <div class="container">
             <div class="newsletter" data-animate="scale">
                 <h2>📬 订阅AI周报</h2>
-                <p>每周精选AI工具推荐和行业动态，免费订阅</p>
+                <p data-i18n="newsletter.sub">每周精选AI工具推荐和行业动态，免费订阅</p>
                 <form onsubmit="subscribeNewsletter(event)">
-                    <input type="email" placeholder="输入你的邮箱..." required>
-                    <button type="submit">订阅</button>
+                    <input type="email" placeholder data-i18n="newsletter.placeholder" required>
+                    <button type="submit" data-i18n="newsletter.button">订阅</button>
                 </form>
             </div>
         </div>
@@ -370,10 +370,10 @@ a:hover{color:var(--primary)}
             <div class="footer-grid">
                 <div>
                     <h3>🤖 AI工具导航</h3>
-                    <p>最全面的AI工具评测与导航站，帮助你发现最适合的AI助手，提升工作效率。</p>
+                    <p data-i18n="footer.desc">最全面的AI工具评测与导航站，帮助你发现最适合的AI助手，提升工作效率。</p>
                 </div>
                 <div>
-                    <h4>快速链接</h4>
+                    <h4 data-i18n="footer.quick">快速链接</h4>
                     <ul>
                         <li><a href="index.html">首页</a></li>
                         <li><a href="#tools">工具库</a></li>
@@ -382,21 +382,7 @@ a:hover{color:var(--primary)}
                     </ul>
                 </div>
                 <div>
-                    <h4>热门分类</h4>
-                    <ul>
-                        <li><a href="#cat-writing">AI写作工具</a></li>
-                        <li><a href="#cat-image">AI绘画工具</a></li>
-                        <li><a href="#cat-code">AI编程工具</a></li>
-                        <li><a href="#cat-chat">AI对话工具</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>友情链接</h4>
-                    <ul>
-                        <li><a href="https://github.com/junagent/ai-tools-hub" target="_blank" rel="noopener">GitHub 项目</a></li>
-                        <li><a href="blog/">技术博客</a></li>
-                        <li><a href="about.html">关于我们</a></li>
-                    </ul>
+                    <h4 id="lang-toggle" data-i18n="footer.lang" style="cursor:pointer;">English</h4>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -406,6 +392,7 @@ a:hover{color:var(--primary)}
     </footer>
 </main>
 
+    <script src="js/i18n.js"></script>
     <script defer src="js/tools-data.min.js"></script>
     <script defer src="js/enhance.min.js"></script>
 </body>
