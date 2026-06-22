@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/icons/icon-512.png</image:loc>
+      <image:title>AI工具导航</image:title>
+      <image:caption>最全面的AI工具导航站</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog index -->
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Static pages -->
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/about.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/privacy.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/terms.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Tool pages with images -->
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/chatgpt.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/chatgpt.webp</image:loc>
+      <image:title>ChatGPT - OpenAI开发的AI对话助手</image:title>
+      <image:caption>ChatGPT - OpenAI开发的AI对话助手 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/claude.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/claude-logo.svg</image:loc>
+      <image:title>Claude - Anthropic公司开发的AI助手</image:title>
+      <image:caption>Claude - Anthropic公司开发的AI助手 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/midjourney.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/midjourney.webp</image:loc>
+      <image:title>Midjourney - AI图像生成工具</image:title>
+      <image:caption>Midjourney - AI图像生成工具 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/github-copilot.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/github-copilot.webp</image:loc>
+      <image:title>GitHub Copilot - AI编程助手</image:title>
+      <image:caption>GitHub Copilot - AI编程助手 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/cursor.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/cursor.webp</image:loc>
+      <image:title>Cursor - AI代码编辑器</image:title>
+      <image:caption>Cursor - AI代码编辑器 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/runway-gen3.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/runway-gen3.webp</image:loc>
+      <image:title>Runway Gen-3 - AI视频生成</image:title>
+      <image:caption>Runway Gen-3 - AI视频生成 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/elevenlabs.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/elevenlabs.webp</image:loc>
+      <image:title>ElevenLabs - AI语音合成</image:title>
+      <image:caption>ElevenLabs - AI语音合成 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/copilot-microsoft.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/copilot-microsoft.webp</image:loc>
+      <image:title>Microsoft Copilot - AI办公助手</image:title>
+      <image:caption>Microsoft Copilot - AI办公助手 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/adobe-firefly.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/adobe-firefly.webp</image:loc>
+      <image:title>Adobe Firefly - Adobe AI创意工具</image:title>
+      <image:caption>Adobe Firefly - Adobe AI创意工具 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/kling.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/kling.webp</image:loc>
+      <image:title>可灵AI (Kling) - 字节跳动AI视频</image:title>
+      <image:caption>可灵AI (Kling) - 字节跳动AI视频 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/pika.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/pika.webp</image:loc>
+      <image:title>Pika - AI视频生成</image:title>
+      <image:caption>Pika - AI视频生成 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/murf-ai.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/murf-ai.webp</image:loc>
+      <image:title>Murf.ai - AI配音工具</image:title>
+      <image:caption>Murf.ai - AI配音工具 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/semrush-ai-writing.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/semrush-ai-writing.webp</image:loc>
+      <image:title>Semrush AI Writing - AI SEO写作</image:title>
+      <image:caption>Semrush AI Writing - AI SEO写作 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/jasper.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/jasper.webp</image:loc>
+      <image:title>Jasper - AI写作助手</image:title>
+      <image:caption>Jasper - AI写作助手 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/semrush-ai.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/semrush-ai.webp</image:loc>
+      <image:title>Semrush AI - AI营销工具</image:title>
+      <image:caption>Semrush AI - AI营销工具 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/leonardo.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/leonardo.webp</image:loc>
+      <image:title>Leonardo - AI绘画</image:title>
+      <image:caption>Leonardo - AI绘画 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/perplexity.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/perplexity.webp</image:loc>
+      <image:title>Perplexity - AI搜索引擎</image:title>
+      <image:caption>Perplexity - AI搜索引擎 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/gemini.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/gemini.webp</image:loc>
+      <image:title>Google Gemini - 谷歌AI助手</image:title>
+      <image:caption>Google Gemini - 谷歌AI助手 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/ideogram-v2.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/ideogram-v2.webp</image:loc>
+      <image:title>Ideogram v2 - AI图像生成</image:title>
+      <image:caption>Ideogram v2 - AI图像生成 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/stable-diffusion-xl.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/stable-diffusion-xl.webp</image:loc>
+      <image:title>Stable Diffusion XL - 开源AI绘画</image:title>
+      <image:caption>Stable Diffusion XL - 开源AI绘画 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/sora.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/sora.webp</image:loc>
+      <image:title>OpenAI Sora - AI视频生成</image:title>
+      <image:caption>OpenAI Sora - AI视频生成 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/sunoo.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/sunoo.webp</image:loc>
+      <image:title>Suno AI - AI音乐生成</image:title>
+      <image:caption>Suno AI - AI音乐生成 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/notion-ai.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/notion-ai.webp</image:loc>
+      <image:title>Notion AI - AI笔记助手</image:title>
+      <image:caption>Notion AI - AI笔记助手 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/canva-ai.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/canva-ai.webp</image:loc>
+      <image:title>Canva AI - AI设计工具</image:title>
+      <image:caption>Canva AI - AI设计工具 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/hubspot-ai.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/hubspot-ai.webp</image:loc>
+      <image:title>HubSpot AI - AI营销自动化</image:title>
+      <image:caption>HubSpot AI - AI营销自动化 官方logo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/tools/replit-ai.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://junagent.github.io/ai-tools-hub/images/logos/replit-ai.webp</image:loc>
+      <image:title>Replit AI - AI在线编程</image:title>
+      <image:caption>Replit AI - AI在线编程 官方logo</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog posts -->
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/free-ai-tools-2026.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-video-tools-guide.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-beginners-guide.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/chatgpt-vs-claude-2026.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-image-tools-guide.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-coding-tools-comparison.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-tools-for-marketers.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-writing-tools-comparison-2026.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/make-money-with-ai-tools.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/midjourney-v7-complete-guide.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/top-10-ai-productivity-tools-2026.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/elevenlabs-vs-murf-ai-voice-comparison.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/best-ai-tools-2026.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-tools-for-students.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/chatgpt-prompts-guide.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-seo-tools-2026.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-automation-tools-comparison.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-for-small-business.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- 2026年6月7日新增 -->
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/chatgpt-alternatives-free.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-art-tools-comparison-ultimate.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 2026年6月11日新增 -->
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-ppt-tools-comparison-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-meeting-tools-comparison-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/domestic-ai-tools-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-translation-tools-comparison-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://junagent.github.io/ai-tools-hub/blog/ai-code-review-tools-comparison-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

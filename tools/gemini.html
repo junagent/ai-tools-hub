@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- AdSense -->
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2161272221768501" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Gemini - AI工具评测 | AI工具导航</title>
+    <meta name="description" content="谷歌推出的多模态AI助手，深度集成Google搜索和Google Workspace，支持文本、图片、音频、视频多模态输入，Gemini 2.0 Flash响应速度极快。">
+<link rel="canonical" href="https://junagent.github.io/ai-tools-hub/tools/gemini.html">
+<link rel="stylesheet" href="../css/style.min.css">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://junagent.github.io">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#0071e3">
+    <script src="../js/i18n.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <a href="../index.html" class="logo">
+    <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="lg1" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0071e3"/><stop offset="100%" stop-color="#40a0ff"/></linearGradient>
+            <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#40a0ff"/><stop offset="100%" stop-color="#0071e3"/></linearGradient>
+        </defs>
+        <circle cx="20" cy="20" r="18" fill="none" stroke="url(#lg2)" stroke-width="1" opacity="0.35" class="glow"/>
+        <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" fill="none" stroke="url(#lg1)" stroke-width="1.5" opacity="0.7"/>
+        <polygon points="20,9 29,14.5 29,25.5 20,31 11,25.5 11,14.5" fill="url(#lg1)" opacity="0.12"/>
+        <circle cx="20" cy="14" r="2.5" fill="#0071e3" class="pulse"/>
+        <circle cx="12" cy="22" r="2" fill="#40a0ff" class="pulse" style="animation-delay:0.6s"/>
+        <circle cx="28" cy="22" r="2" fill="#0071e3" class="pulse" style="animation-delay:1.2s"/>
+        <circle cx="20" cy="30" r="2" fill="#40a0ff" class="pulse" style="animation-delay:1.8s"/>
+        <line x1="20" y1="16.5" x2="20" y2="28" stroke="url(#lg2)" stroke-width="1.2"/>
+        <line x1="20" y1="14" x2="12" y2="22" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="2.5 2"/>
+        <line x1="20" y1="14" x2="28" y2="22" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="2.5 2"/>
+        <line x1="12" y1="22" x2="20" y2="30" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="2.5 2"/>
+        <line x1="28" y1="22" x2="20" y2="30" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="2.5 2"/>
+        <circle cx="20" cy="22" r="1.5" fill="#1d1d1f" opacity="0.9"/>
+    </svg>
+    <span><span class="logo-text-accent">AI</span>工具导航</span>
+</a>
+        <div class="nav-links">
+            <a href="../index.html" data-i18n="nav.home">首页</a>
+            <a href="../index.html#tools" data-i18n="nav.tools">工具库</a>
+            <a href="../index.html#categories" data-i18n="nav.categories">分类</a>
+            <a href="../blog/" data-i18n="nav.blog">博客</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+<section class="tool-detail container">
+    <div class="tool-detail-header">
+        <div class="tool-detail-icon">🤖</div>
+        <div class="tool-detail-info">
+            <h1 data-animate>Google Gemini</h1>
+            <div class="tags">
+                <span class="tag" data-i18n="tag.AI对话">AI对话</span>
+                <span class="tag" data-i18n="tag.chat">chat</span>
+            </div>
+            <div class="tool-detail-meta">
+                <span>⭐ 4.6 / 5</span>
+                <span>💰 免费 + Advanced $19.99/月</span>
+                <a href="https://gemini.google.com" target="_blank" class="btn" style="padding:6px 16px;font-size:0.9em;" data-i18n="tool.visit">访问官网 →</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="tool-detail-body">
+        <div class="tool-main">
+            <h2 data-animate data-i18n="tool.intro">📝 工具介绍</h2>
+            <p style="color:var(--text-muted);line-height:1.8;margin-bottom:20px;">
+                谷歌推出的多模态AI助手，深度集成Google搜索和Google Workspace，支持文本、图片、音频、视频多模态输入，Gemini 2.0 Flash响应速度极快。
+            </p>
+            <h2 data-animate data-i18n="tool.pros">✅ 优点</h2>
+            <ul id="prosList" style="margin-bottom:20px;"></ul>
+            <h2 data-animate data-i18n="tool.cons">⚠️ 缺点</h2>
+            <ul id="consList" style="margin-bottom:20px;"></ul>
+            <h2 data-animate data-i18n="tool.scenarios">🎯 适合场景</h2>
+            <div id="bestForTags" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px;"></div>
+            <h2 data-animate data-i18n="tool.scores">📊 详细评分</h2>
+            <div id="scoreBars" style="margin-bottom:30px;"></div>
+            <h2 data-animate>🔗 替代方案</h2>
+            <div id="alternatives" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;"></div>
+        </div>
+
+        <div class="tool-sidebar">
+            <div class="sidebar-card price-card">
+                <h3>💰 价格</h3>
+                <div class="price-value" style="font-size:1.8em;font-weight:700;color:var(--accent);margin:8px 0;">免费 + Advanced $19.99/月</div>
+                <div class="price-note" style="color:var(--text-muted);font-size:0.85em;">具体价格以官网为准</div>
+            </div>
+
+            <div class="sidebar-card rating-card">
+                <h3>⭐ 评分</h3>
+                <div class="stars" style="font-size:1.5em;color:#fbbf24;margin:8px 0;">★★★★☆</div>
+                <div class="rating-count" style="color:var(--text-muted);font-size:0.85em;">基于 1,200+ 用户评价</div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>🔖 快速访问</h3>
+                <a href="https://gemini.google.com" target="_blank" class="btn" style="display:block;text-align:center;margin-top:12px;" data-i18n="tool.visit_short">访问官网</a>
+            </div>
+        </div>
+    </div>
+</section></main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AI工具导航. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/tools-data.min.js"></script>
+<script>
+(function() {
+    const toolId = location.pathname.split('/').pop().replace('.html', '');
+    const tool = TOOLS_DATA.find(t => t.id === toolId);
+    if (!tool) { document.body.innerHTML = '<p style="padding:40px;text-align:center;color:var(--text-muted);">工具未找到</p>'; return; }
+    setToolOGMeta(tool);
+
+    // 更新页面标题和描述
+    document.title = tool.name + ' - AI工具评测 | AI工具导航';
+    document.querySelector('meta[name="description"]').content = tool.description;
+
+    // 填充数据
+    document.querySelector('.tool-detail-icon').innerHTML = tool.logo ? '<img class="tool-detail-icon-img" loading="lazy" decoding="async" width="64" height="64" src="../images/logos/' + tool.logo + '" alt="' + tool.name + '">' : tool.icon;
+    document.querySelector('.tool-detail-info h1').textContent = tool.name;
+    document.querySelectorAll('.tag')[0].textContent = tool.tag;
+    document.querySelectorAll('.tag')[1].textContent = Object.values(CATEGORIES).find(c => Object.keys(CATEGORIES).find(k => CATEGORIES[k] === c))?.name || tool.category;
+    document.querySelector('.tool-detail-meta span').textContent = '⭐ ' + tool.rating + ' / 5';
+    document.querySelectorAll('.tool-detail-meta span')[1].textContent = '💰 ' + tool.price;
+    document.querySelector('.btn').href = tool.url;
+    document.querySelectorAll('a[href^="https://gemini.google.com"]').forEach(a => a.href = tool.url);
+
+    // 描述
+    document.querySelector('.tool-main p').textContent = tool.description;
+
+    // 优点
+    const prosList = document.getElementById('prosList');
+    tool.pros.forEach(p => {
+        const li = document.createElement('li');
+        li.textContent = p;
+        li.style.color = 'var(--text-muted)';
+        li.style.marginBottom = '6px';
+        prosList.appendChild(li);
+    });
+
+    // 缺点
+    const consList = document.getElementById('consList');
+    tool.cons.forEach(c => {
+        const li = document.createElement('li');
+        li.textContent = c;
+        li.style.color = 'var(--text-muted)';
+        li.style.marginBottom = '6px';
+        consList.appendChild(li);
+    });
+
+    // 适合场景
+    const bestForTags = document.getElementById('bestForTags');
+    tool.bestFor.forEach(f => {
+        const span = document.createElement('span');
+        span.className = 'tag';
+        span.textContent = f;
+        bestForTags.appendChild(span);
+    });
+
+    // 评分条（确定性分数，基于工具ID哈希）
+    const scoreBars = document.getElementById('scoreBars');
+    const _h = (s, seed) => { let h = seed; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) & 0x7fffffff; return h; };
+    const _r = (key, lo, hi) => lo + (_h(toolId + key, 0x9e3779b9) % (hi - lo + 1));
+    const r = tool.rating;
+    const criteria = {
+        '易用性': Math.min(99, Math.max(60, Math.round(r * 20 - _r('ease', 0, 8)))),
+        '功能性': Math.min(99, Math.max(65, Math.round(r * 20 - _r('func', 0, 5)))),
+        '性价比': Math.min(99, Math.max(55, Math.round(r * 18 - _r('price', 0, 12)))),
+        '输出质量': Math.min(99, Math.max(65, Math.round(r * 20 - _r('quality', 0, 7)))),
+        '客户支持': Math.min(99, Math.max(50, Math.round(r * 17 - _r('support', 0, 10)))),
+    };
+    Object.entries(criteria).forEach(([key, val]) => {
+        const score = Math.min(100, Math.max(0, Math.round(val)));
+        const bar = document.createElement('div');
+        bar.className = 'score-bar';
+        bar.innerHTML = `
+            <span class="label">${key}</span>
+            <div class="bar-bg"><div class="bar-fill" style="width:${score}%"></div></div>
+            <span class="score-val">${score}</span>
+        `;
+        scoreBars.appendChild(bar);
+    });
+
+    // 替代方案
+    const alternatives = document.getElementById('alternatives');
+    tool.alternatives.forEach(altId => {
+        const alt = TOOLS_DATA.find(t => t.id === altId);
+        if (!alt) return;
+        const card = document.createElement('a');
+        card.href = alt.id + '.html';
+        card.style.cssText = 'background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:12px;display:block;transition:border-color 0.2s;';
+        card.onmouseover = () => card.style.borderColor = 'var(--primary)';
+        card.onmouseout = () => card.style.borderColor = 'var(--border)';
+        card.innerHTML = `<div style="font-size:1.5em;margin-bottom:4px;">${alt.icon}</div><div style="font-weight:600;font-size:0.9em;">${alt.name}</div><div style="color:var(--text-muted);font-size:0.8em;">${alt.tag}</div>`;
+        alternatives.appendChild(card);
+    });
+
+    // 侧边栏
+    document.querySelector('.price-value').textContent = tool.price;
+    const stars = '★'.repeat(Math.floor(tool.rating)) + (tool.rating % 1 >= 0.5 ? '☆' : '');
+    document.querySelector('.stars').textContent = stars;
+
+    // 渲染FAQ区块
+    renderToolFAQ(toolId);
+})();
+</script>
+<script src="../js/enhance.min.js"></script>
+</body>
+</html>

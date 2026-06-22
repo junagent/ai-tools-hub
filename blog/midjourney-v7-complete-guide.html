@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- AdSense -->
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2161272221768501" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midjourney v7完全使用指南：从入门到精通 | AI工具博客</title>
+    <meta name="description" content="详细讲解Midjourney v7的使用方法，包括Prompt技巧、参数设置、风格控制、商业应用等，配合大量实例帮助你快速上手AI绘图。">
+<link rel="canonical" href="https://junagent.github.io/ai-tools-hub/blog/midjourney-v7-complete-guide.html">
+<link rel="stylesheet" href="../css/style.min.css">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Midjourney v7完全使用指南：从入门到精通 | AI工具博客">
+    <meta property="og:description" content="详细讲解Midjourney v7的使用方法，包括Prompt技巧、参数设置、风格控制、商业应用等，配合大量实例帮助你快速上手AI绘图。">
+    <meta property="og:url" content="https://junagent.github.io/ai-tools-hub/blog/midjourney-v7-complete-guide.html">
+    <meta property="og:site_name" content="AI工具导航">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Midjourney v7完全使用指南：从入门到精通 | AI工具博客">
+    <meta name="twitter:description" content="详细讲解Midjourney v7的使用方法，包括Prompt技巧、参数设置、风格控制、商业应用等，配合大量实例帮助你快速上手AI绘图。">
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Midjourney v7完全使用指南：从入门到精通 | AI工具博客",
+  "description": "详细讲解Midjourney v7的使用方法，包括Prompt技巧、参数设置、风格控制、商业应用等，配合大量实例帮助你快速上手AI绘图。",
+  "url": "https://junagent.github.io/ai-tools-hub/blog/midjourney-v7-complete-guide.html",
+  "datePublished": "2026-05-20",
+  "dateModified": "2026-05-23",
+  "author": {
+    "@type": "Organization",
+    "name": "AI工具导航"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI工具导航",
+    "url": "https://junagent.github.io/ai-tools-hub/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://junagent.github.io/ai-tools-hub/blog/midjourney-v7-complete-guide.html"
+  }
+}
+    </script>
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://junagent.github.io">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#0071e3">
+
+    <!-- hreflang & English SEO meta -->
+    <link rel="alternate" hreflang="en" href="https://junagent.github.io/ai-tools-hub/blog/midjourney-v7-complete-guide.html?lang=en">
+    <link rel="alternate" hreflang="zh-CN" href="https://junagent.github.io/ai-tools-hub/blog/midjourney-v7-complete-guide.html">
+    <link rel="alternate" hreflang="x-default" href="https://junagent.github.io/ai-tools-hub/blog/midjourney-v7-complete-guide.html">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <!-- GA4 placeholder - replace G-XXXXXXXXXX with your Measurement ID -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
+    <!-- GSC verification placeholder -->
+    <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" /> -->
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <a href="../index.html" class="logo">
+    <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="lg1" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0071e3"/><stop offset="100%" stop-color="#40a0ff"/></linearGradient>
+            <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#40a0ff"/><stop offset="100%" stop-color="#0071e3"/></linearGradient>
+        </defs>
+        <circle cx="20" cy="20" r="18" fill="none" stroke="url(#lg2)" stroke-width="1" opacity="0.35"/>
+        <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" fill="none" stroke="url(#lg1)" stroke-width="1.5" opacity="0.7"/>
+        <polygon points="20,9 29,14.5 29,25.5 20,31 11,25.5 11,14.5" fill="url(#lg1)" opacity="0.12"/>
+        <circle cx="20" cy="14" r="2.5" fill="#0071e3"/>
+        <circle cx="12" cy="22" r="2" fill="#40a0ff"/>
+        <circle cx="28" cy="22" r="2" fill="#0071e3"/>
+        <circle cx="20" cy="30" r="2" fill="#40a0ff"/>
+        <line x1="20" y1="16.5" x2="20" y2="28" stroke="url(#lg2)" stroke-width="1.2"/>
+        <line x1="20" y1="14" x2="12" y2="22" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="2.5 2"/>
+        <line x1="20" y1="14" x2="28" y2="22" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="2.5 2"/>
+        <line x1="12" y1="22" x2="20" y2="30" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="2.5 2"/>
+        <line x1="28" y1="22" x2="20" y2="30" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="2.5 2"/>
+        <circle cx="20" cy="22" r="1.5" fill="#1d1d1f" opacity="0.9"/>
+    </svg>
+    <span><span class="logo-text-accent">AI</span>工具导航</span>
+</a>
+        <div class="nav-links">
+            <a href="../index.html">首页</a>
+            <a href="../index.html#tools">工具库</a>
+            <a href="../index.html#categories">分类</a>
+            <a href="index.html">博客</a>
+            <a href="../about.html">关于</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+<article class="container" style="max-width:800px;padding:40px 20px;">
+    <div style="color:var(--text-muted);font-size:0.9em;margin-bottom:16px;">
+        🎨 使用教程 · 2026年5月20日 · 预计阅读时间：15分钟
+    </div>
+    <h1 style="font-size:2.2em;margin-bottom:20px;line-height:1.3;" data-animate>
+        Midjourney v7完全使用指南：从入门到精通
+    </h1>
+<div style="line-height:1.9;font-size:1.05em;">
+        <p style="color:var(--text-muted);margin-bottom:24px;">
+            Midjourney v7 是目前公认的最强AI绘图工具之一，生成的图像质量已达到甚至超越专业插画师的水准。本文从零开始，带你掌握 Midjourney v7 的完整使用方法。
+        </p>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;" data-animate>🚀 快速开始</h2>
+        <p style="color:var(--text-muted);margin-bottom:16px;"><strong style="color:var(--text);">订阅要求：</strong>Midjourney 没有免费版，最低 $10/月（200张图/月）。推荐 $30/月（无限生成，Fast模式30小时）。</p>
+        <ol style="color:var(--text-muted);padding-left:20px;line-height:2.2;">
+            <li>访问 midjourney.com，用 Discord 账号登录</li>
+            <li>加入 Midjourney Discord 服务器</li>
+            <li>在任意 #newbies 频道输入 /imagine 命令</li>
+            <li>在 prompt 后输入你的描述，回车即可生成</li>
+        </ol>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;" data-animate>✍️ Prompt 写作技巧</h2>
+        <p style="color:var(--text-muted);margin-bottom:16px;">Prompt 质量直接决定出图质量。一个好的 Prompt 通常包含以下要素：</p>
+
+        <div style="background:var(--bg-card);padding:20px;border-radius:10px;margin-bottom:20px;font-family:monospace;font-size:0.95em;border:1px solid var(--border);">
+            <span style="color:#0071e3;">[主体描述]</span>, <span style="color:#22c55e;">[风格]</span>, <span style="color:#f59e0b;">[灯光/氛围]</span>, <span style="color:#0ea5e9;">[构图/视角]</span>, <span style="color:#40a0ff;">[质量词]</span>
+        </div>
+
+        <p style="color:var(--text-muted);margin-bottom:12px;"><strong style="color:var(--text);">示例Prompt对比：</strong></p>
+        <div style="display:grid;gap:12px;margin-bottom:24px;">
+            <div style="background:rgba(239,68,68,0.1);padding:16px;border-radius:8px;border:1px solid rgba(239,68,68,0.2);">
+                <div style="color:#ef4444;font-size:0.85em;margin-bottom:6px;">❌ 差的Prompt</div>
+                <code style="color:var(--text-muted);">a cat sitting</code>
+            </div>
+            <div style="background:rgba(34,197,94,0.1);padding:16px;border-radius:8px;border:1px solid rgba(34,197,94,0.2);">
+                <div style="color:#22c55e;font-size:0.85em;margin-bottom:6px;">✅ 好的Prompt</div>
+                <code style="color:var(--text-muted);">a fluffy orange Persian cat sitting on a windowsill, golden hour sunlight, bokeh background, photography style, 85mm lens, ultra detailed, 8k</code>
+            </div>
+        </div>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;" data-animate>⚙️ 常用参数详解</h2>
+        <div style="overflow-x:auto;margin-bottom:30px;">
+            <table style="width:100%;border-collapse:collapse;">
+                <tr style="background:var(--bg-card);">
+                    <th style="padding:12px;text-align:left;border:1px solid var(--border);">参数</th>
+                    <th style="padding:12px;text-align:left;border:1px solid var(--border);">用途</th>
+                    <th style="padding:12px;text-align:left;border:1px solid var(--border);">示例</th>
+                </tr>
+                <tr>
+                    <td style="padding:10px;border:1px solid var(--border);"><code>--ar</code></td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">设置宽高比</td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">--ar 16:9（横版）--ar 9:16（竖版）</td>
+                </tr>
+                <tr style="background:rgba(30,41,59,0.3);">
+                    <td style="padding:10px;border:1px solid var(--border);"><code>--v 7</code></td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">指定版本</td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">--v 7 使用最新版本</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;border:1px solid var(--border);"><code>--style</code></td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">风格强度</td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">--style raw（更写实）</td>
+                </tr>
+                <tr style="background:rgba(30,41,59,0.3);">
+                    <td style="padding:10px;border:1px solid var(--border);"><code>--q</code></td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">生成质量</td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">--q 2（更高质量，更慢）</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;border:1px solid var(--border);"><code>--no</code></td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">排除元素</td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">--no text（去除文字）</td>
+                </tr>
+                <tr style="background:rgba(30,41,59,0.3);">
+                    <td style="padding:10px;border:1px solid var(--border);"><code>--seed</code></td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">固定随机种子</td>
+                    <td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">--seed 1234（复现风格）</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;" data-animate>🎨 风格关键词参考</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:30px;">
+            <div style="background:var(--bg-card);padding:16px;border-radius:10px;border:1px solid var(--border);">
+                <h3 style="font-size:0.95em;margin-bottom:10px;color:#0071e3;">📸 摄影风格</h3>
+                <ul style="color:var(--text-muted);font-size:0.9em;list-style:none;padding:0;line-height:2;">
+                    <li>photography</li>
+                    <li>35mm film</li>
+                    <li>bokeh</li>
+                    <li>macro photography</li>
+                    <li>golden hour</li>
+                </ul>
+            </div>
+            <div style="background:var(--bg-card);padding:16px;border-radius:10px;border:1px solid var(--border);">
+                <h3 style="font-size:0.95em;margin-bottom:10px;color:#0071e3;">🖌️ 艺术风格</h3>
+                <ul style="color:var(--text-muted);font-size:0.9em;list-style:none;padding:0;line-height:2;">
+                    <li>oil painting</li>
+                    <li>watercolor</li>
+                    <li>digital art</li>
+                    <li>concept art</li>
+                    <li>anime style</li>
+                </ul>
+            </div>
+            <div style="background:var(--bg-card);padding:16px;border-radius:10px;border:1px solid var(--border);">
+                <h3 style="font-size:0.95em;margin-bottom:10px;color:#0071e3;">✨ 质量词</h3>
+                <ul style="color:var(--text-muted);font-size:0.9em;list-style:none;padding:0;line-height:2;">
+                    <li>ultra detailed</li>
+                    <li>8k resolution</li>
+                    <li>photorealistic</li>
+                    <li>masterpiece</li>
+                    <li>professional</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;" data-animate>💡 高级技巧</h2>
+
+        <h3 style="font-size:1.2em;margin:24px 0 12px;">图生图（--iw 参数）</h3>
+        <p style="color:var(--text-muted);margin-bottom:16px;">
+            上传参考图片，用 --iw 参数（0.5-2.0）控制参考图的影响程度。数值越高，生成结果越接近参考图。这对保持风格一致性非常有用。
+        </p>
+
+        <h3 style="font-size:1.2em;margin:24px 0 12px;">Remix 模式</h3>
+        <p style="color:var(--text-muted);margin-bottom:16px;">
+            开启 Remix 模式后，点击图片变体时可以修改 Prompt，在保留原图构图的基础上改变细节。这是创作系列图片的最佳方法。
+        </p>
+
+        <h3 style="font-size:1.2em;margin:24px 0 12px;">Pan 和 Zoom 功能</h3>
+        <p style="color:var(--text-muted);margin-bottom:16px;">
+            生成图片后，可以用 Pan（向四个方向延伸画布）或 Zoom（缩放出去）功能扩展图片，创作超宽全景图或电影画幅作品。
+        </p>
+<h2 style="font-size:1.5em;margin:40px 0 16px;" data-animate>⚠️ 常见问题解决</h2>
+        <div style="display:grid;gap:12px;margin-bottom:24px;">
+            <div style="background:var(--bg-card);padding:16px;border-radius:10px;border:1px solid var(--border);">
+                <strong>Q: 生成的人物手部变形怎么办？</strong>
+                <p style="color:var(--text-muted);font-size:0.95em;margin-top:8px;">A: 在 Prompt 中加入 "perfect hands, detailed fingers"，或使用 Vary(Region) 功能单独重绘手部区域。</p>
+            </div>
+            <div style="background:var(--bg-card);padding:16px;border-radius:10px;border:1px solid var(--border);">
+                <strong>Q: 图片文字总是乱码？</strong>
+                <p style="color:var(--text-muted);font-size:0.95em;margin-top:8px;">A: Midjourney 对文字支持较差，建议先生成图片，再用 Canva 等工具添加文字。</p>
+            </div>
+            <div style="background:var(--bg-card);padding:16px;border-radius:10px;border:1px solid var(--border);">
+                <strong>Q: 如何保持多张图风格一致？</strong>
+                <p style="color:var(--text-muted);font-size:0.95em;margin-top:8px;">A: 记录第一张满意图片的 --seed 值，在后续生成中使用相同的 seed 和类似 Prompt。</p>
+            </div>
+        </div>
+
+        <p style="color:var(--text-muted);">
+            掌握以上技巧后，你已经能生成专业级别的 AI 图像。记住：Midjourney 的学习曲线主要在于 Prompt 技巧，多练习、多参考社区优质作品是提升的最快路径。
+        </p>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;" data-animate>🚀 Midjourney v7 新特性</h2>
+        <p style="color:var(--text-muted);margin-bottom:16px;">2026年发布的 v7 版本带来了重大升级：</p>
+        <div style="display:grid;gap:12px;margin-bottom:24px;">
+            <div style="background:var(--bg-card);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:14px;">
+                <p style="font-weight:600;margin-bottom:6px;">✨ 角色一致性（Character Reference）</p>
+                <p style="color:var(--text-muted);font-size:0.9em;">可以锁定特定角色外观，在不同场景中保持角色一致。使用 <code style="background:var(--bg-main);padding:2px 6px;border-radius:4px;">--cref [图片URL]</code> 参数。</p>
+            </div>
+            <div style="background:var(--bg-card);border-left:3px solid var(--secondary);border-radius:0 10px 10px 0;padding:14px;">
+                <p style="font-weight:600;margin-bottom:6px;">🎨 风格引用（Style Reference）</p>
+                <p style="color:var(--text-muted);font-size:0.9em;">上传参考风格图，AI 学习其视觉风格并应用到新生成内容。使用 <code style="background:var(--bg-main);padding:2px 6px;border-radius:4px;">--sref [图片URL]</code> 参数。</p>
+            </div>
+            <div style="background:var(--bg-card);border-left:3px solid #10b981;border-radius:0 10px 10px 0;padding:14px;">
+                <p style="font-weight:600;margin-bottom:6px;">🌐 网页版界面</p>
+                <p style="color:var(--text-muted);font-size:0.9em;">midjourney.com 现已提供完整网页版，不再需要 Discord。界面更友好，支持图片管理和社区探索。</p>
+            </div>
+            <div style="background:var(--bg-card);border-left:3px solid #f59e0b;border-radius:0 10px 10px 0;padding:14px;">
+                <p style="font-weight:600;margin-bottom:6px;">⚡ 生成速度提升</p>
+                <p style="color:var(--text-muted);font-size:0.9em;">v7 的生成速度比 v6 快约30%，快速模式（Fast Mode）几乎即时出图。</p>
+            </div>
+        </div>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;" data-animate>💰 订阅方案选择</h2>
+        <div style="overflow-x:auto;margin-bottom:24px;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.9em;">
+                <tr style="background:var(--bg-card);">
+                    <th style="padding:12px;text-align:left;border:1px solid var(--border);">套餐</th>
+                    <th style="padding:12px;text-align:left;border:1px solid var(--border);">月费</th>
+                    <th style="padding:12px;text-align:left;border:1px solid var(--border);">快速生成</th>
+                    <th style="padding:12px;text-align:left;border:1px solid var(--border);">适合</th>
+                </tr>
+                <tr><td style="padding:10px;border:1px solid var(--border);">基础版</td><td style="padding:10px;border:1px solid var(--border);">$10/月</td><td style="padding:10px;border:1px solid var(--border);">3.3小时GPU</td><td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">入门体验</td></tr>
+                <tr style="background:rgba(30,41,59,0.3);"><td style="padding:10px;border:1px solid var(--border);">标准版</td><td style="padding:10px;border:1px solid var(--border);">$30/月</td><td style="padding:10px;border:1px solid var(--border);">15小时GPU</td><td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">日常创作者</td></tr>
+                <tr><td style="padding:10px;border:1px solid var(--border);">专业版</td><td style="padding:10px;border:1px solid var(--border);">$60/月</td><td style="padding:10px;border:1px solid var(--border);">30小时GPU + 隐私</td><td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">商业用途</td></tr>
+                <tr style="background:rgba(30,41,59,0.3);"><td style="padding:10px;border:1px solid var(--border);">极速版</td><td style="padding:10px;border:1px solid var(--border);">$120/月</td><td style="padding:10px;border:1px solid var(--border);">60小时GPU</td><td style="padding:10px;border:1px solid var(--border);color:var(--text-muted);">高频商业</td></tr>
+            </table>
+        </div>
+        <p style="color:var(--text-muted);margin-bottom:16px;">💡 建议：入门用标准版（$30），足够日常创作使用。商业用途选专业版，输出内容受隐私保护。</p>
+    </div>
+
+    <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);">
+        <h3 style="font-size:1.1em;margin-bottom:16px;">相关文章</h3>
+        <ul style="list-style:none;padding:0;line-height:2.5;">
+            <li>→ <a href="ai-image-tools-guide.html">AI绘图工具完整指南</a></li>
+            <li>→ <a href="make-money-with-ai-tools.html">用AI工具每月多挣5000元</a></li>
+            <li>→ <a href="free-ai-tools-2026.html">2026年最值得使用的免费AI工具</a></li>
+        </ul>
+    </div>
+</article>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AI工具导航. All rights reserved. | <a href="../privacy.html">隐私政策</a> | <a href="../terms.html">使用条款</a> | <a href="../about.html">关于我们</a></p>
+        </div>
+    </div>
+</footer>
+    <script src="../js/tools-data.min.js"></script>
+    <script src="../js/blog-enhance.js"></script>
+    <script src="../js/enhance.min.js"></script>
+</body>
+</html>

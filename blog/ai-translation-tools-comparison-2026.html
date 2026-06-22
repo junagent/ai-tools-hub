@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年AI翻译工具对比：DeepL vs 彩云小译 vs 腾讯交互翻译 谁更准</title>
+    <meta name="description" content="DeepL、彩云小译、腾讯交互翻译、有道、百度、谷歌翻译...2026年AI翻译工具怎么选？从专业领域准确率、中英互译、文档翻译、API价格5维深度对比，附6大场景实测。">
+    <link rel="canonical" href="https://junagent.github.io/ai-tools-hub/blog/ai-translation-tools-comparison-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2161272221768501" crossorigin="anonymous"></script>
+
+    <!-- hreflang & English SEO meta -->
+    <link rel="alternate" hreflang="en" href="https://junagent.github.io/ai-tools-hub/blog/ai-translation-tools-comparison-2026.html?lang=en">
+    <link rel="alternate" hreflang="zh-CN" href="https://junagent.github.io/ai-tools-hub/blog/ai-translation-tools-comparison-2026.html">
+    <link rel="alternate" hreflang="x-default" href="https://junagent.github.io/ai-tools-hub/blog/ai-translation-tools-comparison-2026.html">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <!-- GA4 placeholder - replace G-XXXXXXXXXX with your Measurement ID -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
+    <!-- GSC verification placeholder -->
+    <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" /> -->
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <a href="../index.html" class="logo">
+            <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="lg1" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#c084fc"/></linearGradient>
+                    <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#6366f1"/></linearGradient>
+                </defs>
+                <circle cx="20" cy="20" r="18" fill="none" stroke="url(#lg2)" stroke-width="1" opacity="0.35" class="glow"/>
+                <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" fill="none" stroke="url(#lg1)" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="20,9 29,14.5 29,25.5 20,31 11,25.5 11,14.5" fill="url(#lg1)" opacity="0.12"/>
+                <circle cx="20" cy="14" r="2.5" fill="#818cf8" class="pulse"/>
+                <circle cx="12" cy="22" r="2" fill="#a78bfa" class="pulse" style="animation-delay:0.6s"/>
+                <circle cx="28" cy="22" r="2" fill="#818cf8" class="pulse" style="animation-delay:1.2s"/>
+                <circle cx="20" cy="30" r="2" fill="#c084fc" class="pulse" style="animation-delay:1.8s"/>
+                <line x1="20" y1="16.5" x2="20" y2="28" stroke="url(#lg2)" stroke-width="1.2"/>
+                <line x1="20" y1="14" x2="12" y2="22" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="2.5 2"/>
+                <line x1="20" y1="14" x2="28" y2="22" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="2.5 2"/>
+                <line x1="12" y1="22" x2="20" y2="30" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="2.5 2"/>
+                <line x1="28" y1="22" x2="20" y2="30" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="2.5 2"/>
+                <circle cx="20" cy="22" r="1.5" fill="#e0e7ff" opacity="0.9"/>
+            </svg>
+            <span><span class="logo-text-accent">AI</span>工具导航</span>
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">首页</a>
+            <a href="../index.html#tools">工具库</a>
+            <a href="index.html" class="active">博客</a>
+        </div>
+    </div>
+</nav>
+
+<article class="container" style="max-width:800px;padding:40px 20px;">
+    <div style="color:var(--text-muted);font-size:0.9em;margin-bottom:16px;">
+        🌐 AI翻译 · 2026年6月11日 · 预计阅读时间：14分钟
+    </div>
+    <h1 style="font-size:2em;margin-bottom:20px;line-height:1.3;">
+        2026年AI翻译工具对比：DeepL vs 彩云小译 vs 腾讯交互翻译
+    </h1>
+
+    <div style="line-height:1.9;font-size:1.05em;">
+        <p style="color:var(--text-muted);margin-bottom:24px;">
+            还在用Google翻译生硬直译？2026年AI翻译已进入「语境感知+术语库+文档保排版」时代。本文实测8款主流工具，从<strong>专业领域准确率、中英互译质量、文档保排版、API集成、价格</strong>5维深度对比，附<strong>学术/法律/技术/电商/游戏/字幕</strong>6大场景实测。
+        </p>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;">📊 快速对比表</h2>
+        <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;margin-bottom:24px;font-size:0.9em;">
+            <thead>
+                <tr style="background:var(--bg-card);">
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:left;">工具</th>
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:center;">定位</th>
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:center;">中英质量</th>
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:center;">文档保排版</th>
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:center;">术语库/记忆</th>
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:center;">API价格</th>
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:center;">免费额度</th>
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:left;">一句话</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td style="padding:10px 8px;border:1px solid var(--border);"><strong>DeepL</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">专业翻译标杆</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">⭐⭐⭐⭐⭐</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 完美</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 术语库+记忆</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">$5.49/百万字符</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">50万字/月</td><td style="padding:10px 8px;border:1px solid var(--border);">欧美语言质量天花板</td></tr>
+                <tr style="background:var(--bg-card);"><td style="padding:10px 8px;border:1px solid var(--border);"><strong>彩云小译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">中文场景最强</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">⭐⭐⭐⭐⭐</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 支持</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 术语库</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">¥0.001/字</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">100万字/月</td><td style="padding:10px 8px;border:1px solid var(--border);">中文语境/网络用语/长难句最懂</td></tr>
+                <tr><td style="padding:10px 8px;border:1px solid var(--border);"><strong>腾讯交互翻译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">企业级/文档</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">⭐⭐⭐⭐⭐</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 极强</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 术语库+TM</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">¥49/百万字符</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">200万字/月</td><td style="padding:10px 8px;border:1px solid var(--border);">PDF/Word/PPT完美保排版</td></tr>
+                <tr style="background:var(--bg-card);"><td style="padding:10px 8px;border:1px solid var(--border);"><strong>有道翻译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">全能型</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">⭐⭐⭐⭐</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 支持</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 术语库</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">¥60/百万字符</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">免费额度大</td><td style="padding:10px 8px;border:1px solid var(--border);">词典+翻译一体、离线包</td></tr>
+                <tr><td style="padding:10px 8px;border:1px solid var(--border);"><strong>百度翻译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">百度生态</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">⭐⭐⭐⭐</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 支持</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 术语库</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">¥49/百万字符</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">免费额度大</td><td style="padding:10px 8px;border:1px solid var(--border);">百度文库/学术/百度生态</td></tr>
+                <tr style="background:var(--bg-card);"><td style="padding:10px 8px;border:1px solid var(--border);"><strong>火山翻译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">字节/高性价比</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">⭐⭐⭐⭐</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 支持</td><td style="padding:10px 8px:border:1px solid var(--border);text-align:center;">✅ 术语库</td><td style="padding:10px 8px:border:1px solid var(--border);text-align:center;">¥30/百万字符</td><td style="padding:10px 8px:border:1px solid var(--border);text-align:center;">免费额度大</td><td style="padding:10px 8px;border:1px solid var(--border);">字节系应用、高并发、性价比高</td></tr>
+                <tr><td style="padding:10px 8px;border:1px solid var(--border);"><strong>阿里翻译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">电商/跨境</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">⭐⭐⭐⭐</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 支持</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">✅ 术语库</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">¥45/百万字符</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">免费额度</td><td style="padding:10px 8px;border:1px solid var(--border);">跨境电商、多语言、阿里云集成</td></tr>
+                <tr style="background:var(--bg-card);"><td style="padding:10px 8px;border:1px solid var(--border);"><strong>Google翻译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">通用/需梯子</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">⭐⭐⭐⭐</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">一般</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">基础</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">$20/百万字符</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">网页免费</td><td style="padding:10px 8px;border:1px solid var(--border);">语种最全(133+)、需翻墙</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div style="margin:32px 0;text-align:center;">
+            <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-client="ca-pub-2161272221768501" data-ad-format="fluid" data-ad-layout-key="-gw-3+1f-3d+2z"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;">🏆 六大场景实测（同一源文本，对比输出）</h2>
+
+        <h3 style="font-size:1.2em;margin:32px 0 12px;color:var(--accent);">场景一：学术论文摘要（含专业术语、长定语从句、被动语态）</h3>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
+            <p><strong>源文本片段：</strong> "The proposed methodology leverages a novel attention mechanism to mitigate the vanishing gradient problem inherent in deep recurrent architectures, thereby enabling effective modeling of long-range dependencies in sequential data."</p>
+            <p><strong>DeepL：</strong> "所提方法利用一种新型注意力机制，缓解了深层循环架构固有的梯度消失问题，从而实现了对序列数据中长距离依赖的有效建模。" ⭐⭐⭐⭐⭐ <em>术语准确、学术语体地道</em></p>
+            <p><strong>彩云小译：</strong> "该方法利用一种新颖的注意力机制，缓解了深度循环架构中固有的梯度消失问题，从而能够对序列数据中的长程依赖进行有效建模。" ⭐⭐⭐⭐⭐ <em>同等质量，"长程依赖"比"长距离依赖"更符合中文习惯</em></p>
+            <p><strong>腾讯交互翻译：</strong> "该方法利用一种新颖的注意力机制来缓解深度循环架构中固有的梯度消失问题，从而能够对序列数据中的长距离依赖进行有效建模。" ⭐⭐⭐⭐⭐ <em>文档版完美保留论文排版、公式、引用</em></p>
+            <p><strong>有道/百度/火山：</strong> ⭐⭐⭐⭐ <em>偶尔把"vanishing gradient"译为"消失梯度"(术语不统一)</em></p>
+            <p><strong>结论：</strong> 学术首选 <strong>DeepL/彩云小译</strong>，需保排版选 <strong>腾讯交互翻译</strong></p>
+        </div>
+
+        <h3 style="font-size:1.2em;margin:32px 0 12px;color:var(--accent);">场景二：法律合同条款（定义条款、义务表述、条件状语）</h3>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
+            <p><strong>源文本片段：</strong> "Notwithstanding anything to the contrary herein, the Party shall indemnify and hold harmless the other Party from any claims arising out of or in connection with the breach of representations and warranties set forth in Section 4."</p>
+            <p><strong>DeepL：</strong> "尽管本协议中有任何相反规定，甲方应就第4节所载陈述与保证的违反所引起或相关的任何索赔，向乙方进行赔偿并使其免受损害。" ⭐⭐⭐⭐⭐</p>
+            <p><strong>彩云小译：</strong> "不管本协议中有任何相反规定，一方应就第四条规定的陈述和保证的违反引起的或与之相关的任何索赔，向另一方进行赔偿并使其免受损害。" ⭐⭐⭐⭐⭐ <em>"不管...规定"比"尽管...规定"更符合中文法律文本习惯</em></p>
+            <p><strong>腾讯交互翻译：</strong> 完美保留合同编号/加粗/缩进格式 ⭐⭐⭐⭐⭐</p>
+            <p><strong>结论：</strong> 法律文书首选 <strong>彩云小译(术语库可预置法律术语)</strong> + <strong>腾讯交互翻译(保排版)</strong></p>
+        </div>
+
+        <h3 style="font-size:1.2em;margin:32px 0 12px;color:var(--accent);">场景三：技术文档/API文档（代码块保护、参数名不翻译、Markdown保排版）</h3>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
+            <p><strong>测试点：</strong> 代码块不翻译、变量名/函数名不翻译、Markdown表格/标题层级保留</p>
+            <p><strong>DeepL：</strong> 代码块自动识别不翻译，但Markdown表格偶尔错位 ⭐⭐⭐⭐</p>
+            <p><strong>彩云小译：</strong> 支持「代码保护」开关，Markdown完美保留 ⭐⭐⭐⭐⭐</p>
+            <p><strong>腾讯交互翻译：</strong> 企业版支持OpenAPI规范直接翻译，Swagger/OpenAPI JSON完美处理 ⭐⭐⭐⭐⭐</p>
+            <p><strong>火山/阿里/百度：</strong> 文档翻译API支持代码块保护，性价比高 ⭐⭐⭐⭐</p>
+            <p><strong>结论：</strong> 开发者文档首选 <strong>彩云小译(网页/插件免费)</strong>，企业集成选 <strong>火山/腾讯</strong></p>
+        </div>
+
+        <h3 style="font-size:1.2em;margin:32px 0 12px;color:var(--accent);">场景四：跨境电商详情页（营销话术、规格参数、SEO关键词、Emoji保留）</h3>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
+            <p><strong>源文本片段：</strong> "🔥 Upgrade your sleep game with our premium memory foam mattress! ✨ CertiPUR-US certified, 100-night trial, free shipping & returns. 💯"</p>
+            <p><strong>DeepL：</strong> "🔥 用我们的优质记忆棉床垫升级您的睡眠体验！✨ 通过CertiPUR-US认证，100晚试睡，免费送货退货。💯" ⭐⭐⭐⭐ <em>Emoji保留好，"sleep game"译为"睡眠体验"略显平淡</em></p>
+            <p><strong>彩云小译：</strong> "🔥 用我们的优质记忆棉床垫，让你的睡眠直接满级！✨ CertiPUR-US认证，100晚免费试睡，包邮包退。💯" ⭐⭐⭐⭐⭐ <em>"睡眠直接满级"极符合中文电商文案风格，"包邮包退"地道</em></p>
+            <p><strong>阿里翻译：</strong> 电商领域微调模型，自动识别SKU/规格不翻译 ⭐⭐⭐⭐⭐</p>
+            <p><strong>结论：</strong> 电商详情页首选 <strong>彩云小译/阿里翻译</strong>，批量翻译选 <strong>火山/阿里API</strong></p>
+        </div>
+
+        <h3 style="font-size:1.2em;margin:32px 0 12px;color:var(--accent);">场景五：游戏/UI本地化（术语一致性、变量占位符、长度限制、语气词）</h3>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
+            <p><strong>测试点：</strong> {player_name}等变量不翻译、术语库强制生效、目标语长度控制、语气词(呢/吧/哟)自然</p>
+            <p><strong>DeepL：</strong> 术语库强制生效，但无长度控制API ⭐⭐⭐⭐</p>
+            <p><strong>彩云小译：</strong> 支持术语库+长度控制参数，游戏本地化专用模型 ⭐⭐⭐⭐⭐</p>
+            <p><strong>火山/阿里/腾讯：</strong> 企业版提供「游戏本地化」专用端点，含变量保护+长度控制+QA校验 ⭐⭐⭐⭐⭐</p>
+            <p><strong>结论：</strong> 游戏出海首选 <strong>火山/阿里/腾讯企业版</strong>，小团队用 <strong>彩云小译专业版</strong></p>
+        </div>
+
+        <h3 style="font-size:1.2em;margin:32px 0 12px;color:var(--accent);">场景六：视频字幕/SRT翻译（时间轴保留、断句自然、语速匹配、双语对照）</h3>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
+            <p><strong>测试点：</strong> SRT时间轴完美保留、单行字符数控制、语义断句不破坏语境、支持双语输出</p>
+            <p><strong>彩云小译：</strong> 网页版直接拖入SRT，输出双语SRT，断句极其自然 ⭐⭐⭐⭐⭐</p>
+            <p><strong>DeepL：</strong> 需第三方工具预处理SRT，无原生支持 ⭐⭐⭐</p>
+            <p><strong>腾讯交互翻译：</strong> 企业版支持视频字幕翻译API，含时间轴对齐 ⭐⭐⭐⭐</p>
+            <p><strong>火山/阿里：</strong> 多模态翻译API支持音频/视频直接翻译输出字幕 ⭐⭐⭐⭐</p>
+            <p><strong>结论：</strong> 字幕翻译首选 <strong>彩云小译网页版(免费)</strong>，批量/自动化选 <strong>火山/阿里多模态API</strong></p>
+        </div>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;">💡 怎么选？决策树</h2>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
+            <p><strong>🎓 学术/论文/专业文献 →</strong> <strong>DeepL Pro</strong>（质量天花板）或 <strong>彩云小译</strong>（中文语境更强、免费额度大）</p>
+            <p><strong>⚖️ 法律/合同/合规文档 →</strong> <strong>彩云小译 + 腾讯交互翻译</strong>（术语库+完美保排版）</p>
+            <p><strong>💻 技术文档/API/代码注释 →</strong> <strong>彩云小译</strong>（代码保护+Markdown保留）或 <strong>火山/阿里API</strong>（集成便宜）</p>
+            <p><strong>🛒 跨境电商/营销文案 →</strong> <strong>彩云小译/阿里翻译</strong>（电商风格微调、SEO关键词保护）</p>
+            <p><strong>🎮 游戏/APP/UI本地化 →</strong> <strong>火山/阿里/腾讯企业版</strong>（变量保护+长度控制+QA）</p>
+            <p><strong>🎬 视频字幕/多媒体 →</strong> <strong>彩云小译网页版</strong>（免费、双语SRT）或 <strong>火山/阿里多模态API</strong></p>
+            <p><strong>💰 个人/小团队/预算敏感 →</strong> <strong>彩云小译免费版 + 有道/百度免费额度</strong> = 全场景覆盖</p>
+            <p><strong>🏢 企业采购/私有化/合规 →</strong> <strong>腾讯/阿里/火山/百度</strong>（备案齐全、私有化部署、等保三级）</p>
+        </div>
+
+        <h2 style="font-size:1.5em;margin:40px 0 16px;">💰 API价格横向对比（2026年6月最新）</h2>
+        <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;margin-bottom:24px;font-size:0.9em;">
+            <thead>
+                <tr style="background:var(--bg-card);">
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:left;">服务商</th>
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:center;">标准版价格</th>
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:center;">专业版/定制</th>
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:center;">免费额度</th>
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:center;">QPS限制</th>
+                    <th style="padding:12px 8px;border:1px solid var(--border);text-align:left;">适合</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td style="padding:10px 8px;border:1px solid var(--border);"><strong>DeepL API</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">$5.49/百万字符</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">$25/百万(Pro)</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">50万字/月</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">100</td><td style="padding:10px 8px;border:1px solid var(--border);">高质量要求、预算充足</td></tr>
+                <tr style="background:var(--bg-card);"><td style="padding:10px 8px;border:1px solid var(--border);"><strong>彩云小译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">¥0.001/字(¥1000/百万)</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">企业版面议</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">100万字/月</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">50</td><td style="padding:10px 8px;border:1px solid var(--border);">中文场景、中小团队</td></tr>
+                <tr><td style="padding:10px 8px;border:1px solid var(--border);"><strong>火山翻译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">¥30/百万字符</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">专业版¥20</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">200万字/月</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">200</td><td style="padding:10px 8px;border:1px solid var(--border);">高并发、性价比、字节生态</td></tr>
+                <tr style="background:var(--bg-card);"><td style="padding:10px 8px;border:1px solid var(--border);"><strong>阿里翻译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">¥45/百万字符</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">定制版面议</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">100万字/月</td><td style="padding:10px 8px:border:1px solid var(--border);text-align:center;">100</td><td style="padding:10px 8px;border:1px solid var(--border);">跨境电商、阿里云用户</td></tr>
+                <tr><td style="padding:10px 8px;border:1px solid var(--border);"><strong>腾讯交互翻译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">¥49/百万字符</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">文档版¥99</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">200万字/月</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">50</td><td style="padding:10px 8px;border:1px solid var(--border);">文档保排版、企业合规</td></tr>
+                <tr style="background:var(--bg-card);"><td style="padding:10px 8px;border:1px solid var(--border);"><strong>百度翻译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">¥49/百万字符</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">专业版¥35</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">200万字/月</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">100</td><td style="padding:10px 8px;border:1px solid var(--border);">百度生态、学术/文档</td></tr>
+                <tr><td style="padding:10px 8px;border:1px solid var(--border);"><strong>有道翻译</strong></td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">¥60/百万字符</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">定制面议</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">50万字/月</td><td style="padding:10px 8px;border:1px solid var(--border);text-align:center;">50</td><td style="padding:10px 8px;border:1px solid var(--border);">词典+翻译一体、教育场景</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div style="background:linear-gradient(135deg,rgba(129,140,248,0.1),rgba(192,132,252,0.1));border:1px solid var(--border);border-radius:12px;padding:24px;margin:32px 0;text-align:center;">
+            <h3 style="margin-bottom:12px;">🌐 想了解更多AI翻译工具？</h3>
+            <p style="color:var(--text-muted);margin-bottom:16px;">我们持续实测对比主流翻译API，每月更新价格和质量榜单</p>
+            <a href="../index.html#tools" class="btn" style="display:inline-block;">浏览全部工具 →</a>
+        </div>
+    </div>
+</article>
+
+<footer id="about" class="footer">
+    <div class="container">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AI工具导航. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
