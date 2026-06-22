@@ -103,7 +103,14 @@ const currentPath = Astro.url.pathname;
         </button>
 
         <!-- Language Switcher -->
-        <language-switcher client:visible locale={locale} />
+        <a
+          href="/en/"
+          class="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          aria-label="Switch language"
+        >
+          <span class="text-base">🇺🇸</span>
+          <span class="hidden sm:inline">English</span>
+        </a>
 
         <!-- Theme Toggle -->
         <button
@@ -156,7 +163,7 @@ const currentPath = Astro.url.pathname;
         <a href="/categories" class="block px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 {currentPath.startsWith('/categories') ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : ''}">{translation.nav.categories}</a>
         <a href="/blog" class="block px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 {currentPath.startsWith('/blog') ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : ''}">{translation.nav.blog}</a>
         <div class="pt-2 border-t border-gray-200 dark:border-gray-700 flex items-center gap-3">
-          <language-switcher client:visible locale={locale} />
+          <a href="/en/" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="English">🇺🇸 English</a>
           <button id="mobile-theme-toggle" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle theme">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
