@@ -264,6 +264,18 @@
     "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/arc/arc-color.svg"
   },
   {
+    "id": "remio",
+    "name": "Remio",
+    "description": "本地优先的 AI 记忆与个人知识库桌面应用，可解析文件、网页、录音、邮件、消息、图片和笔记，并建立本地索引与向量，帮助用户快速检索个人上下文",
+    "category": "productivity",
+    "tags": ["个人知识库", "AI记忆", "本地索引", "文档解析"],
+    "url": "https://remio.ai",
+    "pricing": "freemium",
+    "rating": 4.6,
+    "featured": false,
+    "logo": "https://www.google.com/s2/favicons?domain=remio.ai&sz=128"
+  },
+  {
     "id": "langchain",
     "name": "LangChain",
     "description": "构建 LLM 应用的开发框架，链式调用、记忆、工具、Agent 生态",
