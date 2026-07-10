@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import toolsData from '../../content/tools.json';
+
+// Force English locale for this page
+const locale = 'en';
+
+// Simple English homepage
+const totalTools = toolsData.length;
+const featured = toolsData.filter(t => t.featured);
+const freeTools = toolsData.filter(t => t.pricing === 'free').length;
+---
+
+<Layout title="AI Tools Hub - Discover the Best AI Tools Directory" description="Curated 107+ AI tools across 16 categories. Rankings, comparisons, reviews.">
+  <Header />
+
+  <section class="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
+          Discover the Best AI Tools
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+          Curated {totalTools} top-tier AI tools across 16 categories. Rankings, comparisons, and in-depth reviews.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/tools" class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-lg">Start Exploring →</a>
+          <a href="/rankings" class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-200 rounded-xl">View Rankings</a>
+        </div>
+
+        <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-2xl mx-auto">
+          <div class="text-center"><div class="text-3xl font-bold text-gray-900 dark:text-white">{totalTools}</div><div class="text-sm text-gray-500 mt-1">Tools</div></div>
+          <div class="text-center"><div class="text-3xl font-bold text-gray-900 dark:text-white">16</div><div class="text-sm text-gray-500 mt-1">Categories</div></div>
+          <div class="text-center"><div class="text-3xl font-bold text-gray-900 dark:text-white">{freeTools}</div><div class="text-sm text-gray-500 mt-1">Free Tools</div></div>
+          <div class="text-center"><div class="text-3xl font-bold text-gray-900 dark:text-white">{featured.length}</div><div class="text-sm text-gray-500 mt-1">Featured</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://junagent.github.io/ai-tools-hub/sitemap-index.xml

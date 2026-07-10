@@ -61,9 +61,14 @@ def generate_content(topic_title, tags, category="review"):
     # 真实场景：调用 OpenRouter API 生成内容
     
     slug = topic_title.lower()
-    slug = re.sub(r'[：:：,，。！？、]', '', slug)
+    slug = re.sub(r'[：:：,，。！？、\(\)（）]', '', slug)
+    slug = re.sub(r'[\u4e00-\u9fff\u3400-\u4dbf]', '', slug)
     slug = re.sub(r'\s+', '-', slug.strip())
-    slug = re.sub(r'[^a-z0-9\u4e00-\u9fff\u3400-\u4dbf-]', '', slug)
+    slug = re.sub(r'[^a-z0-9-]', '', slug)
+    slug = re.sub(r'-+', '-', slug).strip('-')
+    if not slug or len(slug) < 5:
+        # 如果slug太短（全部是中文），用时间戳
+        slug = f"article-{datetime.now().strftime('%Y%m%d%H%M%S')}"
     
     date = datetime.now()
     

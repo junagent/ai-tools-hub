@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="页面未找到 - AI Tools Hub" description="您访问的页面不存在" noIndex={true}>
+  <Header />
+
+  <section class="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+    <div class="mx-auto max-w-lg px-4 text-center">
+      <div class="text-8xl font-bold text-gray-200 dark:text-gray-800 mb-6">404</div>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">页面不存在</h1>
+      <p class="text-gray-600 dark:text-gray-400 mb-8">您访问的页面可能已被移动或删除</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl transition-all">
+          返回首页
+        </a>
+        <a href="/tools" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+          浏览工具
+        </a>
+        <a href="/blog" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+          阅读博客
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
