@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Locale } from '../i18n/config';
+import { getTranslation } from '../i18n/server';
+import toolsData from '../content/tools.json';
+
+const locale: Locale = Astro.locals.locale || 'zh';
+const translation = getTranslation(locale);
+const totalTools = toolsData.length;
+---
+
+<Layout title="会员专区 - AI Tools Hub" description="解锁AI工具深度评测、独家排行榜、量化策略数据等高级内容">
+  <Header />
+
+  <section class="py-20 bg-gradient-to-br from-gray-900 via-indigo-950 to-gray-900 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-500/20 text-amber-400 rounded-full text-sm font-medium mb-6">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+        <span>会员专区</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">解锁 AI 工具的无限可能</h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-12">
+        {totalTools}+ 工具的深度评测、独家排行榜、首板量化策略数据，尽在会员专区
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="py-20 bg-white dark:bg-gray-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Free Tier -->
+        <div class="p-8 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">免费版</h3>
+          <div class="text-3xl font-bold text-gray-900 dark:text-white mb-1">¥0</div>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">适合入门用户</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              浏览 {totalTools}+ 工具
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              基础排行榜
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              工具对比
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-400">
+              <svg class="w-4 h-4 text-gray-300 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/></svg>
+              深度评测
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-400">
+              <svg class="w-4 h-4 text-gray-300 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/></svg>
+              量化策略数据
+            </li>
+          </ul>
+          <div class="text-center py-3 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">当前使用中</div>
+        </div>
+
+        <!-- Pro Tier -->
+        <div class="p-8 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/30 dark:to-gray-950 rounded-2xl border-2 border-blue-500 dark:border-blue-400 shadow-xl shadow-blue-500/10 relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full">最受欢迎</div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Pro 版</h3>
+          <div class="text-3xl font-bold text-gray-900 dark:text-white mb-1">¥29</div>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">每月 · 随时取消</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              免费版所有功能
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <strong>深度评测</strong>（每周更新）
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <strong>首板策略每日候选池</strong>推送
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <strong>独家数据</strong>：量化因子排行、IC/IR分析
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              无广告体验
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              优先支持 + 需求反馈
+            </li>
+          </ul>
+          <a
+            href="https://afdian.com/a/aitoolshub"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block w-full text-center py-3 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl transition-all"
+          >
+            立即订阅 Pro →
+          </a>
+        </div>
+
+        <!-- Enterprise Tier -->
+        <div class="p-8 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">企业版</h3>
+          <div class="text-3xl font-bold text-gray-900 dark:text-white mb-1">¥199</div>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">每月 · 按年付费</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-purple-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              Pro 版所有功能
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-purple-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              API 数据访问
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-purple-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              定制化策略开发
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-purple-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              专属技术支持
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-purple-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              团队协作（5人起）
+            </li>
+          </ul>
+          <a
+            href="mailto:164005568@qq.com?subject=企业版咨询"
+            class="block w-full text-center py-3 text-sm font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-xl transition-all"
+          >
+            联系咨询 →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-gray-50 dark:bg-gray-900">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">常见问题</h2>
+      <div class="space-y-4">
+        {[
+          { q: '如何支付？', a: '目前支持支付宝/微信支付（通过爱发电平台）。Pro版 ¥29/月，随时取消。' },
+          { q: 'Pro 版包含哪些量化数据？', a: '包含首板策略每日候选池、因子IC/IR分析、策略回测数据等，每周更新。' },
+          { q: '可以退款吗？', a: '付费后7天内可无条件退款。请发送邮件到 164005568@qq.com。' },
+          { q: '企业版适合什么场景？', a: '适合量化团队、投资机构需要API数据访问和定制化策略开发的场景。' },
+          { q: '免费版会一直存在吗？', a: '是的，免费版功能永久有效。Pro版仅增加付费专属内容，不影响现有功能。' },
+        ].map(faq => (
+          <details class="group p-4 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+            <summary class="flex items-center justify-between cursor-pointer text-sm font-medium text-gray-900 dark:text-white group-open:mb-3">
+              {faq.q}
+              <svg class="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

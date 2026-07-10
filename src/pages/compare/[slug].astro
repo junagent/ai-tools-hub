@@ -123,7 +123,7 @@ const pricingColors: Record<string, string> = {
             ))}
           </div>
           <div class="mt-4">
-            <a href={tool1.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
+            <a href={tool1.affiliateUrl || tool1.url} target="_blank" rel="noopener noreferrer {tool1.affiliateUrl ? 'sponsored' : ''}" class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
               访问 {tool1.name} →
             </a>
           </div>
@@ -148,7 +148,7 @@ const pricingColors: Record<string, string> = {
             ))}
           </div>
           <div class="mt-4">
-            <a href={tool2.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
+            <a href={tool2.affiliateUrl || tool2.url} target="_blank" rel="noopener noreferrer {tool2.affiliateUrl ? 'sponsored' : ''}" class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
               访问 {tool2.name} →
             </a>
           </div>

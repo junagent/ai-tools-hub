@@ -15,7 +15,8 @@
     "pricing": "freemium",
     "rating": 4.9,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/openai/openai-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/openai/openai-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "claude",
@@ -33,7 +34,8 @@
     "pricing": "freemium",
     "rating": 4.9,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/anthropic/anthropic-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/anthropic/anthropic-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "gemini",
@@ -51,7 +53,8 @@
     "pricing": "freemium",
     "rating": 4.7,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/google/gemini-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/google/gemini-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "deepseek",
@@ -69,7 +72,8 @@
     "pricing": "free",
     "rating": 4.8,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/deepseek/deepseek-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/deepseek/deepseek-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "qwen",
@@ -87,7 +91,8 @@
     "pricing": "free",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/qwen/qwen-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/qwen/qwen-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "grok",
@@ -105,7 +110,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/xai/xai-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/xai/xai-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "mistral",
@@ -123,7 +129,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/mistral/mistral-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/mistral/mistral-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "character-ai",
@@ -140,7 +147,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/character-ai/character-ai-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/character-ai/character-ai-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "poe",
@@ -157,7 +165,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/poe/poe-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/poe/poe-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "you-com",
@@ -174,7 +183,8 @@
     "pricing": "freemium",
     "rating": 4.3,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/you/you-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/you/you-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "cohere",
@@ -192,7 +202,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/cohere/cohere-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/cohere/cohere-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "kimi",
@@ -210,7 +221,8 @@
     "pricing": "free",
     "rating": 4.7,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/kimi/kimi-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/kimi/kimi-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "doubao",
@@ -228,7 +240,8 @@
     "pricing": "free",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/doubao/doubao-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/doubao/doubao-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "ernie",
@@ -246,7 +259,8 @@
     "pricing": "free",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/ernie/ernie-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/ernie/ernie-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "perplexity",
@@ -264,7 +278,8 @@
     "pricing": "freemium",
     "rating": 4.8,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/perplexity/perplexity-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/perplexity/perplexity-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "phind",
@@ -282,7 +297,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/phind/phind-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/phind/phind-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "consensus",
@@ -300,7 +316,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/consensus/consensus-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/consensus/consensus-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "elicit",
@@ -318,7 +335,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/elicit/elicit-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/elicit/elicit-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "exa",
@@ -336,7 +354,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/exa/exa-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/exa/exa-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "komo",
@@ -354,7 +373,8 @@
     "pricing": "freemium",
     "rating": 4.2,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/komo/komo-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/komo/komo-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "copilot",
@@ -372,7 +392,8 @@
     "pricing": "paid",
     "rating": 4.8,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/github/github-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/github/github-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "cursor",
@@ -390,7 +411,8 @@
     "pricing": "freemium",
     "rating": 4.9,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/cursor/cursor-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/cursor/cursor-color.svg",
+    "affiliateUrl": "https://cursor.sh/?ref=aitoolshub"
   },
   {
     "id": "v0",
@@ -408,7 +430,8 @@
     "pricing": "freemium",
     "rating": 4.7,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/vercel/vercel-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/vercel/vercel-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "bolt",
@@ -426,7 +449,8 @@
     "pricing": "freemium",
     "rating": 4.8,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/stackblitz/stackblitz-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/stackblitz/stackblitz-color.svg",
+    "affiliateUrl": "https://bolt.new/?ref=aitoolshub"
   },
   {
     "id": "lovable",
@@ -444,7 +468,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/lovable/lovable-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/lovable/lovable-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "windsurf",
@@ -462,7 +487,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/codeium/codeium-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/codeium/codeium-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "codeium",
@@ -480,7 +506,8 @@
     "pricing": "free",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/codeium/codeium-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/codeium/codeium-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "tabnine",
@@ -498,7 +525,8 @@
     "pricing": "freemium",
     "rating": 4.3,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/tabnine/tabnine-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/tabnine/tabnine-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "replit",
@@ -516,7 +544,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/replit/replit-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/replit/replit-color.svg",
+    "affiliateUrl": "https://replit.com/?ref=aitoolshub"
   },
   {
     "id": "coderabbit",
@@ -534,7 +563,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/coderabbit/coderabbit-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/coderabbit/coderabbit-color.svg",
+    "affiliateUrl": "https://coderabbit.ai/?ref=aitoolshub"
   },
   {
     "id": "claude-code",
@@ -552,7 +582,8 @@
     "pricing": "paid",
     "rating": 4.7,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/anthropic/anthropic-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/anthropic/anthropic-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "sourcgraph-cody",
@@ -570,7 +601,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/sourcegraph/sourcegraph-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/sourcegraph/sourcegraph-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "midjourney",
@@ -588,7 +620,8 @@
     "pricing": "paid",
     "rating": 4.9,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/midjourney/midjourney-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/midjourney/midjourney-color.svg",
+    "affiliateUrl": "https://midjourney.com/?ref=aitoolshub"
   },
   {
     "id": "dalle3",
@@ -606,7 +639,8 @@
     "pricing": "paid",
     "rating": 4.7,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/openai/openai-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/openai/openai-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "stable-diffusion",
@@ -624,7 +658,8 @@
     "pricing": "free",
     "rating": 4.7,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/stability-ai/stability-ai-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/stability-ai/stability-ai-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "flux",
@@ -642,7 +677,8 @@
     "pricing": "free",
     "rating": 4.8,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/black-forest-labs/black-forest-labs-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/black-forest-labs/black-forest-labs-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "adobe-firefly",
@@ -660,7 +696,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/adobe/adobe-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/adobe/adobe-color.svg",
+    "affiliateUrl": "https://firefly.adobe.com/?ref=aitoolshub"
   },
   {
     "id": "leonardo",
@@ -678,7 +715,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/leonardo/leonardo-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/leonardo/leonardo-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "ideogram",
@@ -696,7 +734,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/ideogram/ideogram-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/ideogram/ideogram-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "canva-ai",
@@ -714,7 +753,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/canva/canva-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/canva/canva-color.svg",
+    "affiliateUrl": "https://canva.7eqq.net/aitoolshub"
   },
   {
     "id": "clipdrop",
@@ -732,7 +772,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/clipdrop/clipdrop-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/clipdrop/clipdrop-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "krea",
@@ -750,7 +791,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/krea/krea-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/krea/krea-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "comfyui",
@@ -768,7 +810,8 @@
     "pricing": "free",
     "rating": 4.7,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/comfyui/comfyui-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/comfyui/comfyui-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "runway",
@@ -786,7 +829,8 @@
     "pricing": "freemium",
     "rating": 4.7,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/runway/runway-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/runway/runway-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "pika",
@@ -804,7 +848,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/pika/pika-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/pika/pika-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "luma",
@@ -822,7 +867,8 @@
     "pricing": "freemium",
     "rating": 4.7,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/luma/luma-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/luma/luma-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "kling",
@@ -840,7 +886,8 @@
     "pricing": "freemium",
     "rating": 4.7,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/kling/kling-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/kling/kling-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "sora",
@@ -858,7 +905,8 @@
     "pricing": "paid",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/openai/openai-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/openai/openai-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "capcut",
@@ -876,7 +924,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/capcut/capcut-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/capcut/capcut-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "synthesia",
@@ -894,7 +943,8 @@
     "pricing": "paid",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/synthesia/synthesia-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/synthesia/synthesia-color.svg",
+    "affiliateUrl": "https://synthesia.io/?ref=aitoolshub"
   },
   {
     "id": "heygen",
@@ -912,7 +962,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/heygen/heygen-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/heygen/heygen-color.svg",
+    "affiliateUrl": "https://heygen.com/?ref=aitoolshub"
   },
   {
     "id": "invideo",
@@ -930,7 +981,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/invideo/invideo-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/invideo/invideo-color.svg",
+    "affiliateUrl": "https://invideo.io/?ref=aitoolshub"
   },
   {
     "id": "vidu",
@@ -948,7 +1000,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/vidu/vidu-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/vidu/vidu-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "suno",
@@ -966,7 +1019,8 @@
     "pricing": "freemium",
     "rating": 4.8,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/suno/suno-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/suno/suno-color.svg",
+    "affiliateUrl": "https://suno.ai/?ref=aitoolshub"
   },
   {
     "id": "udio",
@@ -984,7 +1038,8 @@
     "pricing": "freemium",
     "rating": 4.7,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/udio/udio-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/udio/udio-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "elevenlabs",
@@ -1002,7 +1057,8 @@
     "pricing": "freemium",
     "rating": 4.9,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/elevenlabs/elevenlabs-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/elevenlabs/elevenlabs-color.svg",
+    "affiliateUrl": "https://elevenlabs.io/?ref=aitoolshub"
   },
   {
     "id": "aiva",
@@ -1020,7 +1076,8 @@
     "pricing": "freemium",
     "rating": 4.3,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/aiva/aiva-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/aiva/aiva-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "murf",
@@ -1038,7 +1095,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/murf/murf-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/murf/murf-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "resemble",
@@ -1056,7 +1114,8 @@
     "pricing": "freemium",
     "rating": 4.3,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/resemble/resemble-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/resemble/resemble-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "playht",
@@ -1074,7 +1133,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/playht/playht-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/playht/playht-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "notion-ai",
@@ -1092,7 +1152,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/notion/notion-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/notion/notion-color.svg",
+    "affiliateUrl": "https://affiliate.notion.so/aitoolshub"
   },
   {
     "id": "linear",
@@ -1110,7 +1171,8 @@
     "pricing": "freemium",
     "rating": 4.8,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/linear/linear-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/linear/linear-color.svg",
+    "affiliateUrl": "https://linear.app/?ref=aitoolshub"
   },
   {
     "id": "raycast",
@@ -1128,7 +1190,8 @@
     "pricing": "freemium",
     "rating": 4.9,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/raycast/raycast-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/raycast/raycast-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "arc",
@@ -1146,7 +1209,8 @@
     "pricing": "free",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/arc/arc-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/arc/arc-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "motion",
@@ -1164,7 +1228,8 @@
     "pricing": "paid",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/motion/motion-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/motion/motion-color.svg",
+    "affiliateUrl": "https://motion.app/?ref=aitoolshub"
   },
   {
     "id": "otter",
@@ -1182,7 +1247,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/otter/otter-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/otter/otter-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "grammarly",
@@ -1200,7 +1266,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/grammarly/grammarly-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/grammarly/grammarly-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "superhuman",
@@ -1218,7 +1285,8 @@
     "pricing": "paid",
     "rating": 4.7,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/superhuman/superhuman-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/superhuman/superhuman-color.svg",
+    "affiliateUrl": "https://superhuman.com/?ref=aitoolshub"
   },
   {
     "id": "mem",
@@ -1236,7 +1304,8 @@
     "pricing": "freemium",
     "rating": 4.3,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/mem/mem-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/mem/mem-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "langchain",
@@ -1254,7 +1323,8 @@
     "pricing": "free",
     "rating": 4.6,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/langchain/langchain-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/langchain/langchain-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "llamaindex",
@@ -1272,7 +1342,8 @@
     "pricing": "free",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/llama-index/llama-index-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/llama-index/llama-index-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "vercel-ai-sdk",
@@ -1290,7 +1361,8 @@
     "pricing": "free",
     "rating": 4.7,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/vercel/vercel-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/vercel/vercel-color.svg",
+    "affiliateUrl": "https://vercel.com/?ref=aitoolshub"
   },
   {
     "id": "huggingface",
@@ -1308,7 +1380,8 @@
     "pricing": "freemium",
     "rating": 4.8,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/huggingface/huggingface-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/huggingface/huggingface-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "pinecone",
@@ -1326,7 +1399,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/pinecone/pinecone-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/pinecone/pinecone-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "ollama",
@@ -1344,7 +1418,8 @@
     "pricing": "free",
     "rating": 4.8,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/ollama/ollama-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/ollama/ollama-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "dify",
@@ -1362,7 +1437,8 @@
     "pricing": "free",
     "rating": 4.7,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/dify/dify-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/dify/dify-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "n8n",
@@ -1380,7 +1456,8 @@
     "pricing": "free",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/n8n/n8n-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/n8n/n8n-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "langfuse",
@@ -1398,7 +1475,8 @@
     "pricing": "free",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/langfuse/langfuse-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/langfuse/langfuse-color.svg",
+    "affiliateUrl": "https://langfuse.com/?ref=aitoolshub"
   },
   {
     "id": "lm-studio",
@@ -1416,7 +1494,8 @@
     "pricing": "free",
     "rating": 4.7,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/lm-studio/lm-studio-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/lm-studio/lm-studio-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "coze",
@@ -1434,7 +1513,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/coze/coze-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/coze/coze-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "flowise",
@@ -1452,7 +1532,8 @@
     "pricing": "free",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/flowise/flowise-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/flowise/flowise-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "khanmigo",
@@ -1470,7 +1551,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/khan-academy/khan-academy-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/khan-academy/khan-academy-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "duolingo",
@@ -1488,7 +1570,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/duolingo/duolingo-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/duolingo/duolingo-color.svg",
+    "affiliateUrl": "https://duolingo.com/?ref=aitoolshub"
   },
   {
     "id": "knowee",
@@ -1506,7 +1589,8 @@
     "pricing": "freemium",
     "rating": 4.3,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/knowee/knowee-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/knowee/knowee-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "salesforce-einstein",
@@ -1524,7 +1608,8 @@
     "pricing": "paid",
     "rating": 4.3,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/salesforce/salesforce-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/salesforce/salesforce-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "hubspot-ai",
@@ -1542,7 +1627,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/hubspot/hubspot-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/hubspot/hubspot-color.svg",
+    "affiliateUrl": "https://hubspot.sjv.io/aitoolshub"
   },
   {
     "id": "zapier-ai",
@@ -1560,7 +1646,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/zapier/zapier-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/zapier/zapier-color.svg",
+    "affiliateUrl": "https://zapier.com/?ref=aitoolshub"
   },
   {
     "id": "jasper",
@@ -1578,7 +1665,8 @@
     "pricing": "paid",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/jasper/jasper-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/jasper/jasper-color.svg",
+    "affiliateUrl": "https://jasper.ai/?ref=aitoolshub"
   },
   {
     "id": "copy-ai",
@@ -1596,7 +1684,8 @@
     "pricing": "freemium",
     "rating": 4.3,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/copy-ai/copy-ai-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/copy-ai/copy-ai-color.svg",
+    "affiliateUrl": "https://copy.ai/?ref=aitoolshub"
   },
   {
     "id": "writesonic",
@@ -1614,7 +1703,8 @@
     "pricing": "freemium",
     "rating": 4.3,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/writesonic/writesonic-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/writesonic/writesonic-color.svg",
+    "affiliateUrl": "https://writesonic.com/?ref=aitoolshub"
   },
   {
     "id": "rytr",
@@ -1632,7 +1722,8 @@
     "pricing": "freemium",
     "rating": 4.2,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/rytr/rytr-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/rytr/rytr-color.svg",
+    "affiliateUrl": "https://rytr.me/?ref=aitoolshub"
   },
   {
     "id": "quillbot",
@@ -1650,7 +1741,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/quillbot/quillbot-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/quillbot/quillbot-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "sudowrite",
@@ -1668,7 +1760,8 @@
     "pricing": "paid",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/sudowrite/sudowrite-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/sudowrite/sudowrite-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "figma-ai",
@@ -1686,7 +1779,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": true,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/figma/figma-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/figma/figma-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "galileo-ai",
@@ -1704,7 +1798,8 @@
     "pricing": "paid",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/galileo/galileo-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/galileo/galileo-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "beautiful-ai",
@@ -1722,7 +1817,8 @@
     "pricing": "paid",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/beautiful-ai/beautiful-ai-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/beautiful-ai/beautiful-ai-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "gamma",
@@ -1740,7 +1836,8 @@
     "pricing": "freemium",
     "rating": 4.6,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/gamma/gamma-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/gamma/gamma-color.svg",
+    "affiliateUrl": "https://gamma.app/?ref=aitoolshub"
   },
   {
     "id": "typeface",
@@ -1758,7 +1855,8 @@
     "pricing": "paid",
     "rating": 4.2,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/typeface/typeface-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/typeface/typeface-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "writer",
@@ -1776,7 +1874,8 @@
     "pricing": "paid",
     "rating": 4.3,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/writer/writer-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/writer/writer-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "hex",
@@ -1794,7 +1893,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/hex/hex-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/hex/hex-color.svg",
+    "affiliateUrl": "https://hex.tech/?ref=aitoolshub"
   },
   {
     "id": "julius-ai",
@@ -1812,7 +1912,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/julius/julius-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/julius/julius-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "pandasai",
@@ -1830,7 +1931,8 @@
     "pricing": "free",
     "rating": 4.3,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/pandasai/pandasai-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/pandasai/pandasai-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "meshy",
@@ -1848,7 +1950,8 @@
     "pricing": "freemium",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/meshy/meshy-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/meshy/meshy-color.svg",
+    "affiliateUrl": "https://meshy.ai/?ref=aitoolshub"
   },
   {
     "id": "spline-ai",
@@ -1866,7 +1969,8 @@
     "pricing": "freemium",
     "rating": 4.3,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/spline/spline-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/spline/spline-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "tripo",
@@ -1884,7 +1988,8 @@
     "pricing": "freemium",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/tripo/tripo-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/tripo/tripo-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "databricks-ai",
@@ -1902,7 +2007,8 @@
     "pricing": "paid",
     "rating": 4.5,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/databricks/databricks-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/databricks/databricks-color.svg",
+    "affiliateUrl": null
   },
   {
     "id": "snowflake-cortex",
@@ -1920,6 +2026,7 @@
     "pricing": "paid",
     "rating": 4.4,
     "featured": false,
-    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/snowflake/snowflake-color.svg"
+    "logo": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/snowflake/snowflake-color.svg",
+    "affiliateUrl": null
   }
 ]
