@@ -12,16 +12,18 @@ const translation = getTranslation(locale);
 
 // 精选工具 + 按分类分组
 const featured = toolsData.filter(t => t.featured);
-const categories = ['chat', 'search', 'coding', 'image', 'video', 'audio', 'productivity', 'dev-tools'];
+const categories = Object.keys(translation.categories).filter(k => k !== 'title' && k !== 'subtitle' && k !== 'viewAll');
 const toolsByCategory: Record<string, typeof toolsData> = {};
 for (const cat of categories) {
-  toolsByCategory[cat] = toolsData.filter(t => t.category === cat).slice(0, 4);
+  toolsByCategory[cat] = toolsData.filter(t => t.category === cat);
 }
 
 // 统计
 const totalTools = toolsData.length;
 const totalCategories = categories.length;
 const avgRating = (toolsData.reduce((s, t) => s + t.rating, 0) / totalTools).toFixed(1);
+const freeTools = toolsData.filter(t => t.pricing === 'free').length;
+const featuredCount = featured.length;
 ---
 
 <Layout>
@@ -29,7 +31,6 @@ const avgRating = (toolsData.reduce((s, t) => s + t.rating, 0) / totalTools).toF
 
   <!-- Hero Section -->
   <section class="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950">
-    <!-- Background decoration -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
       <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-200 dark:bg-blue-800/20 rounded-full blur-3xl opacity-50"></div>
       <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-200 dark:bg-purple-800/20 rounded-full blur-3xl opacity-50"></div>
@@ -76,8 +77,8 @@ const avgRating = (toolsData.reduce((s, t) => s + t.rating, 0) / totalTools).toF
             <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">{translation.hero.stats.categories}</div>
           </div>
           <div class="text-center">
-            <div class="text-3xl font-bold text-gray-900 dark:text-white">10K+</div>
-            <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">{translation.hero.stats.users}</div>
+            <div class="text-3xl font-bold text-gray-900 dark:text-white">{freeTools}</div>
+            <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">免费工具</div>
           </div>
           <div class="text-center">
             <div class="text-3xl font-bold text-gray-900 dark:text-white">{avgRating}</div>
@@ -100,6 +101,7 @@ const avgRating = (toolsData.reduce((s, t) => s + t.rating, 0) / totalTools).toF
         {categories.map(catId => {
           const catInfo = getCategoryInfo(locale, catId);
           const catTools = toolsByCategory[catId] || [];
+          if (catTools.length === 0) return null;
           return (
             <a
               href={`/categories/${catId}`}
@@ -107,10 +109,43 @@ const avgRating = (toolsData.reduce((s, t) => s + t.rating, 0) / totalTools).toF
             >
               <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{catInfo.name}</h3>
               <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{catInfo.description}</p>
-              <span class="inline-block mt-3 text-xs font-medium text-blue-600 dark:text-blue-400">{catTools.length} {translation.categories.viewAll.split(' ').pop()}</span>
+              <span class="inline-block mt-3 text-xs font-medium text-blue-600 dark:text-blue-400">{catTools.length} 个工具</span>
             </a>
           );
         })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Rankings & Compare CTA -->
+  <section class="py-16 bg-gradient-to-r from-blue-600 to-indigo-700">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <a href="/rankings" class="group relative p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-all">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">{translation.nav.rankings}</h3>
+              <p class="text-blue-100 text-sm">评分排行 · 分类排行 · 增长最快</p>
+            </div>
+          </div>
+          <p class="text-blue-100/80 text-sm">查看 AI 工具综合排行榜 →</p>
+        </a>
+
+        <a href="/compare" class="group relative p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-all">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">{translation.nav.compare}</h3>
+              <p class="text-blue-100 text-sm">工具对比 · 功能比较 · 定价分析</p>
+            </div>
+          </div>
+          <p class="text-blue-100/80 text-sm">开始对比 AI 工具 →</p>
+        </a>
       </div>
     </div>
   </section>
@@ -123,7 +158,7 @@ const avgRating = (toolsData.reduce((s, t) => s + t.rating, 0) / totalTools).toF
           <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
             <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{translation.common.featured}</span>
           </h2>
-          <p class="text-gray-600 dark:text-gray-400 mt-2">{translation.hero.stats.tools}</p>
+          <p class="text-gray-600 dark:text-gray-400 mt-2">{featuredCount} 个精选工具</p>
         </div>
         <a href="/tools" class="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
           {translation.categories.viewAll}
@@ -132,7 +167,7 @@ const avgRating = (toolsData.reduce((s, t) => s + t.rating, 0) / totalTools).toF
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {featured.map(tool => (
+        {featured.slice(0, 16).map(tool => (
           <ToolCard tool={tool} locale={locale} />
         ))}
       </div>
@@ -163,7 +198,7 @@ const avgRating = (toolsData.reduce((s, t) => s + t.rating, 0) / totalTools).toF
             <div class="flex items-center justify-between mb-6">
               <div>
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{catInfo.name}</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400">{catInfo.description}</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">{catInfo.description} · {catTools.length} 个工具</p>
               </div>
               <a
                 href={`/categories/${catId}`}
@@ -173,7 +208,7 @@ const avgRating = (toolsData.reduce((s, t) => s + t.rating, 0) / totalTools).toF
               </a>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {catTools.map(tool => (
+              {catTools.slice(0, 4).map(tool => (
                 <ToolCard tool={tool} locale={locale} />
               ))}
             </div>

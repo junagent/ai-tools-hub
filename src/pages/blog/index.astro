@@ -1,0 +1,107 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import type { Locale } from '../../i18n/config';
+import { getTranslation } from '../../i18n/server';
+import allPosts from '../../content/blog-data.json';
+
+const locale: Locale = Astro.locals.locale || 'zh';
+const translation = getTranslation(locale);
+
+const posts = allPosts.filter(p => !p.draft);
+const sortedPosts = posts.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
+const featuredPosts = sortedPosts.filter(p => p.featured);
+const recentPosts = sortedPosts.slice(0, 12);
+
+const categories = [
+  { id: 'review', name: translation.blog.categories.review },
+  { id: 'tutorial', name: translation.blog.categories.tutorial },
+  { id: 'trends', name: translation.blog.categories.trends },
+  { id: 'bestPractices', name: translation.blog.categories.bestPractices },
+  { id: 'daily', name: 'AI 日报' },
+  { id: 'quant', name: '量化交易' },
+];
+---
+
+<Layout title={`${translation.blog.title} - ${translation.seo.title}`} description={translation.blog.subtitle}>
+  <Header />
+
+  <section class="py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">{translation.blog.title}</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400">{translation.blog.subtitle}</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        <a href="/blog" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors">全部</a>
+        {categories.map(cat => (
+          <a href={`/blog/category/${cat.id}`} class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">{cat.name}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {featuredPosts.length > 0 && (
+    <section class="py-12 bg-white dark:bg-gray-950">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+          <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{translation.common.featured}</span>
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredPosts.slice(0, 3).map(post => (
+            <a href={`/blog/${post.slug}`} class="group p-6 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:shadow-lg transition-all">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-2 py-0.5 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full">
+                  {categories.find(c => c.id === post.category)?.name || post.category}
+                </span>
+                <span class="text-xs text-gray-500">{new Date(post.pubDate).toLocaleDateString('zh-CN')}</span>
+              </div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">{post.title}</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">{post.description}</p>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                {post.tags.slice(0, 3).map(tag => (
+                  <span class="px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-full">{tag}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="py-12 bg-gray-50 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">最新文章</h2>
+      {recentPosts.length === 0 ? (
+        <div class="text-center py-20">
+          <p class="text-gray-500 dark:text-gray-400">{translation.blog.noPosts}</p>
+        </div>
+      ) : (
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recentPosts.map(post => (
+            <a href={`/blog/${post.slug}`} class="group p-6 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:shadow-lg transition-all">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-2 py-0.5 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full">
+                  {categories.find(c => c.id === post.category)?.name || post.category}
+                </span>
+                <span class="text-xs text-gray-500">{new Date(post.pubDate).toLocaleDateString('zh-CN')}</span>
+              </div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">{post.title}</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">{post.description}</p>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                {post.tags.slice(0, 3).map(tag => (
+                  <span class="px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-full">{tag}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

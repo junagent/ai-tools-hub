@@ -31,12 +31,14 @@ export const zh = {
     about: '关于',
     submitTool: '提交工具',
     github: 'GitHub',
+    rankings: '排行榜',
+    compare: '对比',
   },
 
   // 首页 Hero
   hero: {
     title: '发现最佳 AI 工具',
-    subtitle: '精选 28+ 顶级 AI 工具，涵盖对话、编程、图像、视频、音频、生产力等 8 大分类，助力您的工作与创作',
+    subtitle: '精选 107+ 顶级 AI 工具，覆盖 16 大分类，助力您的工作与创作',
     ctaPrimary: '开始探索',
     ctaSecondary: '查看分类',
     stats: {
@@ -50,48 +52,53 @@ export const zh = {
   // 分类
   categories: {
     title: '按分类浏览',
-    subtitle: '8 大核心分类，覆盖 AI 应用全场景',
+    subtitle: '16 大分类，覆盖 AI 应用全场景',
     viewAll: '查看全部工具',
-    chat: {
-      name: 'AI 对话',
-      description: '大语言模型聊天助手',
-      count: '4 个工具',
-    },
-    search: {
-      name: 'AI 搜索',
-      description: '智能搜索与问答引擎',
-      count: '1 个工具',
-    },
-    coding: {
-      name: 'AI 编程',
-      description: '代码生成、补全、重构',
-      count: '4 个工具',
-    },
-    image: {
-      name: 'AI 图像',
-      description: '文生图、图像编辑、风格迁移',
-      count: '4 个工具',
-    },
-    video: {
-      name: 'AI 视频',
-      description: '文生视频、视频编辑、动画制作',
-      count: '3 个工具',
-    },
-    audio: {
-      name: 'AI 音频',
-      description: '音乐生成、语音合成、声音克隆',
-      count: '3 个工具',
-    },
-    productivity: {
-      name: '生产力',
-      description: '文档、项目管理、浏览器、效率工具',
-      count: '4 个工具',
-    },
-    'dev-tools': {
-      name: '开发工具',
-      description: 'LLM 框架、向量库、模型平台、SDK',
-      count: '5 个工具',
-    },
+    chat: { name: 'AI 对话', description: '大语言模型聊天助手' },
+    search: { name: 'AI 搜索', description: '智能搜索与问答引擎' },
+    coding: { name: 'AI 编程', description: '代码生成、补全、重构' },
+    image: { name: 'AI 图像', description: '文生图、图像编辑、风格迁移' },
+    video: { name: 'AI 视频', description: '文生视频、视频编辑、动画制作' },
+    audio: { name: 'AI 音频', description: '音乐生成、语音合成、声音克隆' },
+    productivity: { name: '生产力', description: '文档、项目管理、浏览器、效率工具' },
+    'dev-tools': { name: '开发工具', description: 'LLM 框架、向量库、模型平台、SDK' },
+    education: { name: 'AI 教育', description: '语言学习、AI 辅导、学术研究' },
+    business: { name: 'AI 商业', description: 'CRM、销售、自动化、客户分析' },
+    writing: { name: 'AI 写作', description: '内容创作、文案营销、改写润色' },
+    design: { name: 'AI 设计', description: 'UI设计、演示文稿、创意设计' },
+    marketing: { name: 'AI 营销', description: '营销内容、品牌管理、广告文案' },
+    analytics: { name: 'AI 分析', description: '数据分析、可视化、智能预测' },
+    '3d': { name: 'AI 3D', description: '3D 建模、场景生成、纹理生成' },
+    data: { name: 'AI 数据', description: '数据平台、ML 基础设施' },
+  },
+
+  // 排行榜
+  rankings: {
+    title: 'AI 工具排行榜',
+    subtitle: '基于流量、评分、增长趋势的综合排行',
+    byRating: '评分排行',
+    byCategory: '分类分布',
+    topRated: '评分最高',
+    mostPopular: '最受欢迎',
+    fastestGrowing: '增长最快',
+    free: '免费工具',
+    new: '最新收录',
+  },
+
+  // 工具对比
+  compare: {
+    title: 'AI 工具对比',
+    subtitle: '直观对比热门 AI 工具的功能、定价和评分',
+    feature: '特性',
+    pricing: '定价',
+    rating: '评分',
+    tags: '标签',
+    category: '分类',
+    winner: '胜出',
+    tie: '平局',
+    vs: '对比',
+    selectTool: '选择工具',
+    startCompare: '开始对比',
   },
 
   // 工具卡片
@@ -162,8 +169,8 @@ export const zh = {
   // SEO
   seo: {
     title: 'AI Tools Hub - 发现最佳 AI 工具导航',
-    description: '精选 28+ 顶级 AI 工具：ChatGPT、Claude、Midjourney、Cursor、Suno 等。覆盖对话、编程、图像、视频、音频、生产力、开发工具 8 大分类。每日更新，免费收录。',
-    keywords: 'AI工具, AI导航, ChatGPT, Claude, Midjourney, Cursor, Suno, AI编程, AI绘画, AI视频, AI音乐, 生产力工具',
+    description: '精选 107+ 顶级 AI 工具：ChatGPT、Claude、Midjourney、Cursor、Suno 等。覆盖 16 大分类。每日更新，免费收录。',
+    keywords: 'AI工具, AI导航, AI排行榜, ChatGPT, Claude, DeepSeek, Midjourney, Cursor, Suno, AI编程, AI绘画, AI视频, AI音乐',
     ogTitle: 'AI Tools Hub - 发现最佳 AI 工具',
     ogDescription: '精选全球顶级 AI 工具，助力您的工作与创作',
     twitterCard: 'summary_large_image',

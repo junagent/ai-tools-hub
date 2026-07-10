@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ToolCard from '../components/ToolCard.astro';
+import type { Locale } from '../i18n/config';
+import { getTranslation, getCategoryInfo } from '../i18n/server';
+import toolsData from '../content/tools.json';
+
+const locale: Locale = Astro.locals.locale || 'zh';
+const translation = getTranslation(locale);
+
+const categories = Object.keys(translation.categories).filter(k => k !== 'title' && k !== 'subtitle' && k !== 'viewAll');
+const toolsByCategory: Record<string, typeof toolsData> = {};
+for (const cat of categories) {
+  toolsByCategory[cat] = toolsData.filter(t => t.category === cat);
+}
+
+const allTools = [...toolsData].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || b.rating - a.rating);
+const totalTools = allTools.length;
+---
+
+<Layout title={`${translation.nav.tools} - ${translation.seo.title}`} description={`浏览全部 ${totalTools} 个 AI 工具，覆盖 16 大分类`}>
+  <Header />
+
+  <section class="py-12 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">{translation.nav.tools}</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400">{totalTools} 个精选 AI 工具</p>
+      </div>
+
+      <!-- Quick Category Filter -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        <a href="/tools" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors">全部</a>
+        {categories.map(catId => {
+          const catInfo = getCategoryInfo(locale, catId);
+          const count = toolsByCategory[catId]?.length || 0;
+          return (
+            <a
+              href={`/categories/${catId}`}
+              class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
+              {catInfo.name} ({count})
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white dark:bg-gray-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {allTools.map(tool => (
+          <ToolCard tool={tool} locale={locale} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

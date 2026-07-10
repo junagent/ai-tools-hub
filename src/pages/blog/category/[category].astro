@@ -1,0 +1,71 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import type { Locale } from '../../../i18n/config';
+import { getTranslation } from '../../../i18n/server';
+import allPosts from '../../../content/blog-data.json';
+
+export function getStaticPaths() {
+  const categories = ['review', 'tutorial', 'trends', 'bestPractices', 'daily', 'quant'];
+  return categories.map(cat => ({
+    params: { category: cat },
+    props: { categoryId: cat },
+  }));
+}
+
+const { categoryId } = Astro.props;
+const locale: Locale = Astro.locals.locale || 'zh';
+const translation = getTranslation(locale);
+
+const categories = [
+  { id: 'review', name: translation.blog.categories.review },
+  { id: 'tutorial', name: translation.blog.categories.tutorial },
+  { id: 'trends', name: translation.blog.categories.trends },
+  { id: 'bestPractices', name: translation.blog.categories.bestPractices },
+  { id: 'daily', name: 'AI 日报' },
+  { id: 'quant', name: '量化交易' },
+];
+const catName = categories.find(c => c.id === categoryId)?.name || categoryId;
+
+const filteredPosts = allPosts.filter(p => !p.draft && p.category === categoryId)
+  .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
+---
+
+<Layout title={`${catName} - ${translation.blog.title} - ${translation.seo.title}`} description={`${catName}相关的AI工具文章`}>
+  <Header />
+
+  <section class="py-12 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">{catName}</h1>
+          <p class="text-gray-600 dark:text-gray-400">{filteredPosts.length} 篇文章</p>
+        </div>
+        <a href="/blog" class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">← 返回博客</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white dark:bg-gray-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {filteredPosts.length === 0 ? (
+        <div class="text-center py-20">
+          <p class="text-gray-500 dark:text-gray-400">暂无文章</p>
+        </div>
+      ) : (
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredPosts.map(post => (
+            <a href={`/blog/${post.slug}`} class="group p-6 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:shadow-lg transition-all">
+              <div class="text-xs text-gray-500 mb-2">{new Date(post.pubDate).toLocaleDateString('zh-CN')}</div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 mb-2">{post.title}</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">{post.description}</p>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

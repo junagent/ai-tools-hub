@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Locale } from '../i18n/config';
+import { getTranslation, getCategoryInfo } from '../i18n/server';
+import toolsData from '../content/tools.json';
+
+const locale: Locale = Astro.locals.locale || 'zh';
+const translation = getTranslation(locale);
+
+const categories = Object.keys(translation.categories).filter(k => k !== 'title' && k !== 'subtitle' && k !== 'viewAll');
+const toolsByCategory: Record<string, typeof toolsData> = {};
+for (const cat of categories) {
+  toolsByCategory[cat] = toolsData.filter(t => t.category === cat);
+}
+---
+
+<Layout title={`${translation.nav.categories} - ${translation.seo.title}`} description="浏览 AI 工具分类，找到您需要的工具类型">
+  <Header />
+
+  <section class="py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">{translation.categories.title}</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400">{translation.categories.subtitle}</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        {categories.map(catId => {
+          const catInfo = getCategoryInfo(locale, catId);
+          const catTools = toolsByCategory[catId] || [];
+          if (catTools.length === 0) return null;
+          const avgRating = (catTools.reduce((s, t) => s + t.rating, 0) / catTools.length).toFixed(1);
+          return (
+            <a
+              href={`/categories/${catId}`}
+              class="group relative p-6 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:shadow-lg transition-all"
+            >
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{catInfo.name}</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{catInfo.description}</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-xs font-medium text-blue-600 dark:text-blue-400">{catTools.length} 个工具</span>
+                <span class="text-xs text-gray-500">平均 ⭐{avgRating}</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

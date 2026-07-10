@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Locale } from '../i18n/config';
+import { getTranslation } from '../i18n/server';
+import toolsData from '../content/tools.json';
+
+const locale: Locale = Astro.locals.locale || 'zh';
+const translation = getTranslation(locale);
+
+// 策略数据（静态基准，实际数据由 cron 生成 snapshot 覆盖）
+const strategyData = {
+  name: 'AXIOM·alpha 首板竞价策略',
+  version: 'v9',
+  winRate: 57.1,
+  totalReturn: 42.82,
+  maxDrawdown: 5.63,
+  totalTrades: 49,
+  avgReturn: 2.41,
+  tp: 8,
+  sl: 5,
+  scoreCutoff: 60,
+  factors: 176,
+  concepts: 45,
+  period: '90天',
+  lastUpdated: '2026-07-03',
+};
+
+// 相关量化工具
+const quantTools = toolsData.filter(t => t.category === 'analytics' || t.category === 'data' || t.id === 'pandasai');
+---
+
+<Layout title={`量化交易 · AXIOM·alpha 首板策略 - ${translation.seo.title}`} description="AXIOM·alpha 首板竞价策略：基于8维评分系统的A股首板量化交易策略">
+  <Header />
+
+  <section class="py-16 bg-gradient-to-br from-gray-900 via-gray-950 to-indigo-950 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-500/20 text-amber-400 rounded-full text-sm font-medium mb-6">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+          <span>量化交易 · 实盘策略</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">AXIOM·alpha</span>
+          <br/>首板竞价策略
+        </h1>
+        <p class="text-lg text-gray-300 leading-relaxed mb-8">
+          基于8维评分系统的A股首板量化交易策略。筛选竞价数据，计算7个核心因子评分，<br/>
+          在9:30前输出候选池，执行首板涨停买入策略。
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <span class="px-4 py-2 bg-white/10 backdrop-blur rounded-lg text-sm">胜率 <strong class="text-green-400">{strategyData.winRate}%</strong></span>
+          <span class="px-4 py-2 bg-white/10 backdrop-blur rounded-lg text-sm">收益 <strong class="text-amber-400">+{strategyData.totalReturn}%</strong></span>
+          <span class="px-4 py-2 bg-white/10 backdrop-blur rounded-lg text-sm">回撤 <strong class="text-red-400">{strategyData.maxDrawdown}%</strong></span>
+          <span class="px-4 py-2 bg-white/10 backdrop-blur rounded-lg text-sm">交易 <strong>{strategyData.totalTrades}</strong> 笔</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Dashboard -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">策略表现</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="p-5 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+          <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">胜率</div>
+          <div class="text-2xl font-bold text-green-600 dark:text-green-400">{strategyData.winRate}%</div>
+          <div class="text-xs text-gray-400 mt-1">高于市场平均</div>
+        </div>
+        <div class="p-5 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+          <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">总收益率</div>
+          <div class="text-2xl font-bold text-amber-600 dark:text-amber-400">+{strategyData.totalReturn}%</div>
+          <div class="text-xs text-gray-400 mt-1">回测 {strategyData.period}</div>
+        </div>
+        <div class="p-5 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+          <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">最大回撤</div>
+          <div class="text-2xl font-bold text-red-600 dark:text-red-400">{strategyData.maxDrawdown}%</div>
+          <div class="text-xs text-gray-400 mt-1">风控优秀</div>
+        </div>
+        <div class="p-5 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+          <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">单笔期望</div>
+          <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">+{strategyData.avgReturn}%</div>
+          <div class="text-xs text-gray-400 mt-1">TP={strategyData.tp}% SL={strategyData.sl}%</div>
+        </div>
+      </div>
+
+      <!-- Strategy Details -->
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="p-6 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-4">评分体系 (7维度)</h3>
+          <div class="space-y-3">
+            {[
+              { name: '竞价开盘', weight: 20, desc: '开盘涨幅评分' },
+              { name: '量比', weight: 20, desc: '成交量相对强度' },
+              { name: '振幅', weight: 15, desc: '竞价期振幅' },
+              { name: '封板率', weight: 15, desc: '历史封板成功率' },
+              { name: '市值', weight: 10, desc: '流通市值评分' },
+              { name: '换手率', weight: 10, desc: '换手率评分' },
+              { name: '股价', weight: 10, desc: '绝对股价评分' },
+            ].map(f => (
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-sm font-medium text-gray-900 dark:text-white">{f.name}</span>
+                  <span class="text-xs text-gray-500 ml-2">{f.desc}</span>
+                </div>
+                <span class="text-sm font-bold text-blue-600 dark:text-blue-400">{f.weight}分</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="p-6 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-4">策略参数</h3>
+          <div class="space-y-3">
+            <div class="flex justify-between"><span class="text-sm text-gray-600 dark:text-gray-400">评分阈值</span><span class="text-sm font-medium text-gray-900 dark:text-white">≥ {strategyData.scoreCutoff}分</span></div>
+            <div class="flex justify-between"><span class="text-sm text-gray-600 dark:text-gray-400">止盈 (TP)</span><span class="text-sm font-medium text-green-600 dark:text-green-400">{strategyData.tp}%</span></div>
+            <div class="flex justify-between"><span class="text-sm text-gray-600 dark:text-gray-400">止损 (SL)</span><span class="text-sm font-medium text-red-600 dark:text-red-400">{strategyData.sl}%</span></div>
+            <div class="flex justify-between"><span class="text-sm text-gray-600 dark:text-gray-400">因子总数</span><span class="text-sm font-medium text-gray-900 dark:text-white">{strategyData.factors}个</span></div>
+            <div class="flex justify-between"><span class="text-sm text-gray-600 dark:text-gray-400">概念因子</span><span class="text-sm font-medium text-gray-900 dark:text-white">{strategyData.concepts}个</span></div>
+            <div class="flex justify-between"><span class="text-sm text-gray-600 dark:text-gray-400">买入引擎</span><span class="text-sm font-medium text-gray-900 dark:text-white">SameDayBuyEngine</span></div>
+            <div class="flex justify-between"><span class="text-sm text-gray-600 dark:text-gray-400">数据更新</span><span class="text-sm font-medium text-gray-900 dark:text-white">{strategyData.lastUpdated}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Stack -->
+  <section class="py-16 bg-white dark:bg-gray-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">技术栈</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { name: 'VNPY 4.4.0', desc: '量化交易框架', color: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400' },
+          { name: 'AKShare / 腾讯', desc: 'A股数据源', color: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400' },
+          { name: 'QMT / xtquant', desc: '券商交易接口', color: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400' },
+          { name: 'Python 3.11', desc: '开发语言', color: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400' },
+          { name: 'Pandas / NumPy', desc: '数据分析', color: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400' },
+          { name: 'Qlib / pandas-ta', desc: '因子分析', color: 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400' },
+          { name: 'Hermes Cron', desc: '自动化调度', color: 'bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-400' },
+          { name: 'AI (LLM)', desc: '策略分析', color: 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400' },
+        ].map(s => (
+          <div class="p-4 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800">
+            <span class="inline-block px-2 py-0.5 text-xs font-medium rounded-full {s.color} mb-2">{s.name}</span>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Blog Posts -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">了解更多</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-8">查看博客中的量化交易相关文章</p>
+      <a href="/blog/category/quant" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-xl transition-all">
+        查看量化交易文章 →
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

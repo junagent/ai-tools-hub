@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import type { Locale } from '../../i18n/config';
+import { getTranslation, getCategoryInfo, getPricingLabel } from '../../i18n/server';
+import toolsData from '../../content/tools.json';
+
+const locale: Locale = Astro.locals.locale || 'zh';
+const translation = getTranslation(locale);
+
+// 预设热门对比组合
+const popularPairs = [
+  ['chatgpt', 'claude'],
+  ['chatgpt', 'gemini'],
+  ['cursor', 'copilot'],
+  ['cursor', 'windsurf'],
+  ['midjourney', 'dalle3'],
+  ['midjourney', 'stable-diffusion'],
+  ['suno', 'udio'],
+  ['runway', 'pika'],
+  ['bolt', 'lovable'],
+  ['langchain', 'llamaindex'],
+  ['dify', 'coze'],
+  ['ollama', 'lm-studio'],
+];
+
+const pairData = popularPairs.map(([id1, id2]) => {
+  const t1 = toolsData.find(t => t.id === id1);
+  const t2 = toolsData.find(t => t.id === id2);
+  if (!t1 || !t2) return null;
+  return { slug: `${id1}-vs-${id2}`, t1, t2 };
+}).filter(Boolean);
+---
+
+<Layout title={`${translation.compare.title} - ${translation.seo.title}`} description="直观对比热门 AI 工具的功能、定价和评分，找到最适合您的工具">
+  <Header />
+
+  <section class="py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">{translation.compare.title}</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400">{translation.compare.subtitle}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white dark:bg-gray-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">热门对比</h2>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {pairData.map(pair => {
+          if (!pair) return null;
+          const { t1, t2, slug } = pair;
+          const cat1 = getCategoryInfo(locale, t1.category);
+          const cat2 = getCategoryInfo(locale, t2.category);
+          const p1 = getPricingLabel(locale, t1.pricing);
+          const p2 = getPricingLabel(locale, t2.pricing);
+          const winner = t1.rating > t2.rating ? t1 : t2;
+          return (
+            <a
+              href={`/compare/${slug}`}
+              class="p-6 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:shadow-lg transition-all group"
+            >
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-3">
+                  <img src={t1.logo} alt="" class="w-10 h-10 rounded-lg object-cover bg-gray-100 dark:bg-gray-800" loading="lazy" onerror="this.style.display='none'" />
+                  <div>
+                    <div class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">{t1.name}</div>
+                    <div class="text-xs text-gray-500">{cat1.name} · ⭐{t1.rating}</div>
+                  </div>
+                </div>
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src={t2.logo} alt="" class="w-10 h-10 rounded-lg object-cover bg-gray-100 dark:bg-gray-800" loading="lazy" onerror="this.style.display='none'" />
+                  <div>
+                    <div class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">{t2.name}</div>
+                    <div class="text-xs text-gray-500">{cat2.name} · ⭐{t2.rating}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
+                <span class="text-xs text-gray-500">
+                  {t1.pricing === t2.pricing ? '相同定价模式' : `${p1} / ${p2}`}
+                </span>
+                <span class="text-xs font-medium text-blue-600 dark:text-blue-400">
+                  查看详细对比 →
+                </span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

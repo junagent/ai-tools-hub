@@ -1,0 +1,230 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import type { Locale } from '../../i18n/config';
+import { getTranslation, getCategoryInfo, getPricingLabel } from '../../i18n/server';
+import toolsData from '../../content/tools.json';
+
+export function getStaticPaths() {
+  // 所有可能的对比组合
+  const pairs = [];
+  for (let i = 0; i < toolsData.length; i++) {
+    for (let j = i + 1; j < toolsData.length; j++) {
+      const slug = `${toolsData[i].id}-vs-${toolsData[j].id}`;
+      pairs.push({
+        params: { slug },
+        props: { tool1: toolsData[i], tool2: toolsData[j], slug },
+      });
+      // Limit to keep build fast - generate all combos is too many
+      if (pairs.length >= 100) break;
+    }
+    if (pairs.length >= 100) break;
+  }
+
+  // Also add some specific popular ones that might be missed
+  const popular = [
+    ['chatgpt', 'claude'], ['chatgpt', 'gemini'], ['cursor', 'copilot'],
+    ['cursor', 'windsurf'], ['midjourney', 'dalle3'], ['midjourney', 'stable-diffusion'],
+    ['suno', 'udio'], ['runway', 'pika'], ['bolt', 'lovable'],
+    ['langchain', 'llamaindex'], ['dify', 'coze'], ['ollama', 'lm-studio'],
+    ['chatgpt', 'deepseek'], ['claude', 'deepseek'], ['claude', 'gemini'],
+    ['kimi', 'deepseek'], ['elevenlabs', 'murf'], ['notion-ai', 'mem'],
+    ['grammarly', 'quillbot'], ['midjourney', 'flux'], ['perplexity', 'phind'],
+    ['cursor', 'claude-code'], ['dify', 'n8n'], ['canva-ai', 'adobe-firefly'],
+    ['openai-dalle3', 'midjourney'],
+  ];
+
+  for (const [id1, id2] of popular) {
+    const t1 = toolsData.find(t => t.id === id1);
+    const t2 = toolsData.find(t => t.id === id2);
+    if (t1 && t2) {
+      const slug = `${id1}-vs-${id2}`;
+      if (!pairs.find(p => p.params.slug === slug)) {
+        pairs.push({ params: { slug }, props: { tool1: t1, tool2: t2, slug } });
+      }
+    }
+  }
+
+  return pairs;
+}
+
+const { tool1, tool2, slug } = Astro.props;
+const locale: Locale = Astro.locals.locale || 'zh';
+const translation = getTranslation(locale);
+
+const cat1 = getCategoryInfo(locale, tool1.category);
+const cat2 = getCategoryInfo(locale, tool2.category);
+const p1 = getPricingLabel(locale, tool1.pricing);
+const p2 = getPricingLabel(locale, tool2.pricing);
+
+const winner = tool1.rating > tool2.rating ? tool1 : tool1.rating < tool2.rating ? tool2 : null;
+const tie = tool1.rating === tool2.rating;
+
+const pageTitle = `${tool1.name} vs ${tool2.name} - 2026 AI 工具对比`;
+const pageDesc = `${tool1.name} vs ${tool2.name}：详细对比两者的功能、定价、评分和适用场景，${cat1.name} vs ${cat2.name}`;
+
+const comparsionKeys = [
+  { label: '评分', v1: tool1.rating.toFixed(1), v2: tool2.rating.toFixed(1), win: tool1.rating >= tool2.rating ? 1 : 2 },
+  { label: '定价模式', v1: p1, v2: p2, win: tool1.pricing === 'free' ? 1 : tool2.pricing === 'free' ? 2 : tool1.pricing === 'freemium' && tool2.pricing === 'paid' ? 1 : tool2.pricing === 'freemium' && tool1.pricing === 'paid' ? 2 : 0 },
+  { label: '分类', v1: cat1.name, v2: cat2.name, win: 0 },
+];
+
+const pricingColors: Record<string, string> = {
+  free: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
+  freemium: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400',
+  paid: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400',
+};
+---
+
+<Layout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+        <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">{translation.nav.home}</a>
+        <span>/</span>
+        <a href="/compare" class="hover:text-blue-600 dark:hover:text-blue-400">{translation.nav.compare}</a>
+        <span>/</span>
+        <span class="text-gray-900 dark:text-white">{tool1.name} vs {tool2.name}</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="py-12 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          {tool1.name} <span class="text-gray-400 mx-2">vs</span> {tool2.name}
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400">{pageDesc}</p>
+      </div>
+
+      <!-- Tool Cards Side by Side -->
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-14 h-14 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 flex-shrink-0">
+              <img src={tool1.logo} alt="" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'" />
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-gray-900 dark:text-white">{tool1.name}</h2>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full {pricingColors[tool1.pricing]}">
+                {p1}
+              </span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">{tool1.description}</p>
+          <div class="flex flex-wrap gap-1.5">
+            {tool1.tags.slice(0, 6).map(tag => (
+              <span class="px-2 py-0.5 text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-full">{tag}</span>
+            ))}
+          </div>
+          <div class="mt-4">
+            <a href={tool1.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
+              访问 {tool1.name} →
+            </a>
+          </div>
+        </div>
+
+        <div class="p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-14 h-14 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 flex-shrink-0">
+              <img src={tool2.logo} alt="" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'" />
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-gray-900 dark:text-white">{tool2.name}</h2>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full {pricingColors[tool2.pricing]}">
+                {p2}
+              </span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">{tool2.description}</p>
+          <div class="flex flex-wrap gap-1.5">
+            {tool2.tags.slice(0, 6).map(tag => (
+              <span class="px-2 py-0.5 text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-full">{tag}</span>
+            ))}
+          </div>
+          <div class="mt-4">
+            <a href={tool2.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
+              访问 {tool2.name} →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="py-16 bg-white dark:bg-gray-950">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">详细对比</h2>
+      <div class="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
+        <table class="min-w-full">
+          <thead class="bg-gray-50 dark:bg-gray-900">
+            <tr>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-gray-500 dark:text-gray-400">特性</th>
+              <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white">{tool1.name}</th>
+              <th class="px-6 py-4 text-center text-sm font-semibold text-gray-500 dark:text-gray-400">{tool2.name}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+            {comparsionKeys.map(row => (
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-900">
+                <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">{row.label}</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="inline-flex items-center gap-1 text-sm {row.win === 1 ? 'text-blue-600 dark:text-blue-400 font-semibold' : 'text-gray-600 dark:text-gray-400'}">
+                    {row.win === 1 && <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>}
+                    {row.v1}
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <span class="inline-flex items-center gap-1 text-sm {row.win === 2 ? 'text-blue-600 dark:text-blue-400 font-semibold' : 'text-gray-600 dark:text-gray-400'}">
+                    {row.win === 2 && <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>}
+                    {row.v2}
+                  </span>
+                </td>
+              </tr>
+            ))}
+            <tr class="hover:bg-gray-50 dark:hover:bg-gray-900">
+              <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">标签</td>
+              <td class="px-6 py-4 text-center">
+                <div class="flex flex-wrap justify-center gap-1">
+                  {tool1.tags.slice(0, 4).map(tag => (
+                    <span class="px-1.5 py-0.5 text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded">{tag}</span>
+                  ))}
+                </div>
+              </td>
+              <td class="px-6 py-4 text-center">
+                <div class="flex flex-wrap justify-center gap-1">
+                  {tool2.tags.slice(0, 4).map(tag => (
+                    <span class="px-1.5 py-0.5 text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded">{tag}</span>
+                  ))}
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Verdict -->
+      <div class="mt-8 p-6 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">综合结论</h3>
+        {tie ? (
+          <p class="text-gray-600 dark:text-gray-400">{tool1.name} 和 {tool2.name} 评分相同（{tool1.rating.toFixed(1)}），各有所长。{tool1.name} 在 {tool1.tags.slice(0, 2).join('、')} 方面表现突出，而 {tool2.name} 擅长 {tool2.tags.slice(0, 2).join('、')}。选择取决于您的具体需求。</p>
+        ) : (
+          <p class="text-gray-600 dark:text-gray-400">
+            <strong class="text-blue-600 dark:text-blue-400">{winner?.name}</strong> 在评分上略胜一筹（{winner?.rating.toFixed(1)} vs {tie ? '' : `${(tool1.rating < tool2.rating ? tool1 : tool2).rating.toFixed(1)}`}）。
+            {tool1.pricing === 'free' && tool2.pricing !== 'free' ? ` ${tool1.name} 完全免费，预算有限时是更好的选择。` : ''}
+            {tool2.pricing === 'free' && tool1.pricing !== 'free' ? ` ${tool2.name} 完全免费，预算有限时是更好的选择。` : ''}
+            建议根据您的实际使用场景和预算综合评估。
+          </p>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

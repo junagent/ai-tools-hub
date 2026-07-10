@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import type { Locale } from '../../i18n/config';
+import { getTranslation, getCategoryInfo } from '../../i18n/server';
+import toolsData from '../../content/tools.json';
+
+export function getStaticPaths() {
+  const categories = Object.keys(getTranslation('zh').categories)
+    .filter(k => k !== 'title' && k !== 'subtitle' && k !== 'viewAll');
+  
+  return categories.map(catId => ({
+    params: { category: catId },
+    props: { categoryId: catId },
+  }));
+}
+
+const { categoryId } = Astro.props;
+const locale: Locale = Astro.locals.locale || 'zh';
+const translation = getTranslation(locale);
+const catInfo = getCategoryInfo(locale, categoryId);
+const catTools = toolsData.filter(t => t.category === categoryId).sort((a, b) => b.rating - a.rating);
+const totalTools = toolsData.length;
+const featuredInCat = catTools.filter(t => t.featured);
+
+const pageTitle = `${catInfo.name} AI 工具推荐 - ${translation.seo.title}`;
+const pageDesc = `精选 ${catTools.length} 个 ${catInfo.name} AI 工具：${catTools.slice(0, 5).map(t => t.name).join('、')}等。${catInfo.description}`;
+---
+
+<Layout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+        <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">{translation.nav.home}</a>
+        <span>/</span>
+        <a href="/categories" class="hover:text-blue-600 dark:hover:text-blue-400">{translation.nav.categories}</a>
+        <span>/</span>
+        <span class="text-gray-900 dark:text-white">{catInfo.name}</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="py-12 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">{catInfo.name} AI 工具</h1>
+          <p class="text-gray-600 dark:text-gray-400">{catInfo.description} · {catTools.length} 个工具</p>
+        </div>
+        <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+          <span>平均评分: {(catTools.reduce((s, t) => s + t.rating, 0) / catTools.length).toFixed(1)}</span>
+          <span>|</span>
+          <a href="/categories" class="text-blue-600 dark:text-blue-400 hover:underline">{translation.categories.viewAll}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white dark:bg-gray-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {catTools.length === 0 ? (
+        <div class="text-center py-20">
+          <p class="text-gray-500 dark:text-gray-400">该分类暂无工具</p>
+        </div>
+      ) : (
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {catTools.map(tool => (
+            <ToolCard tool={tool} locale={locale} />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Related Categories -->
+  <section class="py-12 bg-gray-50 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6">其他分类</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {Object.keys(translation.categories).filter(k => k !== 'title' && k !== 'subtitle' && k !== 'viewAll' && k !== categoryId).map(catId => {
+          const ci = getCategoryInfo(locale, catId);
+          const count = toolsData.filter(t => t.category === catId).length;
+          if (count === 0) return null;
+          return (
+            <a href={`/categories/${catId}`} class="p-3 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 transition-all text-sm">
+              <span class="font-medium text-gray-900 dark:text-white">{ci.name}</span>
+              <span class="text-gray-500 ml-2">{count}</span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

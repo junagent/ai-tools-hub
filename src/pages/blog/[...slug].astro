@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import type { Locale } from '../../i18n/config';
+import { getTranslation } from '../../i18n/server';
+import allPosts from '../../content/blog-data.json';
+
+export function getStaticPaths() {
+  return allPosts.filter(p => !p.draft).map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const locale: Locale = Astro.locals.locale || 'zh';
+const translation = getTranslation(locale);
+
+const categories = [
+  { id: 'review', name: translation.blog.categories.review },
+  { id: 'tutorial', name: translation.blog.categories.tutorial },
+  { id: 'trends', name: translation.blog.categories.trends },
+  { id: 'bestPractices', name: translation.blog.categories.bestPractices },
+  { id: 'daily', name: 'AI 日报' },
+  { id: 'quant', name: '量化交易' },
+];
+const catName = categories.find(c => c.id === post.category)?.name || post.category;
+
+const relatedPosts = allPosts.filter(p => !p.draft && p.slug !== post.slug && (p.category === post.category || p.tags.some(t => post.tags.includes(t)))).slice(0, 3);
+---
+
+<Layout title={`${post.title} - ${translation.seo.title}`} description={post.description} ogType="article">
+  <Header />
+
+  <div class="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+        <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">{translation.nav.home}</a>
+        <span>/</span>
+        <a href="/blog" class="hover:text-blue-600 dark:hover:text-blue-400">{translation.nav.blog}</a>
+        <span>/</span>
+        <span class="text-gray-900 dark:text-white">{post.title}</span>
+      </nav>
+    </div>
+  </div>
+
+  <article class="py-12 bg-white dark:bg-gray-950">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <header class="mb-10">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="px-3 py-1 text-sm font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full">{catName}</span>
+          <span class="text-sm text-gray-500 dark:text-gray-400">
+            {new Date(post.pubDate).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">{post.title}</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">{post.description}</p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          {post.tags.map(tag => (
+            <span class="px-3 py-1 text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-full">#{tag}</span>
+          ))}
+        </div>
+      </header>
+
+      <div class="prose prose-gray dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-xl prose-code:px-1.5 prose-code:py-0.5 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:rounded prose-pre:bg-gray-900 dark:prose-pre:bg-gray-800 prose-pre:text-gray-100">
+        {post.content.split('\n').map(line => {
+          if (line.startsWith('## ')) return `<h2 id="${line.replace('## ', '').toLowerCase().replace(/\s+/g, '-')}">${line.replace('## ', '')}</h2>`;
+          if (line.startsWith('### ')) return `<h3>${line.replace('### ', '')}</h3>`;
+          if (line.startsWith('| ')) {
+            // Simple table support
+            const cells = line.split('|').filter(c => c.trim()).map(c => c.trim());
+            return `<tr>${cells.map(c => line.startsWith('|---') ? '<th>' + c + '</th>' : '<td>' + c + '</td>').join('')}</tr>`;
+          }
+          if (line.startsWith('- ')) return `<li>${line.replace('- ', '')}</li>`;
+          if (line.match(/^\d+[.\)]/)) return `<li>${line.replace(/^\d+[.\)]\s*/, '')}</li>`;
+          if (line.startsWith('**') && line.endsWith('**')) return `<p><strong>${line.slice(2, -2)}</strong></p>`;
+          if (line.trim() === '') return '<br/>';
+          // Bold inline
+          const html = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+          return `<p>${html}</p>`;
+        }).join('\n')}
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <a href="/blog" class="flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m7-7l-7 7 7 7"/></svg>
+          返回博客
+        </a>
+      </div>
+    </div>
+  </article>
+
+  {relatedPosts.length > 0 && (
+    <section class="py-12 bg-gray-50 dark:bg-gray-900">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">{translation.blog.relatedPosts}</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          {relatedPosts.map(rp => (
+            <a href={`/blog/${rp.slug}`} class="group p-6 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:shadow-lg transition-all">
+              <div class="text-xs text-gray-500 mb-2">{new Date(rp.pubDate).toLocaleDateString('zh-CN')}</div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">{rp.title}</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">{rp.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <Footer />
+</Layout>
