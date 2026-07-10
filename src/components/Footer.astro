@@ -6,7 +6,7 @@ const locale: Locale = Astro.locals.locale || 'zh';
 const translation = getTranslation(locale);
 ---
 
-<footer class="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
+<footer class="bg-gray-50 bg-[#FAFAF9] border-t border-gray-200 border-gray-200">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
       <!-- Brand -->
@@ -18,7 +18,7 @@ const translation = getTranslation(locale);
           </svg>
           <span>AI Tools Hub</span>
         </a>
-        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
+        <p class="text-gray-600 text-gray-500 text-sm leading-relaxed mb-6 max-w-xs">
           {translation.footer.description}
         </p>
         <div class="flex items-center gap-4">
@@ -44,11 +44,11 @@ const translation = getTranslation(locale);
       <nav aria-label={translation.footer.quickLinks}>
         <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">{translation.footer.quickLinks}</h3>
         <ul class="space-y-3">
-          <li><a href="/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.nav.home}</a></li>
-          <li><a href="/tools" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.nav.tools}</a></li>
-          <li><a href="/categories" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.nav.categories}</a></li>
-          <li><a href="/blog" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.nav.blog}</a></li>
-          <li><a href="/submit" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.nav.submitTool}</a></li>
+          <li><a href="/" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.nav.home}</a></li>
+          <li><a href="/tools" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.nav.tools}</a></li>
+          <li><a href="/categories" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.nav.categories}</a></li>
+          <li><a href="/blog" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.nav.blog}</a></li>
+          <li><a href="/submit" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.nav.submitTool}</a></li>
         </ul>
       </nav>
 
@@ -56,11 +56,11 @@ const translation = getTranslation(locale);
       <nav aria-label={translation.footer.resources}>
         <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">{translation.footer.resources}</h3>
         <ul class="space-y-3">
-          <li><a href="/blog/category/review" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.blog.categories.review}</a></li>
-          <li><a href="/blog/category/tutorial" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.blog.categories.tutorial}</a></li>
-          <li><a href="/blog/category/trends" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.blog.categories.trends}</a></li>
-          <li><a href="/compare" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">工具对比</a></li>
-          <li><a href="/pricing" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">定价指南</a></li>
+          <li><a href="/blog/category/review" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.blog.categories.review}</a></li>
+          <li><a href="/blog/category/tutorial" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.blog.categories.tutorial}</a></li>
+          <li><a href="/blog/category/trends" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.blog.categories.trends}</a></li>
+          <li><a href="/compare" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">工具对比</a></li>
+          <li><a href="/pricing" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">定价指南</a></li>
         </ul>
       </nav>
 
@@ -68,17 +68,17 @@ const translation = getTranslation(locale);
       <nav aria-label={translation.footer.legal}>
         <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">{translation.footer.legal}</h3>
         <ul class="space-y-3">
-          <li><a href="/privacy" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.footer.privacy}</a></li>
-          <li><a href="/terms" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.footer.terms}</a></li>
-          <li><a href="/cookies" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.footer.cookie}</a></li>
-          <li><a href="/contact" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.footer.contact}</a></li>
+          <li><a href="/privacy" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.footer.privacy}</a></li>
+          <li><a href="/terms" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.footer.terms}</a></li>
+          <li><a href="/cookies" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.footer.cookie}</a></li>
+          <li><a href="/contact" class="text-sm text-gray-600 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{translation.footer.contact}</a></li>
         </ul>
       </nav>
 
       <!-- Newsletter -->
       <div>
         <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">{translation.footer.newsletter}</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">{translation.footer.newsletterDesc}</p>
+        <p class="text-sm text-gray-600 text-gray-500 mb-4">{translation.footer.newsletterDesc}</p>
         <form class="flex flex-col gap-2" action="/api/newsletter" method="POST">
           <label for="newsletter-email" class="sr-only">{translation.footer.emailPlaceholder}</label>
           <input
@@ -86,7 +86,7 @@ const translation = getTranslation(locale);
             id="newsletter-email"
             name="email"
             placeholder={translation.footer.emailPlaceholder}
-            class="px-3 py-2 text-sm text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            class="px-3 py-2 text-sm text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 border border-gray-200 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             required
             aria-label={translation.footer.emailPlaceholder}
           />
@@ -97,17 +97,17 @@ const translation = getTranslation(locale);
             {translation.footer.subscribe}
           </button>
         </form>
-        <p class="mt-2 text-xs text-gray-500 dark:text-gray-500">无垃圾邮件，随时退订。</p>
+        <p class="mt-2 text-xs text-gray-500 text-gray-400">无垃圾邮件，随时退订。</p>
       </div>
     </div>
 
     <!-- Bottom Bar -->
-    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+    <div class="mt-12 pt-8 border-t border-gray-200 border-gray-200">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-sm text-gray-500 dark:text-gray-400">
+        <p class="text-sm text-gray-500 text-gray-500">
           {translation.footer.copyright}
         </p>
-        <p class="text-sm text-gray-500 dark:text-gray-400">
+        <p class="text-sm text-gray-500 text-gray-500">
           {translation.footer.madeWith} {translation.footer.madeWith.includes('Built') ? 'by' : '为'} 开发者与创作者
         </p>
       </div>

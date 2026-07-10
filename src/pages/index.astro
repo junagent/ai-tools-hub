@@ -12,92 +12,85 @@ const translation = getTranslation(locale);
 
 const featured = toolsData.filter(t => t.featured);
 const categories = ['chat', 'search', 'coding', 'image', 'video', 'audio', 'productivity', 'dev-tools', 'education', 'business', 'writing', 'design', 'marketing', 'analytics', '3d', 'data'];
-const toolsByCategory: Record<string, typeof toolsData> = {};
-for (const cat of categories) {
-  toolsByCategory[cat] = toolsData.filter(t => t.category === cat);
+const catInfoMap = {};
+for (const c of categories) {
+  const info = getCategoryInfo(locale, c);
+  const tools = toolsData.filter(t => t.category === c);
+  catInfoMap[c] = { name: info?.name || c, description: info?.description || '', tools };
 }
 
 const totalTools = toolsData.length;
 const featuredCount = featured.length;
 const avgRating = (toolsData.reduce((s, t) => s + t.rating, 0) / totalTools).toFixed(1);
-const catInfoMap = {};
-for (const c of categories) {
-  const info = getCategoryInfo(locale, c);
-  catInfoMap[c] = { name: info?.name || c, description: info?.description || '', tools: toolsByCategory[c] || [] };
-}
 ---
 
 <Layout>
   <Header />
 
   <!-- Hero Section -->
-  <section class="relative min-h-[680px] flex items-center justify-center overflow-hidden bg-gray-950">
-    <!-- Background glow -->
+  <section class="relative min-h-[700px] flex items-center justify-center overflow-hidden bg-[#FAFAF9]">
+    <!-- Subtle gradient bg -->
     <div class="absolute inset-0">
-      <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[150px] animate-pulse"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[150px] animate-pulse" style="animation-delay: 1s;"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-pink-600/10 rounded-full blur-[120px]"></div>
-      <!-- Grid pattern -->
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.02)1px,transparent 1px)] bg-[length:40px_40px] opacity-30"></div>
+      <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.8)0%,rgba(250,250,249,0)60%)]"></div>
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-100/40 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-50/50 rounded-full blur-3xl"></div>
     </div>
 
-    <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <!-- Badge -->
       <div class="text-center mb-8">
-        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 border border-purple-500/30 backdrop-blur-sm">
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 border border-gray-200 shadow-sm">
           <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
           </span>
-          {totalTools}+ AI Tools · Updated {new Date().toLocaleDateString('zh-CN')}
+          持续更新 · {totalTools}+ AI 工具
         </span>
       </div>
 
       <!-- Title -->
-      <h1 class="text-center text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-        <span class="bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
-          发现最佳 AI 工具
-        </span>
+      <h1 class="text-center text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight text-[#171717]">
+        发现最佳 AI 工具
       </h1>
-      <p class="text-center text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-12">
+      <p class="text-center text-lg sm:text-xl text-gray-500 max-w-2xl mx-auto mb-12">
         {translation.hero?.subtitle || '精选顶级 AI 工具，覆盖对话、搜索、编程、图像、视频等 16 大领域'}
       </p>
 
       <!-- Search Bar -->
       <div class="max-w-2xl mx-auto mb-16 relative">
         <div class="relative">
-          <svg class="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
           <input type="text" id="hero-search" placeholder="搜索 AI 工具... (Try: ChatGPT, Midjourney, Cursor)" 
-                 class="w-full pl-14 pr-32 py-5 text-lg bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 focus:bg-white/10 transition-all shadow-2xl shadow-purple-500/5">
-          <kbd class="absolute right-5 top-1/2 -translate-y-1/2 px-3 py-1.5 text-xs text-gray-400 bg-white/10 border border-white/20 rounded-lg">⌘ K</kbd>
+                 class="w-full pl-14 pr-32 py-5 text-lg bg-white border border-gray-200 rounded-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-300 focus:ring-2 focus:ring-orange-100 transition-all shadow-lg">
+          <kbd class="absolute right-5 top-1/2 -translate-y-1/2 px-3 py-1.5 text-xs text-gray-400 bg-gray-100 border border-gray-200 rounded-lg">⌘ K</kbd>
         </div>
       </div>
 
       <!-- Stats Row -->
       <div class="flex flex-wrap justify-center gap-8 sm:gap-16 mb-8">
         <div class="text-center">
-          <div class="text-3xl font-bold text-white">{totalTools}</div>
+          <div class="text-3xl font-bold text-[#171717]">{totalTools}</div>
           <div class="text-sm text-gray-500 mt-1">AI 工具</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-white">16</div>
+          <div class="text-3xl font-bold text-[#171717]">16</div>
           <div class="text-sm text-gray-500 mt-1">分类</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-white">{avgRating}</div>
+          <div class="text-3xl font-bold text-[#171717]">{avgRating}</div>
           <div class="text-sm text-gray-500 mt-1">平均评分</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-white">{featuredCount}</div>
+          <div class="text-3xl font-bold text-[#171717]">{featuredCount}</div>
           <div class="text-sm text-gray-500 mt-1">精选</div>
         </div>
       </div>
 
       <!-- CTA Buttons -->
       <div class="text-center">
-        <a href="/tools" class="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl hover:from-purple-500 hover:to-pink-500 transition-all shadow-lg shadow-purple-500/25">
+        <a href="/tools" class="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white bg-[#171717] rounded-xl hover:bg-[#262626] transition-all shadow-lg">
           浏览全部工具
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
         </a>
@@ -106,22 +99,22 @@ for (const c of categories) {
   </section>
 
   <!-- Popular Tools -->
-  <section class="bg-gray-950 py-20">
+  <section class="bg-white py-20 border-t border-gray-100">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-white mb-3">热门工具</h2>
-        <p class="text-gray-500">当前最火的 AI 工具，按评分和热度排序</p>
+        <h2 class="text-3xl font-bold text-[#171717] mb-3">热门工具</h2>
+        <p class="text-gray-500">当前最火的 AI 工具</p>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
         {featured.map(tool => (
-          <a href={tool.url} target="_blank" rel="noopener noreferrer" class="group bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-xl p-4 hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300">
+          <a href={tool.url} target="_blank" rel="noopener noreferrer" class="group bg-gray-50 border border-gray-100 rounded-xl p-4 hover:border-orange-200 hover:bg-white hover:shadow-lg transition-all duration-300">
             <div class="flex items-center gap-3 mb-3">
               <img src={`https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@main/src/logos/${tool.logo || tool.id.toLowerCase().replace(/[^a-z0-9-]/g, '-')}/${tool.logo || tool.id.toLowerCase().replace(/[^a-z0-9-]/g, '-')}-color.svg`} 
-                   class="w-8 h-8 rounded-lg" alt="" loading="lazy"
-                   onerror={`this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(tool.name)}&background=7c3aed&color=fff&size=64'`}>
+                   class="w-8 h-8 rounded-lg bg-white p-0.5" alt="" loading="lazy"
+                   onerror={`this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(tool.name)}&background=f97316&color=fff&size=64'`}>
               <div>
-                <h3 class="font-semibold text-white truncate">{tool.name}</h3>
-                <div class="flex items-center gap-1 text-xs text-yellow-400">
+                <h3 class="font-semibold text-gray-900 truncate">{tool.name}</h3>
+                <div class="flex items-center gap-1 text-xs text-amber-500">
                   <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                   {tool.rating.toFixed(1)}
                 </div>
@@ -135,25 +128,22 @@ for (const c of categories) {
   </section>
 
   <!-- Categories -->
-  <section class="bg-gray-950 py-20">
+  <section class="bg-[#FAFAF9] py-20">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-white mb-3">按分类浏览</h2>
+        <h2 class="text-3xl font-bold text-[#171717] mb-3">按分类浏览</h2>
         <p class="text-gray-500">找到你需要的 AI 工具类型</p>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {categories.map(cat => {
           const info = catInfoMap[cat];
           return (
-            <a href={`/categories/${cat}`} class="group relative overflow-hidden bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-xl p-6 hover:border-purple-500/50 transition-all duration-300">
-              <div class="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 transition-all"></div>
-              <div class="relative">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                </div>
-                <h3 class="font-semibold text-white text-lg mb-1">{info.name}</h3>
-                <p class="text-xs text-gray-500">{info.tools.length} 个工具</p>
+            <a href={`/categories/${cat}`} class="group relative overflow-hidden bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-md transition-all duration-300">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-400 to-amber-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
               </div>
+              <h3 class="font-semibold text-gray-900 text-lg mb-1">{info.name}</h3>
+              <p class="text-xs text-gray-500">{info.tools.length} 个工具</p>
             </a>
           );
         })}
@@ -162,22 +152,19 @@ for (const c of categories) {
   </section>
 
   <!-- CTA Section -->
-  <section class="relative py-24 overflow-hidden bg-gray-950">
-    <div class="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-pink-600/10 to-blue-600/10"></div>
+  <section class="relative py-24 overflow-hidden bg-white border-t border-gray-100">
     <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
-        <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-          开启你的 AI 之旅
-        </span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-[#171717] mb-4">
+        开启你的 AI 之旅
       </h2>
-      <p class="text-gray-400 mb-8 text-lg">
-        探索 107+ 精选 AI 工具，发现最适合你的生产力伙伴
+      <p class="text-gray-500 mb-8 text-lg">
+        探索 {totalTools}+ 精选 AI 工具，发现最适合你的生产力伙伴
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/tools" class="px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl hover:from-purple-500 hover:to-pink-500 transition-all shadow-lg">
+        <a href="/tools" class="px-8 py-4 text-lg font-semibold text-white bg-[#171717] rounded-xl hover:bg-[#262626] transition-all shadow-lg">
           开始探索
         </a>
-        <a href="/premium" class="px-8 py-4 text-lg font-semibold text-gray-300 bg-white/5 border border-white/20 rounded-xl hover:bg-white/10 transition-all">
+        <a href="/premium" class="px-8 py-4 text-lg font-semibold text-gray-700 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 transition-all">
           订阅 Pro 版本
         </a>
       </div>
@@ -186,7 +173,6 @@ for (const c of categories) {
 
   <Footer />
 
-  <!-- Search Modal -->
   <script>
     document.addEventListener('keydown', (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
